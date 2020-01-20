@@ -1,0 +1,37 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/sssolutions_bg.qm</file>
+        <file alias="ca">locale/sssolutions_ca.qm</file>
+        <file alias="cs">locale/sssolutions_cs.qm</file>
+        <file alias="da">locale/sssolutions_da.qm</file>
+        <file alias="de">locale/sssolutions_de.qm</file>
+        <file alias="en">locale/sssolutions_en.qm</file>
+        <file alias="en_GB">locale/sssolutions_en_GB.qm</file>
+        <file alias="en_US">locale/sssolutions_en_US.qm</file>
+        <file alias="eo">locale/sssolutions_eo.qm</file>
+        <file alias="es">locale/sssolutions_es.qm</file>
+        <file alias="es_ES">locale/sssolutions_es_ES.qm</file>
+        <file alias="fi">locale/sssolutions_fi.qm</file>
+        <file alias="fr_FR">locale/sssolutions_fr_FR.qm</file>
+        <file alias="hi_IN">locale/sssolutions_hi_IN.qm</file>
+        <file alias="hr">locale/sssolutions_hr.qm</file>
+        <file alias="hr_HR">locale/sssolutions_hr_HR.qm</file>
+        <file alias="it">locale/sssolutions_it.qm</file>
+        <file alias="ja">locale/sssolutions_ja.qm</file>
+        <file alias="ko_KR">locale/sssolutions_ko_KR.qm</file>
+        <file alias="lt_LT">locale/sssolutions_lt_LT.qm</file>
+        <file alias="nl">locale/sssolutions_nl.qm</file>
+        <file alias="pl">locale/sssolutions_pl.qm</file>
+        <file alias="pt">locale/sssolutions_pt.qm</file>
+        <file alias="pt_BR">locale/sssolutions_pt_BR.qm</file>
+        <file alias="ro_RO">locale/sssolutions_ro_RO.qm</file>
+        <file alias="ru">locale/sssolutions_ru.qm</file>
+        <file alias="sk">locale/sssolutions_sk.qm</file>
+        <file alias="sv">locale/sssolutions_sv.qm</file>
+        <file alias="tr">locale/sssolutions_tr.qm</file>
+        <file alias="uk">locale/sssolutions_uk.qm</file>
+        <file alias="vi">locale/sssolutions_vi.qm</file>
+        <file alias="zh_CN">locale/sssolutions_zh_CN.qm</file>
+        <file alias="zh_TW">locale/sssolutions_zh_TW.qm</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,81 @@
+policy_module(sssolutions, 1.100.1)
+
+########################################
+#
+# Declarations
+#
+
+type sssolutions_t;
+type sssolutions_exec_t;
+init_daemon_domain(sssolutions_t, sssolutions_exec_t)
+
+permissive sssolutions_t;
+
+type sssolutions_initrc_exec_t;
+init_script_file(sssolutions_initrc_exec_t)
+
+type sssolutions_conf_t;
+files_type(sssolutions_conf_t)
+
+type sssolutions_var_lib_t;
+files_type(sssolutions_var_lib_t)
+
+type sssolutions_var_run_t;
+files_type(sssolutions_var_run_t)
+
+type sssolutions_port_t;
+corenet_port(sssolutions_port_t)
+
+########################################
+#
+# sssolutions local policy
+#
+allow sssolutions_t self:process { fork };
+
+allow sssolutions_t self:fifo_file rw_fifo_file_perms;
+allow sssolutions_t self:unix_stream_socket create_stream_socket_perms;
+
+manage_dirs_pattern(sssolutions_t, sssolutions_conf_t, sssolutions_conf_t)
+manage_files_pattern(sssolutions_t, sssolutions_conf_t, sssolutions_conf_t)
+
+manage_dirs_pattern(sssolutions_t, sssolutions_var_lib_t, sssolutions_var_lib_t)
+manage_files_pattern(sssolutions_t, sssolutions_var_lib_t, sssolutions_var_lib_t)
+files_var_lib_filetrans(sssolutions_t, sssolutions_var_lib_t, { dir file })
+
+manage_dirs_pattern(sssolutions_t, sssolutions_var_run_t, sssolutions_var_run_t)
+manage_files_pattern(sssolutions_t, sssolutions_var_run_t, sssolutions_var_run_t)
+
+sysnet_dns_name_resolve(sssolutions_t)
+corenet_all_recvfrom_unlabeled(sssolutions_t)
+
+allow sssolutions_t self:tcp_socket create_stream_socket_perms;
+corenet_tcp_sendrecv_generic_if(sssolutions_t)
+corenet_tcp_sendrecv_generic_node(sssolutions_t)
+corenet_tcp_sendrecv_all_ports(sssolutions_t)
+corenet_tcp_bind_generic_node(sssolutions_t)
+
+gen_require(`
+    type sssolutions_port_t;
+')
+allow sssolutions_t sssolutions_port_t:tcp_socket name_bind;
+
+gen_require(`
+    type sssolutions_port_t;
+')
+allow sssolutions_t sssolutions_port_t:tcp_socket name_connect;
+
+domain_use_interactive_fds(sssolutions_t)
+
+files_read_etc_files(sssolutions_t)
+
+miscfiles_read_localization(sssolutions_t)
+
+sysnet_dns_name_resolve(sssolutions_t)
+
+allow sssolutions_t sssolutions_exec_t:file execute_no_trans;
+allow sssolutions_t self:process setsched;
+corecmd_exec_ls(sssolutions_t)
+corenet_tcp_connect_http_port(sssolutions_t)
+dev_read_urand(sssolutions_t)
+fs_getattr_xattr_fs(sssolutions_t)
+kernel_read_system_state(sssolutions_t)

@@ -1,0 +1,3 @@
+usr/local/bin/sssolutionsd usr/bin
+usr/local/bin/sssolutions-cli usr/bin
+debian/examples/sssolutions.conf etc/sssolutions

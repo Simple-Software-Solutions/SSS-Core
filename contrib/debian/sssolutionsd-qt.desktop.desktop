@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=sssolutions
+Comment=sssolutions P2P Cryptocurrency
+Exec=sssolutions-qt %u
+Terminal=false
+Type=Application
+Icon=sssolutions128
+MimeType=x-scheme-handler/sssolutions;
+Categories=Office;Finance;
+StartupWMClass=sssolutions-qt
+Name[en_US]=sssolutionsd-qt.desktop
