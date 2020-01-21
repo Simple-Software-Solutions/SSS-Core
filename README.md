@@ -2,7 +2,7 @@ SSSolutions Core integration/staging repository
 =====================================
 [![GitHub license](https://img.shields.io/github/license/sssolutions/sssolutions.svg)](https://github.com/sssolutions/sssolutions-explorer/blob/master/COPYING) [![Build Status](https://travis-ci.com/sssolutions/sssolutions.svg?branch=master)](https://travis-ci.com/sssolutions-crypto/sssolutions-explorer) [![Discord](https://img.shields.io/discord/479050479330918410.svg)](https://discord.gg/G8KgRev) [![GitHub version](https://badge.fury.io/gh/sssolutions%2Fsssolutions.svg)](https://badge.fury.io/gh/sssolutions%2Fsssolutions)
 <br>
-SSSolutions (SSS) is a transparent, community-governed cryptocurrency aimed at preserving what makes DogeCoin unique while offering an alternative way for the average investor to get involved. This is done through the creation of DogeNodes, utilization of Proof of Stake, and active governance.
+SSSolutions (SSS) is a transparent, community-governed cryptocurrency aimed at preserving what makes SSS unique while offering an alternative way for the average investor to get involved. This is done through the creation of Masternodes, utilization of Proof of Stake, and active governance.
 
 
 ![SSSolutions Logo](https://sss.io/assets/images/logo.svg)
