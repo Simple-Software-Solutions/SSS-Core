@@ -56,28 +56,28 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints = 
 	boost::assign::map_list_of
-	(0, uint256("0x0000071c6511f881ed0564717b5865f8ccdff1ad533da5cdf079adfc4fb43bd9"));
+	(0, uint256("0x000000a944318a84b834b0e4e4aeb66d86390f66728efacfc9070111ac5ed01e"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1572137209, // * UNIX timestamp of last checkpoint block
+    1579905574, // * UNIX timestamp of last checkpoint block
     4000,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     200};        // * estimated number of transactions per day after checkpoint
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
     boost::assign::map_list_of
-    (0, uint256("0x0000071c6511f881ed0564717b5865f8ccdff1ad533da5cdf079adfc4fb43bd9"));
+    (0, uint256("0x000000a944318a84b834b0e4e4aeb66d86390f66728efacfc9070111ac5ed01e"));
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1572137209,
+    1579905574,
     2305594,
     250};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
-    boost::assign::map_list_of(0, uint256("0x0000071c6511f881ed0564717b5865f8ccdff1ad533da5cdf079adfc4fb43bd9"));
+    boost::assign::map_list_of(0, uint256("0x000000a944318a84b834b0e4e4aeb66d86390f66728efacfc9070111ac5ed01e"));
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
-    1572137209,
+    1579905574,
     0,
     100};
 
@@ -163,21 +163,22 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1572137209; 
+        genesis.nTime = 1579905574; 
         genesis.nBits = 0x1e0ffff0;
-	genesis.nNonce = 132304;
+	genesis.nNonce = 101535;
 
 	//
-	//genesis.nTime = 1572137209 
-	//genesis.nNonce = 132304 
+	//genesis.nTime = 1579905574 
+	//genesis.nNonce = 101535 
 	//genesis.nVersion = 1 
-	//genesis.GetHash = 0000071c6511f881ed0564717b5865f8ccdff1ad533da5cdf079adfc4fb43bd9
+	//genesis.GetHash = 000000a944318a84b834b0e4e4aeb66d86390f66728efacfc9070111ac5ed01e
 	//genesis.hashMerkleRoot = fbd93e09afe676a797f04369061c0bbb15fc499c8c28cc8b477da5fd48dba5bf 
 	//
 
+
 	hashGenesisBlock = genesis.GetHash();
 
-        assert(hashGenesisBlock == uint256("0x0000071c6511f881ed0564717b5865f8ccdff1ad533da5cdf079adfc4fb43bd9")); 
+        assert(hashGenesisBlock == uint256("0x000000a944318a84b834b0e4e4aeb66d86390f66728efacfc9070111ac5ed01e")); 
         assert(genesis.hashMerkleRoot == uint256("0xfbd93e09afe676a797f04369061c0bbb15fc499c8c28cc8b477da5fd48dba5bf")); 
 
 	vFixedSeeds.clear();
@@ -186,13 +187,14 @@ public:
         vSeeds.push_back(CDNSSeedData("199.247.26.107", "199.247.26.107"));   // Primary
         vSeeds.push_back(CDNSSeedData("144.202.62.235", "144.202.62.235"));    // Secondary
 
-	base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 63);
+	base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 63); //Address starts with a "S"
 	base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 19);
 	base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 46);
 	base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x02)(0x2D)(0x25)(0x33).convert_to_container<std::vector<unsigned char> >();
 	base58Prefixes[EXT_SECRET_KEY] = list_of(0x02)(0x21)(0x31)(0x2B).convert_to_container<std::vector<unsigned char> >();
         // 	BIP44 coin type is from https://github.com/satoshilabs/slips/blob/master/slip-0044.md
-        base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0xb1)(0x00)(0xa4).convert_to_container<std::vector<unsigned char> >();
+	//	Simple Software Solutions is using number #943 on the slip-0044.md
+        base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x03)(0xaf).convert_to_container<std::vector<unsigned char> >();
 
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
