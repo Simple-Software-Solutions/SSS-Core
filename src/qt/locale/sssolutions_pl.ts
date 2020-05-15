@@ -1866,32 +1866,32 @@ Please be patient after clicking import.</source>
         <translation>Proszę wybrać poziom prywatności</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 SSS</source>
-        <translation>Użyj 2 oddzielnych masternodów, aby wymieszać fundusze od 10000 SSS</translation>
+        <source>Use 2 separate masternodes to mix funds up to 2500 SSS</source>
+        <translation>Użyj 2 oddzielnych masternodów, aby wymieszać fundusze od 2500 SSS</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 SSS</source>
-        <translation>Użyj 8 oddzielnych masternodów, aby wymieszać fundusze od 10000 SSS</translation>
+        <source>Use 8 separate masternodes to mix funds up to 2500 SSS</source>
+        <translation>Użyj 8 oddzielnych masternodów, aby wymieszać fundusze od 2500 SSS</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>Użyj 16 oddzielnych masternode</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 SSS to anonymize 10000 SSS</source>
-        <translation>Ta opcja jest najszybsza, najmniej bezpieczna i kosztuje około 0,025 SSS, aby anonimizować 10000 SSS</translation>
+        <source>This option is the quickest and will cost about ~0.025 SSS to anonymize 2500 SSS</source>
+        <translation>Ta opcja jest najszybsza, najmniej bezpieczna i kosztuje około 0,025 SSS, aby anonimizować 2500 SSS</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 SSS to anonymize 10000 SSS</source>
-        <translation>Ta opcja jest wolniejsza, bezpieczniejsza i kosztuje około 0,05 SSS, aby anonimizować 10000 SSS</translation>
+        <source>This option is moderately fast and will cost about 0.05 SSS to anonymize 2500 SSS</source>
+        <translation>Ta opcja jest wolniejsza, bezpieczniejsza i kosztuje około 0,05 SSS, aby anonimizować 2500 SSS</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>Jest to najwolniejsza i najbezpieczniejsza opcja. Korzystanie z maksymalnej anonimowości będzie kosztować</translation>
     </message>
     <message>
-        <source>0.1 SSS per 10000 SSS you anonymize.</source>
-        <translation>anonimizujesz 10000 SSS za 0,1 SSS</translation>
+        <source>0.1 SSS per 2500 SSS you anonymize.</source>
+        <translation>anonimizujesz 2500 SSS za 0,1 SSS</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>
@@ -4821,7 +4821,7 @@ Proszę być cierpliwym...</translation>
         <translation>watch-only</translation>
     </message>
     <message>
-        <source>(n/a)</source>
+        <source>Masternode Reward</source>
         <translation>(nie dotyczy)</translation>
     </message>
     <message>

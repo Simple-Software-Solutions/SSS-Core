@@ -2365,12 +2365,12 @@ Please be patient after clicking import.</source>
     </message>
     <message>
         <location line="+13"/>
-        <source>Use 2 separate masternodes to mix funds up to 10000 SSS</source>
+        <source>Use 2 separate masternodes to mix funds up to 2500 SSS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+13"/>
-        <source>Use 8 separate masternodes to mix funds up to 10000 SSS</source>
+        <source>Use 8 separate masternodes to mix funds up to 2500 SSS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2380,12 +2380,12 @@ Please be patient after clicking import.</source>
     </message>
     <message>
         <location line="+13"/>
-        <source>This option is the quickest and will cost about ~0.025 SSS to anonymize 10000 SSS</source>
+        <source>This option is the quickest and will cost about ~0.025 SSS to anonymize 2500 SSS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+13"/>
-        <source>This option is moderately fast and will cost about 0.05 SSS to anonymize 10000 SSS</source>
+        <source>This option is moderately fast and will cost about 0.05 SSS to anonymize 2500 SSS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2395,7 +2395,7 @@ Please be patient after clicking import.</source>
     </message>
     <message>
         <location line="+13"/>
-        <source>0.1 SSS per 10000 SSS you anonymize.</source>
+        <source>0.1 SSS per 2500 SSS you anonymize.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6083,7 +6083,7 @@ Please be patient...</source>
     <message>
         <location line="+2"/>
         <source>Masternode Reward</source>
-        <translation type="unfinished"></translation>
+        <translation>Masternode Reward</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -6192,8 +6192,8 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+27"/>
-        <source>(n/a)</source>
-        <translation>(n/a)</translation>
+        <source>Masternode Reward</source>
+        <translation>Masternode Reward</translation>
     </message>
     <message>
         <location line="+211"/>
@@ -6297,7 +6297,7 @@ Please be patient...</source>
     <message>
         <location line="+1"/>
         <source>Masternode Reward</source>
-        <translation type="unfinished"></translation>
+        <translation>Masternode Reward</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -6843,12 +6843,12 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+2"/>
-        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 SSS.</source>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 2500 SSS.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 SSS.</source>
+        <source>Unable to locate enough funds for this transaction that are not equal 2500 SSS.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

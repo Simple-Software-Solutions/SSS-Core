@@ -1727,32 +1727,32 @@ Please be patient after clicking import.</source>
         <translation>Выберите уровень конфиденциальности.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 SSS</source>
-        <translation>Используйте 2 разные мастерноды для смешивания средств до 10000 SSS</translation>
+        <source>Use 2 separate masternodes to mix funds up to 2500 SSS</source>
+        <translation>Используйте 2 разные мастерноды для смешивания средств до 2500 SSS</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 SSS</source>
-        <translation>Используйте 8 разных мастернод для смешивания средств до 10000 SSS</translation>
+        <source>Use 8 separate masternodes to mix funds up to 2500 SSS</source>
+        <translation>Используйте 8 разных мастернод для смешивания средств до 2500 SSS</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>Используйте 16 разных мастернод</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 SSS to anonymize 10000 SSS</source>
-        <translation>Этот вариант является самым быстрым и будет стоить порядка ~0.025 SSS для анонимизации 10000 SSS</translation>
+        <source>This option is the quickest and will cost about ~0.025 SSS to anonymize 2500 SSS</source>
+        <translation>Этот вариант является самым быстрым и будет стоить порядка ~0.025 SSS для анонимизации 2500 SSS</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 SSS to anonymize 10000 SSS</source>
-        <translation>Это средний по скорости вариант и он будет стоить около 0.05 SSS для анонимизации 10000 SSS</translation>
+        <source>This option is moderately fast and will cost about 0.05 SSS to anonymize 2500 SSS</source>
+        <translation>Это средний по скорости вариант и он будет стоить около 0.05 SSS для анонимизации 2500 SSS</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>Это самый медленный и безопасный вариант. Максимальная анонимность стоит</translation>
     </message>
     <message>
-        <source>0.1 SSS per 10000 SSS you anonymize.</source>
-        <translation>0.1 SSS за 10000 SSS которые вы собираетесь анонимизировать.</translation>
+        <source>0.1 SSS per 2500 SSS you anonymize.</source>
+        <translation>0.1 SSS за 2500 SSS которые вы собираетесь анонимизировать.</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>
@@ -4501,7 +4501,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>смотреть только</translation>
     </message>
     <message>
-        <source>(n/a)</source>
+        <source>Masternode Reward</source>
         <translation>(н/з)</translation>
     </message>
     <message>
@@ -4990,12 +4990,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Не удалось найти достаточное количество средств, предназначенных для обфускации, для этой транзакции.</translation>
     </message>
     <message>
-        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 SSS.</source>
-        <translation>Невозможно найти достаточное количество средств, не предназначенных для обфускации, для этой транзакции, которые не равны 10000 SSS.</translation>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 2500 SSS.</source>
+        <translation>Невозможно найти достаточное количество средств, не предназначенных для обфускации, для этой транзакции, которые не равны 2500 SSS.</translation>
     </message>
     <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 SSS.</source>
-        <translation>Не удалось найти достаточное количество средств для этой транзакции, которые не равны 10000 SSS.</translation>
+        <source>Unable to locate enough funds for this transaction that are not equal 2500 SSS.</source>
+        <translation>Не удалось найти достаточное количество средств для этой транзакции, которые не равны 2500 SSS.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>

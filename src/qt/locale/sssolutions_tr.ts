@@ -1752,32 +1752,32 @@ Unutmayın, cüzdan, yeni adresi içeren işlemleri bulmak için blok zinciri ye
         <translation>Lütfen bir gizlilik düzeyi seçin.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 SSS</source>
-        <translation>10000 SSS'e kadar fonları karıştırmak için 2 ayrı matternod kullanın</translation>
+        <source>Use 2 separate masternodes to mix funds up to 2500 SSS</source>
+        <translation>2500 SSS'e kadar fonları karıştırmak için 2 ayrı matternod kullanın</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 SSS</source>
-        <translation>10000 SSS'ye kadar olan fonları karıştırmak için 8 ayrı matternod kullanın</translation>
+        <source>Use 8 separate masternodes to mix funds up to 2500 SSS</source>
+        <translation>2500 SSS'ye kadar olan fonları karıştırmak için 8 ayrı matternod kullanın</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>16 ayrı matternod kullan</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 SSS to anonymize 10000 SSS</source>
-        <translation>Bu seçenek en hızlıdır ve 10000 SSS'yi anonimleştirmek için ~ 0.025 SSS'lik bir maliyeti olacaktır</translation>
+        <source>This option is the quickest and will cost about ~0.025 SSS to anonymize 2500 SSS</source>
+        <translation>Bu seçenek en hızlıdır ve 2500 SSS'yi anonimleştirmek için ~ 0.025 SSS'lik bir maliyeti olacaktır</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 SSS to anonymize 10000 SSS</source>
-        <translation>Bu seçenek orta derecede hızlıdır ve 10000 SSS'yi anonimleştirmek için yaklaşık 0.05 SSS'e mal olur</translation>
+        <source>This option is moderately fast and will cost about 0.05 SSS to anonymize 2500 SSS</source>
+        <translation>Bu seçenek orta derecede hızlıdır ve 2500 SSS'yi anonimleştirmek için yaklaşık 0.05 SSS'e mal olur</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>Bu en yavaş ve en güvenli seçenektir. Maksimum anonimlik kullanmak maliyete gelecek</translation>
     </message>
     <message>
-        <source>0.1 SSS per 10000 SSS you anonymize.</source>
-        <translation>0.1 SSS her 10000 SSS anonimleştirmeye.</translation>
+        <source>0.1 SSS per 2500 SSS you anonymize.</source>
+        <translation>0.1 SSS her 2500 SSS anonimleştirmeye.</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>
@@ -4262,8 +4262,8 @@ Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama mik
         <translation>sadece-izle </translation>
     </message>
     <message>
-        <source>(n/a)</source>
-        <translation>(n/a)</translation>
+        <source>Masternode Reward</source>
+        <translation>Masternode Ödülü </translation>
     </message>
     <message>
         <source>Transaction status. Hover over this field to show number of confirmations.</source>

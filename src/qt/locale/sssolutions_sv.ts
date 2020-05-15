@@ -1825,32 +1825,32 @@ Var god vänta efter att du trycker på importera.</translation>
         <translation>Var vänlig och välj en sekretess nivå.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 SSS</source>
-        <translation>Använd 2 separata huvudnoder för att blanda tillgångar upp till 10000 SSS</translation>
+        <source>Use 2 separate masternodes to mix funds up to 2500 SSS</source>
+        <translation>Använd 2 separata huvudnoder för att blanda tillgångar upp till 2500 SSS</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 SSS</source>
-        <translation>Använd 8 separata huvudnoderför att blanda tillgångar upp till 10000 SSS</translation>
+        <source>Use 8 separate masternodes to mix funds up to 2500 SSS</source>
+        <translation>Använd 8 separata huvudnoderför att blanda tillgångar upp till 2500 SSS</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>Använd 16 separata huvudnoder</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 SSS to anonymize 10000 SSS</source>
-        <translation>Det här alternativet är det snabbaste och kommer kostar ungefär ~0.025 SSS för att anonymisera 10000 SSS</translation>
+        <source>This option is the quickest and will cost about ~0.025 SSS to anonymize 2500 SSS</source>
+        <translation>Det här alternativet är det snabbaste och kommer kostar ungefär ~0.025 SSS för att anonymisera 2500 SSS</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 SSS to anonymize 10000 SSS</source>
-        <translation>Det här alternativet är måttligt snabb och kommer kostar ungefär 0.05 SSS för att anonymisera 10000 SSS</translation>
+        <source>This option is moderately fast and will cost about 0.05 SSS to anonymize 2500 SSS</source>
+        <translation>Det här alternativet är måttligt snabb och kommer kostar ungefär 0.05 SSS för att anonymisera 2500 SSS</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>Det här är det långsammaste och säkraste alternativet. Använda maximal anonymitet kommer kosta</translation>
     </message>
     <message>
-        <source>0.1 SSS per 10000 SSS you anonymize.</source>
-        <translation>0.1 SSS per 10000 SSS du anonymiserar.</translation>
+        <source>0.1 SSS per 2500 SSS you anonymize.</source>
+        <translation>0.1 SSS per 2500 SSS du anonymiserar.</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>
@@ -4670,8 +4670,8 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
         <translation>se-endast</translation>
     </message>
     <message>
-        <source>(n/a)</source>
-        <translation>(n/a)</translation>
+        <source>Masternode Reward</source>
+        <translation>Masternode Belöning</translation>
     </message>
     <message>
         <source>Transaction status. Hover over this field to show number of confirmations.</source>
@@ -5167,12 +5167,12 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
         <translation>Kan ej lokalisera tillräckligt Fördunklingsdenominationerade pengar för denna transaktion.</translation>
     </message>
     <message>
-        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 SSS.</source>
-        <translation>Kan ej lokalisera tillräckligt Fördunkling icke-denominationerade pengar för denna transaktion som inte är 10000 SSS.</translation>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 2500 SSS.</source>
+        <translation>Kan ej lokalisera tillräckligt Fördunkling icke-denominationerade pengar för denna transaktion som inte är 2500 SSS.</translation>
     </message>
     <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 SSS.</source>
-        <translation>Kan inte hitta tillräckligt med pengar för denna transaktion som inte är 10000 SSS.</translation>
+        <source>Unable to locate enough funds for this transaction that are not equal 2500 SSS.</source>
+        <translation>Kan inte hitta tillräckligt med pengar för denna transaktion som inte är 2500 SSS.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>

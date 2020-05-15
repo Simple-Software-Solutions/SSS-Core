@@ -1581,12 +1581,12 @@ Muktisendi: %1</translation>
         <translation>Bonvolu elekti privata nivelo.</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 SSS to anonymize 10000 SSS</source>
-        <translation>Tion opcion estas la plej rapida kaji kostos ~0.025 SSS por anonimigi 10000 SSS</translation>
+        <source>This option is the quickest and will cost about ~0.025 SSS to anonymize 2500 SSS</source>
+        <translation>Tion opcion estas la plej rapida kaji kostos ~0.025 SSS por anonimigi 2500 SSS</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 SSS to anonymize 10000 SSS</source>
-        <translation>Tion opcion estas moderebla rapide kaj kostos ĉirkaŭ 0.05 SSS por anonimigi 10000 SSS</translation>
+        <source>This option is moderately fast and will cost about 0.05 SSS to anonymize 2500 SSS</source>
+        <translation>Tion opcion estas moderebla rapide kaj kostos ĉirkaŭ 0.05 SSS por anonimigi 2500 SSS</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>

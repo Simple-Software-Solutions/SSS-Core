@@ -23,7 +23,7 @@ packages:
 - "python"
 - "rename"
 remotes:
-- "url": "https://github.com/sssolutions/sssolutions.git"
+- "url": "https://github.com/Simple-Software-Solutions/SSS-Core.git"
   "dir": "sssolutions"
 files: []
 script: |

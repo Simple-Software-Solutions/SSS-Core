@@ -1817,32 +1817,32 @@ Waas alsjeblieft geduldig nadat u op importeren hebt geklikt.</translation>
         <translation>Selecteer de privacy level.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 SSS</source>
-        <translation>Gebruik 2 aparte masternodes om fondsen te mixen tot 10000 SSS</translation>
+        <source>Use 2 separate masternodes to mix funds up to 2500 SSS</source>
+        <translation>Gebruik 2 aparte masternodes om fondsen te mixen tot 2500 SSS</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 SSS</source>
-        <translation>Gebruik 8 aparte masternodes om fondsen te mixen tot 10000 SSS</translation>
+        <source>Use 8 separate masternodes to mix funds up to 2500 SSS</source>
+        <translation>Gebruik 8 aparte masternodes om fondsen te mixen tot 2500 SSS</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>Gebruik 16 aparte masternodes</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 SSS to anonymize 10000 SSS</source>
-        <translation>Deze optie is het snelst en kost ongeveer ~0,025 SSS om 10000 SSS te anonimiseren</translation>
+        <source>This option is the quickest and will cost about ~0.025 SSS to anonymize 2500 SSS</source>
+        <translation>Deze optie is het snelst en kost ongeveer ~0,025 SSS om 2500 SSS te anonimiseren</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 SSS to anonymize 10000 SSS</source>
-        <translation>Deze optie is gematigd snel en kost ongeveer 0,05 SSS om 10000 SSS te anonimiseren</translation>
+        <source>This option is moderately fast and will cost about 0.05 SSS to anonymize 2500 SSS</source>
+        <translation>Deze optie is gematigd snel en kost ongeveer 0,05 SSS om 2500 SSS te anonimiseren</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>Dit is de langzaamste en veiligste optie. Het gebruik van maximale anonimiteit kost</translation>
     </message>
     <message>
-        <source>0.1 SSS per 10000 SSS you anonymize.</source>
-        <translation>je anonimiseert 0,1 SSS per 10000 SSS.</translation>
+        <source>0.1 SSS per 2500 SSS you anonymize.</source>
+        <translation>je anonimiseert 0,1 SSS per 2500 SSS.</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>
@@ -4649,7 +4649,7 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
         <translation>watch-only</translation>
     </message>
     <message>
-        <source>(n/a)</source>
+        <source>Masternode Reward</source>
         <translation>(n/b)</translation>
     </message>
     <message>
@@ -5142,12 +5142,12 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
         <translation>Kan niet genoeg verduistering gedenomineerde fondsen voor deze transactie vinden.</translation>
     </message>
     <message>
-        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 SSS.</source>
-        <translation>Kan niet genoeg verduistering niet gedenomineerde fondsen voor deze transactie vinden die niet gelijk zijn aan 10000 SSS.</translation>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 2500 SSS.</source>
+        <translation>Kan niet genoeg verduistering niet gedenomineerde fondsen voor deze transactie vinden die niet gelijk zijn aan 2500 SSS.</translation>
     </message>
     <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 SSS.</source>
-        <translation>Kan niet genoeg fondsen voor deze transactie vinden die niet gelijk zijn aan 10000 SSS.</translation>
+        <source>Unable to locate enough funds for this transaction that are not equal 2500 SSS.</source>
+        <translation>Kan niet genoeg fondsen voor deze transactie vinden die niet gelijk zijn aan 2500 SSS.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>

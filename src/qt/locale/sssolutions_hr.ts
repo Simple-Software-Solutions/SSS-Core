@@ -1487,8 +1487,8 @@
         <translation>Adresa</translation>
     </message>
     <message>
-        <source>(n/a)</source>
-        <translation>(n/a)</translation>
+        <source>Masternode Reward</source>
+        <translation>Masternode Nagrada</translation>
     </message>
     </context>
 <context>

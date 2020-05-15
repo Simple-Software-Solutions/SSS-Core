@@ -1727,32 +1727,32 @@ Please be patient after clicking import.</source>
         <translation>익명화 레벨을 선택해주세요.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 SSS</source>
-        <translation>2개의 개별 마스터노드를 이용하여 최대 10000 SSS 를 섞을 수 있습니다.</translation>
+        <source>Use 2 separate masternodes to mix funds up to 2500 SSS</source>
+        <translation>2개의 개별 마스터노드를 이용하여 최대 2500 SSS 를 섞을 수 있습니다.</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 SSS</source>
-        <translation>8개의 개별 마스터노드를 이용하여 최대 10000 SSS 를 섞을 수 있습니다.</translation>
+        <source>Use 8 separate masternodes to mix funds up to 2500 SSS</source>
+        <translation>8개의 개별 마스터노드를 이용하여 최대 2500 SSS 를 섞을 수 있습니다.</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>16개의 개별 마스터노드를 사용</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 SSS to anonymize 10000 SSS</source>
-        <translation>이 옵션은 가장 빠르게 전송되며 10000 SSS 익명화에 약 ~0.025 SSS의 비용이 들어갑니다.</translation>
+        <source>This option is the quickest and will cost about ~0.025 SSS to anonymize 2500 SSS</source>
+        <translation>이 옵션은 가장 빠르게 전송되며 2500 SSS 익명화에 약 ~0.025 SSS의 비용이 들어갑니다.</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 SSS to anonymize 10000 SSS</source>
-        <translation>이 옵션은 중간 정도의 속도로 전송되며 10000 SSS 익명화에 약 0.05 SSS의 비용이 들어갑니다.</translation>
+        <source>This option is moderately fast and will cost about 0.05 SSS to anonymize 2500 SSS</source>
+        <translation>이 옵션은 중간 정도의 속도로 전송되며 2500 SSS 익명화에 약 0.05 SSS의 비용이 들어갑니다.</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>이것은 가장 느리고 안전한 옵션입니다. 최고 익명성을 사용하면 비용이 발생합니다.</translation>
     </message>
     <message>
-        <source>0.1 SSS per 10000 SSS you anonymize.</source>
-        <translation>10000 SSS 익명화에 0.1 SSS 가 듭니다.</translation>
+        <source>0.1 SSS per 2500 SSS you anonymize.</source>
+        <translation>2500 SSS 익명화에 0.1 SSS 가 듭니다.</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>
@@ -4503,8 +4503,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>읽기 전용</translation>
     </message>
     <message>
-        <source>(n/a)</source>
-        <translation>(n/a)</translation>
+        <source>Masternode Reward</source>
+        <translation>마스터노드 보상 </translation>
     </message>
     <message>
         <source>Transaction status. Hover over this field to show number of confirmations.</source>
@@ -4992,11 +4992,11 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>이 트랜잭션를 위해 난독화 표기된 충분한 금액을 찾을 수 없습니다.</translation>
     </message>
     <message>
-        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 SSS.</source>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 2500 SSS.</source>
         <translation>이 트랜잭션를 위해 난독화 표기가 안된 충분한 금액을 찾을 수 없습니다. 10000 SSS과 일치하지 않음.</translation>
     </message>
     <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 SSS.</source>
+        <source>Unable to locate enough funds for this transaction that are not equal 2500 SSS.</source>
         <translation>트랜잭션에 대한 충분한 금액을 찾을 수 없습니다. 10000 SSS와 같지 않음</translation>
     </message>
     <message>

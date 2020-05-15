@@ -1703,11 +1703,11 @@ MultiSend nebus aktyvuotas, nebent paspausite "Įjungti"</translation>
         <translation>Pasirinkite privatumo lygmenį.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 SSS</source>
+        <source>Use 2 separate masternodes to mix funds up to 2500 SSS</source>
         <translation>Naudokite 2 atskirus masternod'us, kad sumaišytumėte lėšas iki 10 000 SSS</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 SSS</source>
+        <source>Use 8 separate masternodes to mix funds up to 2500 SSS</source>
         <translation>Naudokite 8 atskirus masternod'us, kad sumaišytumėte lėšas iki 10 000 SSS</translation>
     </message>
     <message>
@@ -1715,19 +1715,19 @@ MultiSend nebus aktyvuotas, nebent paspausite "Įjungti"</translation>
         <translation>Naudokite 16 atskirų masternod'ų</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 SSS to anonymize 10000 SSS</source>
-        <translation>Ši parinktis yra greičiausia ir kainuos apie ~0.025 SSS, kad anonimizuotų 10000 SSS</translation>
+        <source>This option is the quickest and will cost about ~0.025 SSS to anonymize 2500 SSS</source>
+        <translation>Ši parinktis yra greičiausia ir kainuos apie ~0.025 SSS, kad anonimizuotų 2500 SSS</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 SSS to anonymize 10000 SSS</source>
-        <translation>Ši parinktis yra vidutiniškai greita ir kainuoja apie 0,05 SSS, kad anonimizuotų 10000 SSS</translation>
+        <source>This option is moderately fast and will cost about 0.05 SSS to anonymize 2500 SSS</source>
+        <translation>Ši parinktis yra vidutiniškai greita ir kainuoja apie 0,05 SSS, kad anonimizuotų 2500 SSS</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>Tai yra lėčiausias ir saugiausias variantas. Maksimalus anonimiškumas kainuos.</translation>
     </message>
     <message>
-        <source>0.1 SSS per 10000 SSS you anonymize.</source>
+        <source>0.1 SSS per 2500 SSS you anonymize.</source>
         <translation>0.1 SSS kas 1000 SSS kuriuos anonimizuosite.</translation>
     </message>
     <message>
@@ -3261,7 +3261,7 @@ Nesubrendusios: patvirtintos, bet mažiau nei 1 konvertacijos to pačio nominalo
         <translation>Iškasta</translation>
     </message>
     <message>
-        <source>(n/a)</source>
+        <source>Masternode Reward</source>
         <translation>(n/a)</translation>
     </message>
     <message>
