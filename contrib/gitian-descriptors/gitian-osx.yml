@@ -30,7 +30,7 @@ packages:
 - "fonts-tuffy"
 remotes:
 - "url": "https://github.com/Simple-Software-Solutions/SSS-Core.git"
-  "dir": "sss"
+  "dir": "SSS-Core"
 files:
 - "MacOSX10.11.sdk.tar.gz"
 script: |

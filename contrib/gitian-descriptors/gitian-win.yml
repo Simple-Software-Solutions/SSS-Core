@@ -25,7 +25,7 @@ packages:
 - "rename"
 remotes:
 - "url": "https://github.com/Simple-Software-Solutions/SSS-Core.git"
-  "dir": "sss"
+  "dir": "SSS-Core"
 files: []
 script: |
   set -e -o pipefail
