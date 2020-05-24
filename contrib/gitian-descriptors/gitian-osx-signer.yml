@@ -1,5 +1,6 @@
 ---
-name: "sssolutions-dmg-signer"
+name: "sss-dmg-signer"
+distro: "ubuntu"
 suites:
 - "bionic"
 architectures:
@@ -7,11 +8,13 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/sssolutions/sssolutions-detached-sigs.git"
+- "url": "https://github.com/Simple-Software-Solutions/sss-detached-sigs.git"
   "dir": "signature"
 files:
-- "sssolutions-osx-unsigned.tar.gz"
+- "sss-osx-unsigned.tar.gz"
 script: |
+  set -e -o pipefail
+
   WRAP_DIR=$HOME/wrapped
   mkdir -p ${WRAP_DIR}
   export PATH=`pwd`:$PATH
@@ -27,8 +30,8 @@ script: |
     chmod +x ${WRAP_DIR}/${prog}
   done
 
-  UNSIGNED=sssolutions-osx-unsigned.tar.gz
-  SIGNED=sssolutions-osx-signed.dmg
+  UNSIGNED=sss-osx-unsigned.tar.gz
+  SIGNED=sss-osx-signed.dmg
 
   tar -xf ${UNSIGNED}
   OSX_VOLNAME="$(cat osx_volname)"

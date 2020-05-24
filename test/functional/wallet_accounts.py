@@ -13,10 +13,10 @@ RPCs tested are:
     - move (with account arguments)
 """
 
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import sssTestFramework
 from test_framework.util import assert_equal
 
-class WalletAccountsTest(BitcoinTestFramework):
+class WalletAccountsTest(sssTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1

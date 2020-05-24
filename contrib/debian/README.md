@@ -1,21 +1,21 @@
 
 Debian
 ====================
-This directory contains files used to package sssolutionsd/sssolutions-qt
-for Debian-based Linux systems. If you compile sssolutionsd/sssolutions-qt yourself, there are some useful files here.
+This directory contains files used to package sssd/sss-qt
+for Debian-based Linux systems. If you compile sssd/sss-qt yourself, there are some useful files here.
 
-## sssolutions: URI support ##
+## sss: URI support ##
 
 
-sssolutions-qt.desktop  (Gnome / Open Desktop)
+sss-qt.desktop  (Gnome / Open Desktop)
 To install:
 
-	sudo desktop-file-install sssolutions-qt.desktop
+	sudo desktop-file-install sss-qt.desktop
 	sudo update-desktop-database
 
 If you build yourself, you will either need to modify the paths in
-the .desktop file or copy or symlink your sssolutionsqt binary to `/usr/bin`
-and the `../../share/pixmaps/sssolutions128.png` to `/usr/share/pixmaps`
+the .desktop file or copy or symlink your sss-qt binary to `/usr/bin`
+and the `../../share/pixmaps/sss128.png` to `/usr/share/pixmaps`
 
-sssolutions-qt.protocol (KDE)
+sss-qt.protocol (KDE)
 

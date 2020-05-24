@@ -1,31 +1,31 @@
-// Copyright (c) 2018 The sssolutions developers
+// Copyright (c) 2018-2020 The sssdevelopers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef sssolutions_zsssTRACKER_H
-#define sssolutions_zsssTRACKER_H
+#ifndef SSS_ZSSSTRACKER_H
+#define SSS_ZSSSTRACKER_H
 
 #include "zerocoin.h"
-#include "witness.h"
 #include "sync.h"
 #include <list>
 
 class CDeterministicMint;
-class CzsssWallet;
+class CzSSSWallet;
+class CWallet;
 
-class CzsssTracker
+class CzSSSTracker
 {
 private:
     bool fInitialized;
-    std::string strWalletFile;
+    /* Parent wallet */
+    CWallet* wallet{nullptr};
     std::map<uint256, CMintMeta> mapSerialHashes;
     std::map<uint256, uint256> mapPendingSpends; //serialhash, txid of spend
-    std::map<uint256, std::unique_ptr<CoinWitnessData> > mapStakeCache; //serialhash, witness value, height
     bool UpdateStatusInternal(const std::set<uint256>& setMempool, CMintMeta& mint);
 public:
-    CzsssTracker(std::string strWalletFile);
-    ~CzsssTracker();
-    void Add(const CDeterministicMint& dMint, bool isNew = false, bool isArchived = false, CzsssWallet* zsssWallet = NULL);
+    CzSSSTracker(CWallet* parent);
+    ~CzSSSTracker();
+    void Add(const CDeterministicMint& dMint, bool isNew = false, bool isArchived = false, CzSSSWallet* zSSSWallet = NULL);
     void Add(const CZerocoinMint& mint, bool isNew = false, bool isArchived = false);
     bool Archive(CMintMeta& meta);
     bool HasPubcoin(const CBigNum& bnValue) const;
@@ -40,12 +40,9 @@ public:
     bool GetMetaFromStakeHash(const uint256& hashStake, CMintMeta& meta) const;
     CAmount GetBalance(bool fConfirmedOnly, bool fUnconfirmedOnly) const;
     std::vector<uint256> GetSerialHashes();
-    mutable CCriticalSection cs_spendcache;
-    CoinWitnessData* GetSpendCache(const uint256& hashStake) EXCLUSIVE_LOCKS_REQUIRED(cs_spendcache);
-    bool ClearSpendCache() EXCLUSIVE_LOCKS_REQUIRED(cs_spendcache);
     std::vector<CMintMeta> GetMints(bool fConfirmedOnly) const;
     CAmount GetUnconfirmedBalance() const;
-    std::set<CMintMeta> ListMints(bool fUnusedOnly, bool fMatureOnly, bool fUpdateStatus, bool fWrongSeed = false);
+    std::set<CMintMeta> ListMints(bool fUnusedOnly, bool fMatureOnly, bool fUpdateStatus, bool fWrongSeed = false, bool fExcludeV1 = false);
     void RemovePending(const uint256& txid);
     void SetPubcoinUsed(const uint256& hashPubcoin, const uint256& txid);
     void SetPubcoinNotUsed(const uint256& hashPubcoin);
@@ -55,4 +52,4 @@ public:
     void Clear();
 };
 
-#endif //sssolutions_zsssTRACKER_H
+#endif //SSS_ZSSSTRACKER_H

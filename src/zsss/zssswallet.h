@@ -1,19 +1,20 @@
-// Copyright (c) 2017-2019 The sssolutions developers
+// Copyright (c) 2017-2018 The sssdevelopers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef sssolutions_zsssWALLET_H
-#define sssolutions_zsssWALLET_H
+#ifndef SSS_ZSSSWALLET_H
+#define SSS_ZSSSWALLET_H
 
 #include <map>
 #include "libzerocoin/Coin.h"
 #include "mintpool.h"
 #include "uint256.h"
+#include "wallet/wallet.h"
 #include "zerocoin.h"
 
 class CDeterministicMint;
 
-class CzsssWallet
+class CzSSSWallet
 {
 private:
     uint256 seedMaster;
@@ -22,13 +23,13 @@ private:
     CMintPool mintPool;
 
 public:
-    CzsssWallet(std::string strWalletFile);
+    CzSSSWallet(CWallet* parent);
 
     void AddToMintPool(const std::pair<uint256, uint32_t>& pMint, bool fVerbose);
     bool SetMasterSeed(const uint256& seedMaster, bool fResetCount = false);
     uint256 GetMasterSeed() { return seedMaster; }
     void SyncWithChain(bool fGenerateMintPool = true);
-    void GenerateDeterministiczsss(libzerocoin::CoinDenomination denom, libzerocoin::PrivateCoin& coin, CDeterministicMint& dMint, bool fGenerateOnly = false);
+    void GenerateDeterministicZSSS(libzerocoin::CoinDenomination denom, libzerocoin::PrivateCoin& coin, CDeterministicMint& dMint, bool fGenerateOnly = false);
     void GenerateMint(const uint32_t& nCount, const libzerocoin::CoinDenomination denom, libzerocoin::PrivateCoin& coin, CDeterministicMint& dMint);
     void GetState(int& nCount, int& nLastGenerated);
     bool RegenerateMint(const CDeterministicMint& dMint, CZerocoinMint& mint);
@@ -39,11 +40,14 @@ public:
     bool IsInMintPool(const CBigNum& bnValue) { return mintPool.Has(bnValue); }
     void UpdateCount();
     void Lock();
-    void SeedTozsss(const uint512& seed, CBigNum& bnValue, CBigNum& bnSerial, CBigNum& bnRandomness, CKey& key);
+    void SeedToZSSS(const uint512& seed, CBigNum& bnValue, CBigNum& bnSerial, CBigNum& bnRandomness, CKey& key);
     bool CheckSeed(const CDeterministicMint& dMint);
 
 private:
+    /* Parent wallet */
+    CWallet* wallet{nullptr};
+
     uint512 GetZerocoinSeed(uint32_t n);
 };
 
-#endif //sssolutions_zsssWALLET_H
+#endif //SSS_ZSSSWALLET_H

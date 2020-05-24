@@ -1,5 +1,5 @@
 // Copyright (c) 2012-2017 The Bitcoin Core developers
-// Copyright (c) 2016-2017 The PIVX developers
+// Copyright (c) 2016-2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,14 +7,13 @@
 
 #include "tinyformat.h"
 
-#include <utilstrencodings.h>
-#include <utilsplitstring.h>
+
 /**
  * Name of client reported in the 'version' message. Report the same name
- * for both sssolutionsd and sssolutions-qt, to make it harder for attackers to
+ * for both sssd and sss-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("SSSolutions Core");
+const std::string CLIENT_NAME("SSS Core");
 
 /**
  * Client version number
@@ -56,7 +55,7 @@ const std::string CLIENT_NAME("SSSolutions Core");
     "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) "-g" commit
 
 #define BUILD_DESC_FROM_UNKNOWN(maj, min, rev, build) \
-    "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) "-SSS"
+    "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) "-unk"
 
 #ifndef BUILD_DESC
 #ifdef BUILD_SUFFIX
@@ -92,6 +91,11 @@ std::string FormatFullVersion()
     return CLIENT_BUILD;
 }
 
+std::string FormatVersionFriendly()
+{
+    return FormatVersion(CLIENT_VERSION);
+}
+
 /** 
  * Format the subversion field according to BIP 14 spec (https://github.com/bitcoin/bips/blob/master/bip-0014.mediawiki) 
  */
@@ -110,28 +114,3 @@ std::string FormatSubVersion(const std::string& name, int nClientVersion, const 
     ss << "/";
     return ss.str();
 }
-
-/**
- * Split the Sub Version string such as /SSSolutions Core:x.y.z/
-* in order to get integer version number
-*/
-
-	int UnformatSubVersion(const std::string &name) {
-	    std::vector<std::string> split1;
-	    std::vector<std::string> split2;
-	    std::vector<std::string> ver_str;
-	
-	    // throw away /DeVault Core: part
-	    Split(split1, name, ":");
-	    // throw away (.../ part
-	    Split(split2, split1[1], "(");
-	    // Get individual numbers
-	    Split(ver_str, split2[0], ".");
-	
-	    if (ver_str.size() == 3) {
-	        int CLIENT_VER =  1000000 * std::stoi(ver_str[0]) + 10000 * std::stoi(ver_str[1]) + 100 * std::stoi(ver_str[2]);
-	        return CLIENT_VER;
-	    } else {
-	        return 0;
-	    }
-	}
