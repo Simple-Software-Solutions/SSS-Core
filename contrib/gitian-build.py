@@ -109,7 +109,7 @@ def setup_repos():
         subprocess.check_call(['git', 'clone', 'https://github.com/dogecash/sss-detached-sigs.git'])
     if not os.path.isdir('gitian-builder'):
         subprocess.check_call(['git', 'clone', 'https://github.com/devrandom/gitian-builder.git'])
-    if not os.path.isdir('sss'):
+    if not os.path.isdir('SSS-Core'):
         subprocess.check_call(['git', 'clone', 'https://github.com/Simple-Software-Solutions/SSS-Core.git'])
     os.chdir('gitian-builder')
     make_image_prog = ['bin/make-base-vm', '--suite', 'bionic', '--arch', 'amd64']
@@ -150,20 +150,20 @@ def build():
 
     if args.linux:
         print('\nCompiling ' + args.version + ' Linux')
-        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'sss'+args.commit, '--url', 'sss='+args.url, '../SSS-Core/contrib/gitian-descriptors/gitian-linux.yml'])
+        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'SSS-Core'+args.commit, '--url', 'sss='+args.url, '../SSS-Core/contrib/gitian-descriptors/gitian-linux.yml'])
         subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-linux', '--destination', '../gitian.sigs/', '../SSS-Core/contrib/gitian-descriptors/gitian-linux.yml'])
         subprocess.check_call('mv build/out/sss-*.tar.gz build/out/src/sss-*.tar.gz ../sss-binaries/'+args.version, shell=True)
 
     if args.windows:
         print('\nCompiling ' + args.version + ' Windows')
-        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'sss'+args.commit, '--url', 'sss='+args.url, '../SSS-Core/contrib/gitian-descriptors/gitian-win.yml'])
+        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'SSS-Core'+args.commit, '--url', 'sss='+args.url, '../SSS-Core/contrib/gitian-descriptors/gitian-win.yml'])
         subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-win-unsigned', '--destination', '../gitian.sigs/', '../SSS-Core/contrib/gitian-descriptors/gitian-win.yml'])
         subprocess.check_call('mv build/out/sss-*-win-unsigned.tar.gz inputs/', shell=True)
         subprocess.check_call('mv build/out/sss-*.zip build/out/sss-*.exe build/out/src/sss-*.tar.gz ../sss-binaries/'+args.version, shell=True)
 
     if args.macos:
         print('\nCompiling ' + args.version + ' MacOS')
-        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'sss'+args.commit, '--url', 'sss='+args.url, '../SSS-Core/contrib/gitian-descriptors/gitian-osx.yml'])
+        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'SSS-Core'+args.commit, '--url', 'sss='+args.url, '../SSS-Core/contrib/gitian-descriptors/gitian-osx.yml'])
         subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-osx-unsigned', '--destination', '../gitian.sigs/', '../SSS-Core/contrib/gitian-descriptors/gitian-osx.yml'])
         subprocess.check_call('mv build/out/sss-*-osx-unsigned.tar.gz inputs/', shell=True)
         subprocess.check_call('mv build/out/sss-*.tar.gz build/out/sss-*.dmg build/out/src/sss-*.tar.gz ../sss-binaries/'+args.version, shell=True)
