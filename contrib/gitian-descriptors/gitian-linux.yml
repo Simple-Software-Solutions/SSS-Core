@@ -123,7 +123,7 @@ script: |
   chmod +x ${WRAP_DIR}/${prog}
   done
 
-  cd sss
+  cd SSS-Core
   BASEPREFIX=`pwd`/depends
   # Build dependencies for each host
   for i in $HOSTS; do
