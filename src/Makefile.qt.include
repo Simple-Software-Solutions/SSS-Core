@@ -258,6 +258,7 @@ BITCOIN_QT_H = \
   qt/sss/mnrow.h \
   qt/sss/masternodeswidget.h \
   qt/sss/proposalframe.h \
+  qt/sss/proposaldialog.h \
   qt/sss/governancepage.h \
   qt/sss/myaddressrow.h \
   qt/sss/csrow.h \
