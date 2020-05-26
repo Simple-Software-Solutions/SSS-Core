@@ -33,7 +33,7 @@ QT_FORMS_UI = \
   qt/sss/forms/governancepage.ui \
   qt/sss/forms/mninfodialog.ui \
   qt/sss/forms/optionbutton.ui \
-  qt/sss/forms/proposaldialog.ui
+  qt/sss/forms/proposaldialog.ui \
   qt/sss/forms/masternodewizarddialog.ui \
   qt/sss/forms/mnrow.ui \
   qt/sss/forms/masternodeswidget.ui \
