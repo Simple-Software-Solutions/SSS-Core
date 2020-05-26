@@ -23,6 +23,7 @@
 #include "qt/sss/privacywidget.h"
 #include "qt/sss/coldstakingwidget.h"
 #include "qt/sss/masternodeswidget.h"
+#include "qt/sss/governancepage.h"
 #include "qt/sss/snackbar.h"
 #include "qt/sss/settings/settingswidget.h"
 #include "qt/rpcconsole.h"
@@ -69,6 +70,7 @@ public Q_SLOTS:
     void goToPrivacy();
     void goToMasterNodes();
     void goToColdStaking();
+    void goToGovernance();
     void goToSettings();
 
     void connectActions();
@@ -133,6 +135,7 @@ private:
     PrivacyWidget *privacyWidget = nullptr;
     MasterNodesWidget *masterNodesWidget = nullptr;
     ColdStakingWidget *coldStakingWidget = nullptr;
+    GovernancePage *governancePage = nullptr;
     SettingsWidget* settingsWidget = nullptr;
 
     SnackBar *snackBar = nullptr;

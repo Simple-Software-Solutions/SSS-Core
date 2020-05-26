@@ -32,7 +32,7 @@
 
 
 #define BASE_WINDOW_WIDTH 1200
-#define BASE_WINDOW_HEIGHT 740
+#define BASE_WINDOW_HEIGHT 780
 #define BASE_WINDOW_MIN_HEIGHT 620
 #define BASE_WINDOW_MIN_WIDTH 1100
 
@@ -128,6 +128,7 @@ SSSGUI::SSSGUI(const NetworkStyle* networkStyle, QWidget* parent) :
         addressesWidget = new AddressesWidget(this);
         masterNodesWidget = new MasterNodesWidget(this);
         coldStakingWidget = new ColdStakingWidget(this);
+        governancePage = new GovernancePage(this);
         settingsWidget = new SettingsWidget(this);
 
         // Add to parent
@@ -137,6 +138,7 @@ SSSGUI::SSSGUI(const NetworkStyle* networkStyle, QWidget* parent) :
         stackedContainer->addWidget(addressesWidget);
         stackedContainer->addWidget(masterNodesWidget);
         stackedContainer->addWidget(coldStakingWidget);
+        stackedContainer->addWidget(governancePage);
         stackedContainer->addWidget(settingsWidget);
         stackedContainer->setCurrentWidget(dashboard);
 
@@ -487,6 +489,10 @@ void SSSGUI::goToColdStaking(){
     showTop(coldStakingWidget);
 }
 
+void SSSGUI::goToGovernance(){
+    showTop(governancePage);
+}
+
 void SSSGUI::goToSettings(){
     showTop(settingsWidget);
 }
@@ -583,6 +589,7 @@ bool SSSGUI::addWallet(const QString& name, WalletModel* walletModel)
     addressesWidget->setWalletModel(walletModel);
     masterNodesWidget->setWalletModel(walletModel);
     coldStakingWidget->setWalletModel(walletModel);
+    governancePage->setWalletModel(walletModel);
     settingsWidget->setWalletModel(walletModel);
 
     // Privacy screen

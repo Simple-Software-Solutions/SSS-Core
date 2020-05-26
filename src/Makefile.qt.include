@@ -30,8 +30,10 @@ QT_FORMS_UI = \
   qt/sss/forms/dashboardwidget.ui \
   qt/sss/forms/addresslabelrow.ui \
   qt/sss/forms/contactdropdownrow.ui \
+  qt/sss/forms/governancepage.ui \
   qt/sss/forms/mninfodialog.ui \
   qt/sss/forms/optionbutton.ui \
+  qt/sss/forms/proposaldialog.ui
   qt/sss/forms/masternodewizarddialog.ui \
   qt/sss/forms/mnrow.ui \
   qt/sss/forms/masternodeswidget.ui \
@@ -122,11 +124,14 @@ QT_MOC_CPP = \
   qt/sss/moc_mninfodialog.cpp \
   qt/sss/moc_optionbutton.cpp \
   qt/sss/moc_coldstakingmodel.cpp \
+  qt/sss/moc_governancepage.cpp \
   qt/sss/moc_mnmodel.cpp \
   qt/sss/moc_masternodewizarddialog.cpp \
   qt/sss/moc_mnrow.cpp \
   qt/sss/moc_masternodeswidget.cpp \
   qt/sss/moc_myaddressrow.cpp \
+  qt/sss/moc_proposaldialog.cpp \
+  qt/sss/moc_proposalframe.cpp \
   qt/sss/moc_csrow.cpp \
   qt/sss/moc_contactsdropdown.cpp \
   qt/sss/moc_sendchangeaddressdialog.cpp \
@@ -252,6 +257,8 @@ BITCOIN_QT_H = \
   qt/sss/masternodewizarddialog.h \
   qt/sss/mnrow.h \
   qt/sss/masternodeswidget.h \
+  qt/sss/proposalframe.h \
+  qt/sss/governancepage.h \
   qt/sss/myaddressrow.h \
   qt/sss/csrow.h \
   qt/sss/contactsdropdown.h \
@@ -368,14 +375,17 @@ RES_ICONS = \
   qt/sss/res/img/ic-nav-cold-staking.svg \
   qt/sss/res/img/ic-nav-cold-staking-active.svg \
   qt/sss/res/img/ic-nav-dashboard-active.svg \
+  qt/sss/res/img/ic-nav-governance-active.svg \
   qt/sss/res/img/ic-wallet-status-locked.svg \
   qt/sss/res/img/bg-splash.svg \
   qt/sss/res/img/bg-splash.png \
   qt/sss/res/img/ic-check-mint.svg \
   qt/sss/res/img/ic-nav-dashboard-hover.svg \
+  qt/sss/res/img/ic-nav-governance-hover.svg \
   qt/sss/res/img/ic-wallet-status-staking.svg \
   qt/sss/res/img/ic-check-peers-off.svg \
   qt/sss/res/img/ic-nav-dashboard.svg \
+  qt/sss/res/img/ic-nav-governance.svg \
   qt/sss/res/img/ic-wallet-status-unlocked.svg \
   qt/sss/res/img/ic-check-peers.svg \
   qt/sss/res/img/ic-nav-master-active.svg \
@@ -571,6 +581,7 @@ BITCOIN_QT_BASE_CPP = \
   qt/bitcoinaddressvalidator.cpp \
   qt/bitcoinamountfield.cpp \
   qt/sss/sssgui.cpp \
+  qt/sss/proposaldialog.cpp \
   qt/bitcoinunits.cpp \
   qt/clientmodel.cpp \
   qt/csvmodelwriter.cpp \
@@ -620,6 +631,9 @@ BITCOIN_QT_WALLET_CPP = \
   qt/sss/txviewholder.cpp \
   qt/sss/qtutils.cpp \
   qt/sss/expandablebutton.cpp \
+  qt/sss/proposaldialog.cpp \
+  qt/sss/governancepage.cpp \
+  qt/sss/proposalframe.cpp \
   qt/sss/topbar.cpp \
   qt/sss/txrow.cpp \
   qt/sss/addressholder.cpp \

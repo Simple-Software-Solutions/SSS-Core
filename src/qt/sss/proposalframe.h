@@ -11,7 +11,7 @@
 #include <QHBoxLayout>
 
 #include "walletmodel.h"
-#include "governancepage.h"
+#include "qt/sss/governancepage.h"
 
 class CBudgetProposal;
 

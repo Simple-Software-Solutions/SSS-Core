@@ -44,6 +44,10 @@ NavMenuWidget::NavMenuWidget(SSSGUI *mainWindow, QWidget *parent) :
     ui->btnColdStaking->setText("COLD\r\nSTAKING");
     ui->btnColdStaking->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 
+    ui->btnGovernance->setProperty("name", "governance");
+    ui->btnGovernance->setText("GOVERNANCE");
+    ui->btnGovernance->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+
     ui->btnSettings->setProperty("name", "settings");
     ui->btnSettings->setText("SETTINGS\n");
     ui->btnSettings->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
@@ -53,7 +57,7 @@ NavMenuWidget::NavMenuWidget(SSSGUI *mainWindow, QWidget *parent) :
     ui->btnReceive->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 
     ui->btnPrivacy->setProperty("name", "privacy");
-    btns = {ui->btnDashboard, ui->btnSend, ui->btnReceive, ui->btnAddress, ui->btnPrivacy, ui->btnMaster, ui->btnColdStaking, ui->btnSettings, ui->btnColdStaking};
+    btns = {ui->btnDashboard, ui->btnSend, ui->btnReceive, ui->btnAddress, ui->btnPrivacy, ui->btnMaster, ui->btnGovernance, ui->btnSettings};
     onNavSelected(ui->btnDashboard, true);
 
     ui->scrollAreaNav->setWidgetResizable(true);
@@ -92,6 +96,7 @@ void NavMenuWidget::connectActions() {
     connect(ui->btnSend, &QPushButton::clicked, this, &NavMenuWidget::onSendClicked);
     connect(ui->btnAddress, &QPushButton::clicked, this, &NavMenuWidget::onAddressClicked);
     connect(ui->btnMaster, &QPushButton::clicked, this, &NavMenuWidget::onMasterNodesClicked);
+    connect(ui->btnGovernance,SIGNAL(clicked()),this, SLOT(onGovernanceClicked()));
     connect(ui->btnSettings, &QPushButton::clicked, this, &NavMenuWidget::onSettingsClicked);
     connect(ui->btnReceive, &QPushButton::clicked, this, &NavMenuWidget::onReceiveClicked);
     connect(ui->btnColdStaking, &QPushButton::clicked, this, &NavMenuWidget::onColdStakingClicked);
@@ -103,12 +108,18 @@ void NavMenuWidget::connectActions() {
     ui->btnPrivacy->setShortcut(QKeySequence(SHORT_KEY + Qt::Key_5));
     ui->btnMaster->setShortcut(QKeySequence(SHORT_KEY + Qt::Key_6));
     ui->btnColdStaking->setShortcut(QKeySequence(SHORT_KEY + Qt::Key_7));
-    ui->btnSettings->setShortcut(QKeySequence(SHORT_KEY + Qt::Key_8));
+    ui->btnGovernance->setShortcut(QKeySequence(SHORT_KEY + Qt::Key_8));
+    ui->btnSettings->setShortcut(QKeySequence(SHORT_KEY + Qt::Key_9));
 }
 
 void NavMenuWidget::onSendClicked(){
     window->goToSend();
     onNavSelected(ui->btnSend);
+}
+
+void NavMenuWidget::onGovernanceClicked(){
+    window->goToGovernance();
+    onNavSelected(ui->btnGovernance);
 }
 
 void NavMenuWidget::onDashboardClicked(){
@@ -185,6 +196,7 @@ void NavMenuWidget::updateButtonStyles(){
          ui->btnMaster,
          ui->btnSettings,
          ui->btnReceive,
+         ui->btnGovernance,
          ui->btnColdStaking
     });
 }

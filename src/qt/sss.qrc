@@ -217,6 +217,9 @@
         <file alias="ic-nav-master-active">sss/res/img/ic-nav-master-active.svg</file>
         <file alias="ic-nav-master-hover">sss/res/img/ic-nav-master-hover.svg</file>
         <file alias="ic-nav-master">sss/res/img/ic-nav-master.svg</file>
+        <file alias="ic-nav-governance-active">sss/res/img/ic-nav-governance-active.svg</file>
+        <file alias="ic-nav-governance-hover">sss/res/img/ic-nav-governance-hover.svg</file>
+        <file alias="ic-nav-governance">sss/res/img/ic-nav-governance.svg</file>
         <file alias="ic-nav-privacy-active">sss/res/img/ic-nav-privacy-active.svg</file>
         <file alias="ic-nav-privacy-hover">sss/res/img/ic-nav-privacy-hover.svg</file>
         <file alias="ic-nav-privacy">sss/res/img/ic-nav-privacy.svg</file>
@@ -269,6 +272,7 @@
         <file alias="img-empty-dark-contacts">sss/res/img/img-empty-dark-contacts.svg</file>
         <file alias="img-empty-dark-error">sss/res/img/img-empty-dark-error.svg</file>
         <file alias="img-empty-dark-masternode">sss/res/img/img-empty-dark-masternode.svg</file>
+        <file alias="img-empty-dark-governance">res/icons/governance_dark.png</file>
         <file alias="img-empty-dark-multisend">sss/res/img/img-empty-dark-multisend.svg</file>
         <file alias="img-empty-dark-peers">sss/res/img/img-empty-dark-peers.svg</file>
         <file alias="img-empty-dark-staking-on">sss/res/img/img-empty-dark-staking-on.svg</file>
@@ -277,6 +281,7 @@
         <file alias="img-empty-dark-privacy">sss/res/img/img-empty-privacy-dark.svg</file>
         <file alias="img-empty-error">sss/res/img/img-empty-error.svg</file>
         <file alias="img-empty-masternode">sss/res/img/img-empty-masternode.svg</file>
+        <file alias="img-empty-governance">res/icons/governance.png</file>
         <file alias="img-empty-multisend">sss/res/img/img-empty-multisend.svg</file>
         <file alias="img-empty-peers">sss/res/img/img-empty-peers.svg</file>
         <file alias="img-empty-privacy">sss/res/img/img-empty-privacy.svg</file>
