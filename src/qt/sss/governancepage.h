@@ -35,7 +35,7 @@ class GovernancePage : public PWidget
     Q_OBJECT
 
 public:
-    explicit GovernancePage(DogeCashGUI* parent = nullptr);
+    explicit GovernancePage(SSSGUI* parent = nullptr);
     ~GovernancePage();
 
     void setExtendedProposal(CBudgetProposal* proposal);
@@ -47,10 +47,10 @@ private:
     bool fFilterUpdated;
     bool fLockUpdating;
 
-public slots:
+public Q_SLOTS:
     void updateProposalList();
 
-private slots:
+private Q_SLOTS:
     void onCreateProposalButtonclicked();
     void onUpdateButtonclicked();
 

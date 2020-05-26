@@ -4,8 +4,8 @@
 
 #include "qt/sss/governancepage.h"
 #include "qt/sss/forms/ui_governancepage.h"
-#include "qt/dogecash/qtutils.h"
-#include "qt/dogecash/proposaldialog.h"
+#include "qt/sss/qtutils.h"
+#include "qt/sss/proposaldialog.h"
 
 #include "activemasternode.h"
 #include "chainparams.h"
@@ -24,7 +24,7 @@
 #include <QTimer>
 #include <QToolButton>
 
-GovernancePage::GovernancePage(DogeCashGUI *parent) :
+GovernancePage::GovernancePage(SSSGUI *parent) :
                                                   PWidget(parent),
                                                   ui(new Ui::GovernancePage)
 {
@@ -124,9 +124,9 @@ void GovernancePage::updateProposalList()
         pindexPrev = chainActive.Tip();
     }
     if (!pindexPrev) return;
-    int nBlockStart = pindexPrev->nHeight - pindexPrev->nHeight % Params().GetBudgetCycleBlocks() + Params().GetBudgetCycleBlocks();
+    int nBlockStart = pindexPrev->nHeight - pindexPrev->nHeight % Params().GetConsensus().nBudgetCycleBlocks + Params().GetConsensus().nBudgetCycleBlocks;
     int nBlocksLeft = nBlockStart - pindexPrev->nHeight;
-    int nBlockEnd = nBlockStart + Params().GetBudgetCycleBlocks() - 1;
+    int nBlockEnd = nBlockStart + Params().GetConsensus().nBudgetCycleBlocks - 1;
     int mnCount = mnodeman.CountEnabled(ActiveProtocol());
 
     for (CBudgetProposal* pbudgetProposal : proposalsList) {

@@ -42,7 +42,7 @@ public:
     explicit ProposalDialog(Mode mode, QWidget* parent);
     ~ProposalDialog();
 
-public slots:
+public Q_SLOTS:
     void checkProposalTX();
     void on_acceptButton_clicked();
     void on_cancelButton_clicked();

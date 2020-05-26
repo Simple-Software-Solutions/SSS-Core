@@ -7,6 +7,7 @@
 
 #include "masternode-budget.h"
 #include "masternodeconfig.h"
+#include "masternodeman.h"
 #include "utilmoneystr.h"
 
 #include <QLayout>
@@ -234,16 +235,17 @@ void ProposalFrame::voteButton_clicked(int nVote)
 {
     if (!walletModel) return;
 
+    std::string strError = "";
+
     // Request unlock if wallet was locked or unlocked for mixing:
-    WalletModel::EncryptionStatus encStatus = walletModel->getEncryptionStatus();
-    if (encStatus == walletModel->Locked) {
-        WalletModel::UnlockContext ctx(walletModel->requestUnlock(AskPassphraseDialog::Context::UI_Vote, true));
-        if (!ctx.isValid()) {
-            // Unlock wallet was cancelled
-            governancePage->lockUpdating(true);
-            QMessageBox::warning(this, tr("Wallet Locked"), tr("You must unlock your wallet to vote."), QMessageBox::Ok, QMessageBox::Ok);
-            return;
-        }
+    //WalletModel::UnlockContext ctx(walletModel->requestUnlock());
+    if (pwalletMain->IsLocked()) {
+        // Unlock wallet was cancelled
+        //governancePage->lockUpdating(true);
+        //QMessageBox::warning(this, windowTitle(), tr("You must unlock your wallet to vote."), QMessageBox::Ok, QMessageBox::Ok);
+        strError = "Error: Please enter the wallet passphrase with walletpassphrase first.";
+        QMessageBox::critical(this, "Voting Error", QString::fromStdString(strError));
+        return;
     }
 
     // Display message box
@@ -281,7 +283,7 @@ void ProposalFrame::SendVote(std::string strHash, int nVote)
         CPubKey pubKeyMasternode;
         CKey keyMasternode;
 
-        if (!obfuScationSigner.SetKey(mne.getPrivKey(), errorMessage, keyMasternode, pubKeyMasternode)) {
+        if (!CMessageSigner::GetKeysFromSecret(mne.getPrivKey(), keyMasternode, pubKeyMasternode)) {
             mnresult += mne.getAlias() + ": " + "Masternode signing error, could not set key correctly: " + errorMessage + "<br />";
             failed++;
             continue;
@@ -294,8 +296,13 @@ void ProposalFrame::SendVote(std::string strHash, int nVote)
             continue;
         }
 
+        bool fNewSigs = false;
+        {
+            LOCK(cs_main);
+            fNewSigs = chainActive.NewSigsActive();
+        }
         CBudgetVote vote(pmn->vin, hash, nVote);
-        if (!vote.Sign(keyMasternode, pubKeyMasternode)) {
+        if (!vote.Sign(keyMasternode, pubKeyMasternode, fNewSigs)) {
             mnresult += mne.getAlias() + ": " + "Failure to sign" + "<br />";
             failed++;
             continue;
@@ -303,7 +310,7 @@ void ProposalFrame::SendVote(std::string strHash, int nVote)
 
         std::string strError = "";
         if (budget.UpdateProposal(vote, NULL, strError)) {
-            budget.mapSeenMasternodeBudgetVotes.insert(make_pair(vote.GetHash(), vote));
+            budget.mapSeenMasternodeBudgetVotes.insert(std::make_pair(vote.GetHash(), vote));
             vote.Relay();
             mnresult += mne.getAlias() + ": " + "Success!" + "<br />";
             success++;
