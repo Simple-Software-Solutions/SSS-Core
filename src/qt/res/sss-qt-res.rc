@@ -19,7 +19,7 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "SSS
+            VALUE "CompanyName",        "SSS"
             VALUE "FileDescription",    "SSS Core (OSS GUI client for SSS"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "sss-qt"
