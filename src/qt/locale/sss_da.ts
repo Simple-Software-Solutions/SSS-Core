@@ -930,7 +930,7 @@ For Staking</translation>
         <translation>Ingen transaktioner endnu</translation>
     </message>
     <message>
-        <source>How to get SSS or zSSS</source>
+        <source>How to get SSS</source>
         <translation>Hvordan man får SSS eller zSSS</translation>
     </message>
     <message>

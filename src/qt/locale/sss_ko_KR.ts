@@ -907,7 +907,7 @@ for staking</source>
         <translation>자신에게</translation>
     </message>
     <message>
-        <source>How to get SSS or zSSS</source>
+        <source>How to get SSS</source>
         <translation>SSS 혹은 zSSS를 얻는 법</translation>
     </message>
     <message>

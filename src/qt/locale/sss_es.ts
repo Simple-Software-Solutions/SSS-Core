@@ -1210,7 +1210,7 @@ del propietario </translation>
         <translation>Aún no hay transacciones</translation>
     </message>
     <message>
-        <source>How to get SSS or zSSS</source>
+        <source>How to get SSS</source>
         <translation>Cómo obtener SSS o zSSS</translation>
     </message>
     <message>

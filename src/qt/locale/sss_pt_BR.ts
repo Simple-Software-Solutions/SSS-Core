@@ -966,7 +966,7 @@ para 'Staking'</translation>
         <translation>Nenhuma transação ainda</translation>
     </message>
     <message>
-        <source>How to get SSS or zSSS</source>
+        <source>How to get SSS</source>
         <translation>Como obter o SSS ou zSSS</translation>
     </message>
     <message>

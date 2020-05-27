@@ -1513,7 +1513,7 @@ address</source>
     </message>
     <message>
         <location line="+5"/>
-        <source>How to get SSS or zSSS</source>
+        <source>How to get SSS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

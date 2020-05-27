@@ -1096,7 +1096,7 @@ stake in your behalf, keeping the keys in a secure place offline.</source>
         <translation>Pas encore de transaction</translation>
     </message>
     <message>
-        <source>How to get SSS or zSSS</source>
+        <source>How to get SSS</source>
         <translation>Comment obtenir des SSS ou zSSS</translation>
     </message>
     <message>

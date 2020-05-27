@@ -1212,7 +1212,7 @@ kopyala</translation>
         <translation>İşlem bulunmuyor</translation>
     </message>
     <message>
-        <source>How to get SSS or zSSS</source>
+        <source>How to get SSS</source>
         <translation>SSS veya zSSS nasıl alınır</translation>
     </message>
     <message>

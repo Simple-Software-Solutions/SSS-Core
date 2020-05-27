@@ -829,7 +829,7 @@
         <translation>Još nema transakcija</translation>
     </message>
     <message>
-        <source>How to get SSS or zSSS</source>
+        <source>How to get SSS</source>
         <translation>Kako dobiti SSS ili zSSS</translation>
     </message>
     <message>

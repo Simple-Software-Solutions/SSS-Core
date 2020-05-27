@@ -990,7 +990,7 @@ for staking</source>
         <translation>Keine Transaktionen</translation>
     </message>
     <message>
-        <source>How to get SSS or zSSS</source>
+        <source>How to get SSS</source>
         <translation>Wie bekommt man SSS oder zSSS</translation>
     </message>
     <message>

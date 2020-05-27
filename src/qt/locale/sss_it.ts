@@ -1211,7 +1211,7 @@ proprietario</translation>
         <translation>Ancora nessuna transazione</translation>
     </message>
     <message>
-        <source>How to get SSS or zSSS</source>
+        <source>How to get SSS</source>
         <translation>Come ottenere SSS o zSSS</translation>
     </message>
     <message>

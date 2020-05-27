@@ -1210,7 +1210,7 @@ address</source>
         <translation>Nog geen transacties</translation>
     </message>
     <message>
-        <source>How to get SSS or zSSS</source>
+        <source>How to get SSS</source>
         <translation>Hoe SSS of zSSS verkrijgen</translation>
     </message>
     <message>

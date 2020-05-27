@@ -1211,7 +1211,7 @@ address</source>
         <translation>暂无交易</translation>
     </message>
     <message>
-        <source>How to get SSS or zSSS</source>
+        <source>How to get SSS</source>
         <translation>如何获取SSS 或 zSSS</translation>
     </message>
     <message>

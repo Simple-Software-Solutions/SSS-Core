@@ -1209,7 +1209,7 @@ address</source>
         <translation>Пока что нет транзакций</translation>
     </message>
     <message>
-        <source>How to get SSS or zSSS</source>
+        <source>How to get SSS</source>
         <translation>Как получить SSS или zSSS</translation>
     </message>
     <message>

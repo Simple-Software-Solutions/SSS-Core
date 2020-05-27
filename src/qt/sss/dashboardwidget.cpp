@@ -133,7 +133,7 @@ DashboardWidget::DashboardWidget(SSSGUI* parent) :
     setCssProperty(ui->chartContainer, "container-chart");
     setCssProperty(ui->pushImgEmptyChart, "img-empty-staking-on");
 
-    ui->btnHowTo->setText(tr("How to get SSS or zSSS"));
+    ui->btnHowTo->setText(tr("How to get SSS"));
     setCssBtnSecondary(ui->btnHowTo);
 
 
