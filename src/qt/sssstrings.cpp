@@ -216,7 +216,7 @@ QT_TRANSLATE_NOOP("sss-core", ""
 "Unable to locate enough Obfuscation non-denominated funds for this "
 "transaction that are not equal 2500 SSS."),
 QT_TRANSLATE_NOOP("sss-core", ""
-"Unable to locate enough funds for this transaction that are not equal 10000 "
+"Unable to locate enough funds for this transaction that are not equal 2500 "
 "SSS."),
 QT_TRANSLATE_NOOP("sss-core", ""
 "Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: "
