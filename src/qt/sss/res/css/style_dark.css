@@ -923,7 +923,7 @@ HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH*/
 }
 
 *[cssClass="text-list-body2"] {
-    color:#161525;
+    color:#ffffff;
     font-size:15.5px;
 }
 
@@ -1840,7 +1840,7 @@ HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH*/
 
 
 *[cssClass="text-amount-grey"] {
-    color:#161525;
+    color:#ffffff;
     font-size:20px;
 }
 
@@ -2762,7 +2762,7 @@ HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH*/
 }
 
 *[cssClass="text-subtitle-faq"] {
-    color:#161525;
+    color:#ffffff;
     font-size:22px;
 }
 
@@ -2888,7 +2888,7 @@ QPushButton[cssClass="ic-step-confirm-welcome"] {
 }
 
 *[cssClass="text-title-welcome"] {
-    color:#161525;
+    color:#ffffff;
     font-size:26px;
 }
 
@@ -3312,7 +3312,7 @@ HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH*/
 }
 
 *[cssClass="text-snackbar"]{
-    color:#161525;
+    color:#ffffff;
     font-size:20px;
 }
 
@@ -3327,7 +3327,7 @@ HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 }
 
 *[cssClass="text-loading"]{
-    color:#161525;
+    color:#ffffff;
     font-size:20px;
 }
 
