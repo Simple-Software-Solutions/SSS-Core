@@ -222,7 +222,7 @@
                       <enum>Qt::NoFocus</enum>
                      </property>
                      <property name="text">
-                      <string>3) SSS privacy? What is Zerocoin (zSSS)?</string>
+                      <string></string>
                      </property>
                      <property name="checkable">
                       <bool>true</bool>
@@ -250,7 +250,7 @@
                       <enum>Qt::NoFocus</enum>
                      </property>
                      <property name="text">
-                      <string>4) Why are my zSSS unspendable?</string>
+                      <string></string>
                      </property>
                      <property name="checkable">
                       <bool>true</bool>
@@ -272,8 +272,8 @@
                       <enum>Qt::NoFocus</enum>
                      </property>
                      <property name="text">
-                      <string>5) Why did my wallet convert the balance
-    into zSSS automatically?</string>
+                      <string>
+                      </string>
                      </property>
                      <property name="checkable">
                       <bool>true</bool>
@@ -295,7 +295,7 @@
                       <enum>Qt::NoFocus</enum>
                      </property>
                      <property name="text">
-                      <string>6) How do I receive SSS/zSSS?</string>
+                      <string>6) How do I receive SSS?</string>
                      </property>
                      <property name="checkable">
                       <bool>true</bool>
@@ -317,7 +317,7 @@
                       <enum>Qt::NoFocus</enum>
                      </property>
                      <property name="text">
-                      <string>7) How do I stake SSS/zSSS?</string>
+                      <string>7) How do I stake SSS?</string>
                      </property>
                      <property name="checkable">
                       <bool>true</bool>
@@ -626,9 +626,7 @@
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
                            SSS is a form of digital online money using blockchain technology
                            that can be easily transferred globally, instantly, and with near
-                           zero fees.  SSS incorporates market leading security &amp;
-                           privacy and is also the first PoS (Proof of Stake) Cryptocurrency
-                           to implement ZeroCoin(zSSS) and Zerocoin staking.
+                           zero fees.  SSS incorporates market leading security.
                            &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
                            SSS utilizes a Proof of Stake (PoS) consensus system algorithm,
                            allowing all owners of SSS to participate in earning block rewards
@@ -800,7 +798,7 @@
                       <item>
                        <widget class="QLabel" name="labelSubtitle3">
                         <property name="text">
-                         <string>SSS privacy? What is Zerocoin (zSSS)?</string>
+                         <string></string>
                         </property>
                         <property name="wordWrap">
                          <bool>true</bool>
@@ -827,13 +825,6 @@
                        <widget class="QLabel" name="labelContent3">
                         <property name="text">
                          <string>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
-                           zSSS is an optional privacy-centric method of coin mixing on the
-                           SSS blockchain. Basically all your transactions cannot be tracked
-                           on to any block explorer. You can read more about the technicals in the
-                           &lt;a style='color: #b088ff' href='https://SSS.org/zsss/'&gt;
-                           &quot;SSS Zerocoin (zSSS) Technical Paper&quot;&lt;/a&gt;.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </string>
                         </property>
                         <property name="alignment">
@@ -898,7 +889,7 @@
                       <item>
                        <widget class="QLabel" name="labelSubtitle4">
                         <property name="text">
-                         <string>Why are my zSSS unspendable?</string>
+                         <string></string>
                         </property>
                         <property name="wordWrap">
                          <bool>true</bool>
@@ -922,14 +913,9 @@
                        </spacer>
                       </item>
                       <item>
-                       <widget class="QLabel" name="labelContent4">
+                      <widget class="QLabel" name="labelContent4">
                         <property name="text">
                          <string>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
-                           After minting, zSSS will require 20 confirmations as well as 1
-                           additional mint of the same denomination on the network to
-                           become eligible for spending.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </string>
                         </property>
                         <property name="alignment">
@@ -994,7 +980,7 @@
                       <item>
                        <widget class="QLabel" name="labelSubtitle5">
                         <property name="text">
-                         <string>Why did my wallet convert the balance into zSSS automatically?</string>
+                         <string></string>
                         </property>
                         <property name="wordWrap">
                          <bool>true</bool>
@@ -1021,21 +1007,6 @@
                        <widget class="QLabel" name="labelContent5">
                         <property name="text">
                          <string>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
-                           By default the SSS wallet will convert 10% of your entire SSS
-                           balance to zSSS to assist the network. If you do not wish to
-                           stake zSSS or take advantage of the privacy benefit it brings,
-                           you can disable the automatic minting in your SSS wallet by
-                           going to Settings-&gt;Options and deselecting “Enable zSSS Automint”.
-                           If you are not making use of the SSS-QT or GUI you can simply open
-                           your sss.conf file and add &lt;i&gt;enablezeromint=0&lt;/i&gt; Without the quotation
-                           marks and restart your wallet to disable automint.&lt;/p&gt;
-                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
-                           You can read more about zSSS in the
-                           &lt;a style='color: #b088ff' href='https://SSS.org/zsss/'&gt; &quot;SSS Zerocoin (zSSS) Technical Paper&quot;&lt;/a&gt;.
-                           If you would like to keep and stake your zSSS, please read the &quot;How do I stake&quot;
-                           section of the FAQ below.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </string>
                         </property>
                         <property name="alignment">
@@ -1103,7 +1074,7 @@
                       <item>
                        <widget class="QLabel" name="labelSubtitle6">
                         <property name="text">
-                         <string>How do I receive SSS/zSSS?</string>
+                         <string>How do I receive SSS?</string>
                         </property>
                         <property name="wordWrap">
                          <bool>true</bool>
@@ -1130,12 +1101,6 @@
                        <widget class="QLabel" name="labelContent6">
                         <property name="text">
                          <string>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
-                           zSSS can be spent and sent to any SSS address. The receiver will
-                           receive standard SSS but the origin of the SSS is anonymized by the zSSS Protocol.
-                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
-                           If you want more zSSS you will need to mint your balance in the “Privacy” tab.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </string>
                         </property>
                         <property name="alignment">
@@ -1200,7 +1165,7 @@
                       <item>
                        <widget class="QLabel" name="labelSubtitle7">
                         <property name="text">
-                         <string>How do I stake SSS/zSSS?</string>
+                         <string>How do I stake SSS?</string>
                         </property>
                         <property name="wordWrap">
                          <bool>true</bool>
@@ -1242,17 +1207,6 @@
                            You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. There package will be lit up and will state &quot;Staking Enabled&quot; to indicate it is staking.  Using the command line interface (sss-cli); the command &lt;i&gt;getstakingstatus&lt;/i&gt; will confirm that staking is active.
                            &lt;/li&gt;&lt;/ol&gt;
                            &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
-                           To Stake zSSS:
-                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
-                           &lt;ol&gt;&lt;li&gt;
-                           Make sure your wallet is completely synchronized and you are using the latest release.
-                           &lt;li&gt;
-                           Your newly minted or existing zSSS balance must have a minimum of 200 confirmations.
-                           &lt;li&gt;
-                           Your wallet must stay online and be unlocked for anonymization and staking purposes.
-                           Staking should now be enabled.
-                           &lt;/li&gt;&lt;/ol&gt;
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </string>
                         </property>
                         <property name="alignment">

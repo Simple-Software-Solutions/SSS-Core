@@ -17,7 +17,7 @@
 		</defs>
 		<mask maskUnits="userSpaceOnUse" x="0" y="0" width="16.938" height="20" id="mask-2">
 			<g filter="url(#Adobe_OpacityMaskFilter)">
-				<polygon id="path-1" fill="#FFFFFF" points="0,0 16.938,0 16.938,20 0,20 				"/>
+				<polygon id="path-1" fill="none" points="0,0 16.938,0 16.938,20 0,20 				"/>
 			</g>
 		</mask>
 		<path id="Fill-1" mask="url(#mask-2)" fill="#007BFE" d="M10.038,2c0.265,0,0.524,0.013,0.785,0.038

@@ -364,14 +364,14 @@ QPushButton[cssClass="img-nav-logo"] {
 
 *[cssClass="btn-nav-governance"]:checked {
     qproperty-icon: url("://ic-nav-governance-active");
-    background-color: qlineargradient(x1:0, x2: 1, stop: 0 #594825, stop: 1 #2b2216);
+    background-color: qlineargradient(x1:0, x2: 1, stop: 0 #3c2559, stop: 1 #1f162b);
     font-size:14px;
-    color: #9c7019;
+    color: #a5988d;
 }
 
 *[cssClass="btn-nav-governance"]:checked:hover {
-    background-color: qlineargradient(x1:0, x2: 1, stop: 0 #594825, stop: 1 #2b2216);
-    color: #9c7019;
+    background-color: qlineargradient(x1:0, x2: 1, stop: 0 #3c2559, stop: 1 #1f162b);
+    color: #a5988d;
 }
 
 *[cssClass="btn-nav-governance"]:hover {
@@ -384,9 +384,9 @@ QPushButton[cssClass="img-nav-logo"] {
 *[cssClass="btn-nav-governance-active"] {
     qproperty-icon:url("://ic-nav-governance-active");
     qproperty-iconSize: 24px 30px;
-    background-color: qlineargradient(x1:0, x2: 1, stop: 0 #594825, stop: 1 #2b2216);
+    background-color: qlineargradient(x1:0, x2: 1, stop: 0 #3c2559, stop: 1 #1f162b);
     font-size:14px;
-    color: #9c7019;
+    color: #a5988d;
 }
 
 /*HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
@@ -1394,7 +1394,7 @@ QPushButton[cssClass="btn-primary-2"]:pressed {
     font-size:18px;
     padding:4px 10px;
     margin-right: 80px!important;
-    color: #9c7019;
+    color: #a5988d;
     border-radius: 2px;
 }
 
@@ -3451,7 +3451,7 @@ QRadioButton[cssClass="radio-welcome"]::indicator:unchecked {
 }
 
 *[cssClass="GovernancePage-ProposalFrame-proposalFrame"] {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #B6A27E, stop: 1 #B6A17E);
+    background-color: qlineargradient(x1:0, x2: 1, stop: 0 #3c2559, stop: 1 #1f162b);
     border-radius: 5px;
     margin: 2px;
     max-height: 250px;
@@ -3497,7 +3497,7 @@ QWidget#GovernancePage .QGridLayout#proposalGrid {
 }
 
 *[cssClass="GovernancePage-ProposalFrame-proposalFrame"] {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #B6A27E, stop: 1 #B6A17E);
+    background-color: qlineargradient(x1:0, x2: 1, stop: 0 #3c2559, stop: 1 #1f162b);
     border-radius: 5px;
     margin: 2px;
     max-height: 250px;
