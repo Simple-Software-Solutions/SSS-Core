@@ -1,17 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="750" height="520" viewBox="0 0 750 520">
-    <defs>
-        <style>
-            .cls-1{stroke:#b088ff;fill:url(#linear-gradient)}.cls-2{stroke:none}.cls-3{fill:none}
-        </style>
-        <linearGradient id="linear-gradient" x1=".993" x2=".007" y1="1" y2=".014" gradientUnits="objectBoundingBox">
-            <stop offset="0" stop-color="#1c1429"/>
-            <stop offset="1" stop-color="#322448"/>
-        </linearGradient>
-    </defs>
-    <g id="bg" transform="translate(-225 -140)">
-        <g id="Rectangle_4754" class="cls-1" data-name="Rectangle 4754" transform="translate(225 140)">
-            <rect width="750" height="520" class="cls-2" rx="4"/>
-            <rect width="749" height="519" x=".5" y=".5" class="cls-3" rx="3.5"/>
-        </g>
-    </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="750px" height="520px" viewBox="0 0 750 520" enable-background="new 0 0 750 520" xml:space="preserve">
+<g id="bg" transform="translate(-225 -140)">
+	<g id="Rectangle_4754" transform="translate(225 140)">
+		<path fill="#161625" d="M4,0h742c2.209,0,4,1.791,4,4v512c0,2.209-1.791,4-4,4H4c-2.209,0-4-1.791-4-4V4C0,1.791,1.791,0,4,0z"/>
+		<path fill="#161625" d="M4,0.5h742c1.933,0,3.5,1.567,3.5,3.5v512c0,1.933-1.567,3.5-3.5,3.5H4c-1.933,0-3.5-1.567-3.5-3.5V4
+			C0.5,2.067,2.067,0.5,4,0.5z"/>
+	</g>
+</g>
 </svg>

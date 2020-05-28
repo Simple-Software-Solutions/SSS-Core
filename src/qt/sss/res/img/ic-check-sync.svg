@@ -1,12 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision">
-    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
-    <title>Top Bar Sync</title>
-    <desc>Created with Sketch.</desc>
-    <g id="Top-Bar-Sync" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Group" transform="translate(3.000000, 2.000000)" fill="#FFFFFF" fill-rule="nonzero">
-            <path d="M9,17 C6.7091695,17.0037775 4.56252572,15.8824243 3.257,14 L6,14 L6,12 L1.91846539e-13,12 L1.91846539e-13,18 L2,18 L2,15.628 C4.38512581,18.6101588 8.39479686,19.7586985 11.9970926,18.491591 C15.5993884,17.2244835 18.0070568,13.8186446 18.0000155,10 L16,10 C15.9950416,13.8639376 12.8639376,16.9950416 9,17 Z" id="Path_18901"></path>
-            <path d="M16,2 L16,4.37 C13.6140871,1.38879836 9.60454793,0.241226531 6.0026343,1.50864989 C2.40072068,2.77607325 -0.00669322382,6.18161043 -1.39212059e-05,10 L2,10 C1.99972549,6.94124698 3.98547525,4.23651555 6.90387111,3.32058119 C9.82226696,2.40464683 12.9974156,3.48963768 14.745,6 L12,6 L12,8 L18,8 L18,2 L16,2 Z" id="Path_18902"></path>
-        </g>
-    </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" shape-rendering="geometricPrecision"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px"
+	 viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+<title>Top Bar Sync</title>
+<desc>Created with Sketch.</desc>
+<g id="Top-Bar-Sync">
+	<g id="Group" transform="translate(3.000000, 2.000000)">
+		<path id="Path_18901" fill="#007BFE" d="M9,17c-2.291,0.004-4.438-1.117-5.743-3H6v-2H0v6h2v-2.372
+			c2.385,2.982,6.395,4.131,9.997,2.864C15.6,17.225,18.007,13.818,18,10h-2C15.995,13.863,12.863,16.995,9,17z"/>
+		<path id="Path_18902" fill="#007BFE" d="M16,2v2.37c-2.386-2.981-6.396-4.129-9.998-2.861C2.401,2.776-0.007,6.182,0,10h2
+			c0-3.059,1.985-5.764,4.904-6.68C9.822,2.405,12.998,3.49,14.745,6H12v2h6V2H16z"/>
+	</g>
+</g>
 </svg>
