@@ -484,7 +484,7 @@ void MasterNodesWidget::onCreateMNClicked()
     }
 
     if (walletModel->getBalance() <= (COIN * 10000)) {
-        inform(tr("Not enough balance to create a masternode, 10,000 SSS required."));
+        inform(tr("Not enough balance to create a masternode, 2,500 SSS required."));
         return;
     }
     showHideOp(true);

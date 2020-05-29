@@ -1435,7 +1435,7 @@ Den startar automatiskt så snart plånboken har tillräckligt många bekräftel
         <translation>Ställ in Masternode namn</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A transaction of 10,000 SSS will be made&lt;/p&gt;&lt;p&gt;to a new empty address in your wallet.&lt;/p&gt;&lt;p&gt;The Address is labeled under the master node's name.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A transaction of 2,500 SSS will be made&lt;/p&gt;&lt;p&gt;to a new empty address in your wallet.&lt;/p&gt;&lt;p&gt;The Address is labeled under the master node's name.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>En transaktion på 10 000 SSS kommer göras till en ny tom adress i din plånbok. Adressen är märkt under huvudnodens namn.</translation>
     </message>
     <message>
@@ -1701,7 +1701,7 @@ Are you sure?</source>
         <translation>Masternode conf file existerar inte</translation>
     </message>
     <message>
-        <source>Not enough balance to create a masternode, 10,000 SSS required.</source>
+        <source>Not enough balance to create a masternode, 2,500 SSS required.</source>
         <translation>Inte nog på saldot för att skapa en Masternode, 2500 SSS behövs.</translation>
     </message>
     <message>
