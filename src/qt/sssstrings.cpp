@@ -256,10 +256,10 @@ QT_TRANSLATE_NOOP("sss-core", ""
 QT_TRANSLATE_NOOP("sss-core", ""
 "You must specify a masternodeprivkey in the configuration. Please see "
 "documentation for help."),
-QT_TRANSLATE_NOOP("sss-core", "(51472 could be used only on mainnet)"),
+QT_TRANSLATE_NOOP("sss-core", "(6740 could be used only on mainnet)"),
 QT_TRANSLATE_NOOP("sss-core", "(default: %s)"),
 QT_TRANSLATE_NOOP("sss-core", "(default: 1)"),
-QT_TRANSLATE_NOOP("sss-core", "(must be 51472 for mainnet)"),
+QT_TRANSLATE_NOOP("sss-core", "(must be 6740 for mainnet)"),
 QT_TRANSLATE_NOOP("sss-core", "<category> can be:"),
 QT_TRANSLATE_NOOP("sss-core", "Accept command line and JSON-RPC commands"),
 QT_TRANSLATE_NOOP("sss-core", "Accept connections from outside (default: 1 if no -proxy or -connect)"),
