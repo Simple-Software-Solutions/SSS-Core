@@ -222,7 +222,7 @@
                       <enum>Qt::NoFocus</enum>
                      </property>
                      <property name="text">
-                      <string></string>
+                      <string>3) Where should I go if I need support?</string>
                      </property>
                      <property name="checkable">
                       <bool>true</bool>
@@ -250,7 +250,7 @@
                       <enum>Qt::NoFocus</enum>
                      </property>
                      <property name="text">
-                      <string></string>
+                      <string>4) What is a Masternode?</string>
                      </property>
                      <property name="checkable">
                       <bool>true</bool>
@@ -272,8 +272,7 @@
                       <enum>Qt::NoFocus</enum>
                      </property>
                      <property name="text">
-                      <string>
-                      </string>
+                      <string>5) What is a Masternode Controller?</string>
                      </property>
                      <property name="checkable">
                       <bool>true</bool>
@@ -339,7 +338,7 @@
                       <enum>Qt::NoFocus</enum>
                      </property>
                      <property name="text">
-                      <string>8) Where I should go if I need support?</string>
+                      <string></string>
                      </property>
                      <property name="checkable">
                       <bool>true</bool>
@@ -361,7 +360,7 @@
                       <enum>Qt::NoFocus</enum>
                      </property>
                      <property name="text">
-                      <string>9) What is a Masternode?</string>
+                      <string></string>
                      </property>
                      <property name="checkable">
                       <bool>true</bool>
@@ -383,7 +382,7 @@
                       <enum>Qt::NoFocus</enum>
                      </property>
                      <property name="text">
-                      <string>10) What is a Masternode Controller?</string>
+                      <string></string>
                      </property>
                      <property name="checkable">
                       <bool>true</bool>
@@ -798,7 +797,7 @@
                       <item>
                        <widget class="QLabel" name="labelSubtitle3">
                         <property name="text">
-                         <string></string>
+                         <string>Where should I go if I need support?</string>
                         </property>
                         <property name="wordWrap">
                          <bool>true</bool>
@@ -824,7 +823,10 @@
                       <item>
                        <widget class="QLabel" name="labelContent3">
                         <property name="text">
-                         <string>
+                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
+                           We have support channels in most of our official chat groups, for example
+                           &lt;a style='color: #b088ff' href='https://discord.gg/3PjpXV'&gt;
+                           #support in our Discord&lt;/a&gt;.
                          </string>
                         </property>
                         <property name="alignment">
@@ -889,7 +891,7 @@
                       <item>
                        <widget class="QLabel" name="labelSubtitle4">
                         <property name="text">
-                         <string></string>
+                         <string>What is a Masternode?</string>
                         </property>
                         <property name="wordWrap">
                          <bool>true</bool>
@@ -915,7 +917,46 @@
                       <item>
                       <widget class="QLabel" name="labelContent4">
                         <property name="text">
-                         <string>
+                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
+                           A masternode is a computer running a full node SSS Core wallet with a
+                           requirement of 2,500 SSS secured collateral to provide extra services
+                           to the network and in return, receive a portion of the block reward
+                           regularly.  These services include:
+                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
+
+                           &lt;ul&gt;
+                           &lt;li&gt;Instant transactions (SwiftX)&lt;/li&gt;
+                           &lt;li&gt;A decentralized governance (Proposal Voting)&lt;/li&gt;
+                           &lt;li&gt;A decentralized budgeting system (Treasury)&lt;/li&gt;
+                           &lt;li&gt;Validation of transactions within each block&lt;/li&gt;
+                           &lt;li&gt;Act as an additional full node in the network&lt;/li&gt;
+                           &lt;/ul&gt;
+
+                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
+                           For providing such services, masternodes are also paid a certain portion
+                           of reward for each block. This can serve as a passive income to the
+                           masternode owners minus their running cost.
+                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
+
+                           Masternode Perks:
+                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
+                           &lt;ul&gt;
+                           &lt;li&gt;Participate in SSS Governance&lt;/li&gt;
+                           &lt;li&gt;Earn Masternode Rewards&lt;/li&gt;
+                           &lt;li&gt;Commodity option for future sale&lt;/li&gt;
+                           &lt;li&gt;Help secure the SSS network&lt;/li&gt;
+                           &lt;/ul&gt;
+                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
+
+                           Requirements:
+                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
+                           &lt;ul&gt;
+                           &lt;li&gt;2,500 SSS per single Masternode instance&lt;/li&gt;
+                           &lt;li&gt;Must be stored in a core wallet&lt;/li&gt;
+                           &lt;li&gt;Need dedicated IP address&lt;/li&gt;
+                           &lt;li&gt;Masternode wallet to remain online&lt;/li&gt;
+                           &lt;/ul&gt;
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </string>
                         </property>
                         <property name="alignment">
@@ -980,7 +1021,7 @@
                       <item>
                        <widget class="QLabel" name="labelSubtitle5">
                         <property name="text">
-                         <string></string>
+                         <string>What is a Masternode Controller?</string>
                         </property>
                         <property name="wordWrap">
                          <bool>true</bool>
@@ -1006,7 +1047,7 @@
                       <item>
                        <widget class="QLabel" name="labelContent5">
                         <property name="text">
-                         <string>
+                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;A Masternode Controller wallet is where the 2,500 SSS collateral can reside during a Controller-Remote masternode setup. It is a wallet that can activate the remote masternode wallet(s) and allows you to keep your collateral coins offline while the remote masternode remains online. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </string>
                         </property>
                         <property name="alignment">
@@ -1100,7 +1141,7 @@
                       <item>
                        <widget class="QLabel" name="labelContent6">
                         <property name="text">
-                         <string>
+                         <string>SSSolutions is listed on Vindax exchange currently and looking for more. You can find us at https://vindax.com/
                          </string>
                         </property>
                         <property name="alignment">
@@ -1271,7 +1312,7 @@
                       <item>
                        <widget class="QLabel" name="labelSubtitle8">
                         <property name="text">
-                         <string>Where should I go if I need support?</string>
+                         <string></string>
                         </property>
                         <property name="wordWrap">
                          <bool>true</bool>
@@ -1297,16 +1338,7 @@
                       <item>
                        <widget class="QLabel" name="labelContent8">
                         <property name="text">
-                         <string>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
-                           We have support channels in most of our official chat groups, for example
-                           &lt;a style='color: #b088ff' href='https://discord.SSS.org'&gt;
-                           #support in our Discord&lt;/a&gt;.
-                           If you prefer to submit a ticket, One can be
-                           &lt;a style='color: #b088ff' href='https://SSS.freshdesk.com'&gt;
-                           our Freshdesk support site&lt;/a&gt;.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </string>
+                         <string></string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -1370,7 +1402,7 @@
                       <item>
                        <widget class="QLabel" name="labelSubtitle9">
                         <property name="text">
-                         <string>What is a Masternode?</string>
+                         <string></string>
                         </property>
                         <property name="wordWrap">
                          <bool>true</bool>
@@ -1396,48 +1428,7 @@
                       <item>
                        <widget class="QLabel" name="labelContent9">
                         <property name="text">
-                         <string>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
-                           A masternode is a computer running a full node SSS Core wallet with a
-                           requirement of 2,500 SSS secured collateral to provide extra services
-                           to the network and in return, receive a portion of the block reward
-                           regularly.  These services include:
-                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
-
-                           &lt;ul&gt;
-                           &lt;li&gt;Instant transactions (SwiftX)&lt;/li&gt;
-                           &lt;li&gt;A decentralized governance (Proposal Voting)&lt;/li&gt;
-                           &lt;li&gt;A decentralized budgeting system (Treasury)&lt;/li&gt;
-                           &lt;li&gt;Validation of transactions within each block&lt;/li&gt;
-                           &lt;li&gt;Act as an additional full node in the network&lt;/li&gt;
-                           &lt;/ul&gt;
-
-                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
-                           For providing such services, masternodes are also paid a certain portion
-                           of reward for each block. This can serve as a passive income to the
-                           masternode owners minus their running cost.
-                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
-
-                           Masternode Perks:
-                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
-                           &lt;ul&gt;
-                           &lt;li&gt;Participate in SSS Governance&lt;/li&gt;
-                           &lt;li&gt;Earn Masternode Rewards&lt;/li&gt;
-                           &lt;li&gt;Commodity option for future sale&lt;/li&gt;
-                           &lt;li&gt;Help secure the SSS network&lt;/li&gt;
-                           &lt;/ul&gt;
-                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
-
-                           Requirements:
-                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
-                           &lt;ul&gt;
-                           &lt;li&gt;2,500 SSS per single Masternode instance&lt;/li&gt;
-                           &lt;li&gt;Must be stored in a core wallet&lt;/li&gt;
-                           &lt;li&gt;Need dedicated IP address&lt;/li&gt;
-                           &lt;li&gt;Masternode wallet to remain online&lt;/li&gt;
-                           &lt;/ul&gt;
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </string>
+                         <string></string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -1501,7 +1492,7 @@
                       <item>
                        <widget class="QLabel" name="labelSubtitle10">
                         <property name="text">
-                         <string>What is a Masternode Controller?</string>
+                         <string></string>
                         </property>
                         <property name="wordWrap">
                          <bool>true</bool>
@@ -1527,7 +1518,7 @@
                       <item>
                        <widget class="QLabel" name="labelContent10">
                         <property name="text">
-                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;A Masternode Controller wallet is where the 2,500 SSS collateral can reside during a Controller-Remote masternode setup. It is a wallet that can activate the remote masternode wallet(s) and allows you to keep your collateral coins offline while the remote masternode remains online. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                         <string></string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>

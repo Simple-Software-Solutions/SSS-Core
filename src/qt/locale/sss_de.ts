@@ -3491,7 +3491,7 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>5) Wieso hat meine Wallet automatisch das Guthaben in zSSS gewechselt?</translation>
     </message>
     <message>
-        <source>6) How do I receive SSS/zSSS?</source>
+        <source>6) How do I receive SSS?</source>
         <translation>6) Wie empfange ich SSS/zSSS?</translation>
     </message>
     <message>
@@ -3551,7 +3551,7 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>Wieso hat meine Wallet automatisch das Guthaben in zSSS gewechselt?</translation>
     </message>
     <message>
-        <source>How do I receive SSS/zSSS?</source>
+        <source>How do I receive SSS?</source>
         <translation>Wie empfange ich SSS/zSSS?</translation>
     </message>
     <message>

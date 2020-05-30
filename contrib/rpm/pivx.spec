@@ -20,8 +20,8 @@ Summary:	Peer to Peer Cryptographic Currency
 
 Group:		Applications/System
 License:	MIT
-URL:		https://sss.org/
-Source0:	https://sss.org/bin/sss-core-%{version}/sss-%{version}.tar.gz
+URL:		https://sssolutions.io/
+Source0:	https://sssolutions.io/bin/sss-core-%{version}/sss-%{version}.tar.gz
 Source1:	http://download.oracle.com/berkeley-db/db-%{bdbv}.NC.tar.gz
 
 Source10:	https://raw.githubusercontent.com/sss-core/sss/v%{version}/contrib/debian/examples/sss.conf

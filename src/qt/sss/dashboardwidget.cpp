@@ -53,10 +53,12 @@ DashboardWidget::DashboardWidget(SSSGUI* parent) :
     setCssSubtitleScreen(ui->labelSubtitle);
 
     // Staking Information
-    ui->labelMessage->setText(tr("Amount of SSS and zSSS staked."));
+    ui->labelMessage->setText(tr("Amount of SSS staked."));
     setCssSubtitleScreen(ui->labelMessage);
     setCssProperty(ui->labelSquareSSS, "square-chart-SSS");
+    ui->labelSquarezSSS->setVisible(false);
     setCssProperty(ui->labelSquarezSSS, "square-chart-zsss");
+    ui->labelzSSS->setVisible(false);
     setCssProperty(ui->labelSSS, "text-chart-SSS");
     setCssProperty(ui->labelzSSS, "text-chart-zsss");
 
@@ -67,6 +69,7 @@ DashboardWidget::DashboardWidget(SSSGUI* parent) :
     setCssProperty(ui->labelChart, "legend-chart");
 
     ui->labelAmountzSSS->setText("0 zSSS");
+    ui->labelAmountzSSS->setVisible(false);
     ui->labelAmountSSS->setText("0 SSS");
     setCssProperty(ui->labelAmountSSS, "text-stake-SSS-disable");
     setCssProperty(ui->labelAmountzSSS, "text-stake-zsss-disable");

@@ -5216,7 +5216,7 @@ Verify that you have installed a predetermined text editor.</source>
     </message>
     <message>
         <location line="+23"/>
-        <source>6) How do I receive SSS/zSSS?</source>
+        <source>6) How do I receive SSS?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5307,7 +5307,7 @@ Verify that you have installed a predetermined text editor.</source>
                            zSSS is an optional privacy-centric method of coin mixing on the
                            SSS blockchain. Basically all your transactions cannot be tracked
                            on to any block explorer. You can read more about the technicals in the
-                           &lt;a style=&apos;color: #b088ff&apos; href=&apos;https://SSS.org/zsss/&apos;&gt;
+                           &lt;a style=&apos;color: #b088ff&apos; href=&apos;https://sssolutions.io/zsss/&apos;&gt;
                            &quot;SSS Zerocoin (zSSS) Technical Paper&quot;&lt;/a&gt;.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </source>
@@ -5358,7 +5358,7 @@ Verify that you have installed a predetermined text editor.</source>
                            marks and restart your wallet to disable automint.&lt;/p&gt;
                            &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
                            You can read more about zSSS in the
-                           &lt;a style=&apos;color: #b088ff&apos; href=&apos;https://SSS.org/zsss/&apos;&gt; &quot;SSS Zerocoin (zSSS) Technical Paper&quot;&lt;/a&gt;.
+                           &lt;a style=&apos;color: #b088ff&apos; href=&apos;https://sssolutions.io/zsss/&apos;&gt; &quot;SSS Zerocoin (zSSS) Technical Paper&quot;&lt;/a&gt;.
                            If you would like to keep and stake your zSSS, please read the &quot;How do I stake&quot;
                            section of the FAQ below.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
@@ -5372,7 +5372,7 @@ Verify that you have installed a predetermined text editor.</source>
     </message>
     <message>
         <location line="+21"/>
-        <source>How do I receive SSS/zSSS?</source>
+        <source>How do I receive SSS?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

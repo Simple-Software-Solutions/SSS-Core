@@ -4137,7 +4137,7 @@ Verifica que tengas instalado un editor de texto predeterminado.</translation>
         <translation>5) ¿Por qué mi billetera convirtió el saldo en zSSS automáticamente?</translation>
     </message>
     <message>
-        <source>6) How do I receive SSS/zSSS?</source>
+        <source>6) How do I receive SSS?</source>
         <translation>6) ¿Cómo recibo SSS/zSSS?</translation>
     </message>
     <message>
@@ -4225,14 +4225,14 @@ Tu cartera SSS también necesita estar completamente sincronizada para que pueda
                            zSSS is an optional privacy-centric method of coin mixing on the
                            SSS blockchain. Basically all your transactions cannot be tracked
                            on to any block explorer. You can read more about the technicals in the
-                           &lt;a style='color: #b088ff' href='https://SSS.org/zsss/'&gt;
+                           &lt;a style='color: #b088ff' href='https://sssolutions.io/zsss/'&gt;
                            "SSS Zerocoin (zSSS) Technical Paper"&lt;/a&gt;.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </source>
         <translation>
 &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt; 
 zSSS es un método opcional centrado en la privacidad de monedas en la Blockchain SSS. Básicamente, todas sus transacciones no pueden ser rastreadas en ningún explorador de bloques. Puedes leer más sobre los aspectos técnicos en el
- &lt;a style='color: #b088ff' href='https://SSS.org/zsss/'&gt;
+ &lt;a style='color: #b088ff' href='https://sssolutions.io/zsss/'&gt;
 "Documentación Técnica de SSS Zerocoin (zSSS) ". &lt;/a&gt;.
 &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
 </translation>
@@ -4277,7 +4277,7 @@ zSSS es un método opcional centrado en la privacidad de monedas en la Blockchai
                            marks and restart your wallet to disable automint.&lt;/p&gt;
                            &lt;/p&gt;&lt;p align="justify"&gt;
                            You can read more about zSSS in the
-                           &lt;a style='color: #b088ff' href='https://SSS.org/zsss/'&gt; "SSS Zerocoin (zSSS) Technical Paper"&lt;/a&gt;.
+                           &lt;a style='color: #b088ff' href='https://sssolutions.io/zsss/'&gt; "SSS Zerocoin (zSSS) Technical Paper"&lt;/a&gt;.
                            If you would like to keep and stake your zSSS, please read the "How do I stake"
                            section of the FAQ below.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
@@ -4294,7 +4294,7 @@ tu archivo sss.conf y agregar &lt;i&gt; enablezeromint=0&lt;/i&gt; Sin las comil
 luego reinicia tu billetera para deshabilitar la impresión automática.&lt;/p&gt;
 &lt;/p&gt;&lt;p align="justify"&gt;
 Puedes leer más sobre zSSS en el
-&lt;a style='color: #b088ff' href='https://SSS.org/zsss/'&gt; "Documentación Técnica de SSS Zerocoin (zSSS)" &lt;/a&gt;.
+&lt;a style='color: #b088ff' href='https://sssolutions.io/zsss/'&gt; "Documentación Técnica de SSS Zerocoin (zSSS)" &lt;/a&gt;.
 Si deseas conservar y hacer stake tu zSSS, lee la sección "¿Cómo puedo hacer stake?"de las preguntas frecuentes a continuación.
 &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -4303,7 +4303,7 @@ Si deseas conservar y hacer stake tu zSSS, lee la sección "¿Cómo puedo hacer 
         <translation>6</translation>
     </message>
     <message>
-        <source>How do I receive SSS/zSSS?</source>
+        <source>How do I receive SSS?</source>
         <translation>¿Cómo recibo SSS/zSSS?</translation>
     </message>
     <message>

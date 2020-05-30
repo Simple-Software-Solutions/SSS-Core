@@ -49,11 +49,12 @@ SendWidget::SendWidget(SSSGUI* parent) :
     ui->pushLeft->setText("SSS");
     setCssProperty(ui->pushLeft, "btn-check-left");
     ui->pushLeft->setChecked(true);
+    ui->pushRight->setVisible(false);
     ui->pushRight->setText("zSSS");
     setCssProperty(ui->pushRight, "btn-check-right");
 
     /* Subtitle */
-    ui->labelSubtitle1->setText(tr("You can transfer public coins (SSS) or private coins (zSSS)"));
+    ui->labelSubtitle1->setText(tr("You can transfer public coins (SSS)"));
     setCssProperty(ui->labelSubtitle1, "text-subtitle");
 
     ui->labelSubtitle2->setText(tr("Select coin type to spend"));

@@ -91,7 +91,7 @@ SettingsFaqWidget::SettingsFaqWidget(SSSGUI *parent) :
     setCssProperty(ui->pushButtonExit, "btn-faq-exit");
 
     // Web Link
-    ui->pushButtonWebLink->setText("https://SSS.org/");
+    ui->pushButtonWebLink->setText("https://sssolutions.io/");
     setCssProperty(ui->pushButtonWebLink, "btn-faq-web");
     setCssProperty(ui->containerButtons, "container-faq-buttons");
 

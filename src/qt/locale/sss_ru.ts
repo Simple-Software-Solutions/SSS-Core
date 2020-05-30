@@ -4142,7 +4142,7 @@ Verify that you have installed a predetermined text editor.</source>
 в zSSS?</translation>
     </message>
     <message>
-        <source>6) How do I receive SSS/zSSS?</source>
+        <source>6) How do I receive SSS?</source>
         <translation>6) Как я могу получить SSS/zSSS?</translation>
     </message>
     <message>
@@ -4238,7 +4238,7 @@ SSS использует консенсус PoS (Proof of Stake), позволя
                            zSSS is an optional privacy-centric method of coin mixing on the
                            SSS blockchain. Basically all your transactions cannot be tracked
                            on to any block explorer. You can read more about the technicals in the
-                           &lt;a style='color: #b088ff' href='https://SSS.org/zsss/'&gt;
+                           &lt;a style='color: #b088ff' href='https://sssolutions.io/zsss/'&gt;
                            "SSS Zerocoin (zSSS) Technical Paper"&lt;/a&gt;.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </source>
@@ -4247,7 +4247,7 @@ SSS использует консенсус PoS (Proof of Stake), позволя
 zSSS - это необязательная конфиденциальность, которая возможна при микшировании монет
 в блокчейне SSS. По сути,ни одна транзакция не может быть отслежена
 ни в одном из обозревателей блоков. Вы можете прочитать больше о технических характеристиках в
-&lt;a style='color: #b088ff' href='https://SSS.org/zsss/'&gt;
+&lt;a style='color: #b088ff' href='https://sssolutions.io/zsss/'&gt;
 "Техническом документе SSS Zerocoin (zSSS)"&lt;/a&gt;.
  &lt;/p&gt;&lt;/body&gt;&lt;/html&gt; </translation>
     </message>
@@ -4295,7 +4295,7 @@ zSSS - это необязательная конфиденциальность,
                            marks and restart your wallet to disable automint.&lt;/p&gt;
                            &lt;/p&gt;&lt;p align="justify"&gt;
                            You can read more about zSSS in the
-                           &lt;a style='color: #b088ff' href='https://SSS.org/zsss/'&gt; "SSS Zerocoin (zSSS) Technical Paper"&lt;/a&gt;.
+                           &lt;a style='color: #b088ff' href='https://sssolutions.io/zsss/'&gt; "SSS Zerocoin (zSSS) Technical Paper"&lt;/a&gt;.
                            If you would like to keep and stake your zSSS, please read the "How do I stake"
                            section of the FAQ below.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
@@ -4310,7 +4310,7 @@ zSSS - это необязательная конфиденциальность,
 Если вы не используете SSS-QT или GUI, вы можете просто открыть
 свой файл sss.conf и добавить &lt;i&gt;enablezeromint=0&lt;/i&gt; без кавычек и
 перезапустите свой кошелек для отключения  автоматической чеканки. &lt;/p&gt; &lt;/p&gt;&lt;p align="justify"&gt; Вы можете прочитать больше о zSSS в
-&lt;a style='color: #b088ff' href='https://SSS.org/zsss/'&gt;
+&lt;a style='color: #b088ff' href='https://sssolutions.io/zsss/'&gt;
  "Технический документ SSS Zerocoin (zSSS)"&lt;/a&gt;.
 Если вы хотите продолжать стекинг zSSS, ознакомьтесь с разделом" Как осуществить стекинг"
 в разделе часто задаваемых вопросов ниже.
@@ -4321,7 +4321,7 @@ zSSS - это необязательная конфиденциальность,
         <translation>6</translation>
     </message>
     <message>
-        <source>How do I receive SSS/zSSS?</source>
+        <source>How do I receive SSS?</source>
         <translation>Как мне получить SSS/zSSS?</translation>
     </message>
     <message>

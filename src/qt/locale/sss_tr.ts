@@ -4143,7 +4143,7 @@ Verify that you have installed a predetermined text editor.</source>
 zSSS'e dönüştürdü?</translation>
     </message>
     <message>
-        <source>6) How do I receive SSS/zSSS?</source>
+        <source>6) How do I receive SSS?</source>
         <translation>6) Nasıl SSS/zSSS alabilirim?</translation>
     </message>
     <message>
@@ -4242,7 +4242,7 @@ bu sayede SSS sahipleri blok ödülü kazanımına katılabilmektedir
                            zSSS is an optional privacy-centric method of coin mixing on the
                            SSS blockchain. Basically all your transactions cannot be tracked
                            on to any block explorer. You can read more about the technicals in the
-                           &lt;a style='color: #b088ff' href='https://SSS.org/zsss/'&gt;
+                           &lt;a style='color: #b088ff' href='https://sssolutions.io/zsss/'&gt;
                            "SSS Zerocoin (zSSS) Technical Paper"&lt;/a&gt;.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </source>
@@ -4252,7 +4252,7 @@ bu sayede SSS sahipleri blok ödülü kazanımına katılabilmektedir
 gizlilik-odaklı opsiyonel bir metoddur. Temel olarak işlemleriniz
  hiçbir tarayıcı tarafından takip edilemez. Teknik detayları
  hakkında daha çok bilgi almak için
-                           &lt;a style='color: #b088ff' href='https://SSS.org/zsss/'&gt;
+                           &lt;a style='color: #b088ff' href='https://sssolutions.io/zsss/'&gt;
                            "SSS Zerocoin (zSSS) Teknik Makalesi"&lt;/a&gt;.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </translation>
@@ -4302,7 +4302,7 @@ gizlilik-odaklı opsiyonel bir metoddur. Temel olarak işlemleriniz
                            marks and restart your wallet to disable automint.&lt;/p&gt;
                            &lt;/p&gt;&lt;p align="justify"&gt;
                            You can read more about zSSS in the
-                           &lt;a style='color: #b088ff' href='https://SSS.org/zsss/'&gt; "SSS Zerocoin (zSSS) Technical Paper"&lt;/a&gt;.
+                           &lt;a style='color: #b088ff' href='https://sssolutions.io/zsss/'&gt; "SSS Zerocoin (zSSS) Technical Paper"&lt;/a&gt;.
                            If you would like to keep and stake your zSSS, please read the "How do I stake"
                            section of the FAQ below.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
@@ -4312,7 +4312,7 @@ gizlilik-odaklı opsiyonel bir metoddur. Temel olarak işlemleriniz
                            SSS cüzdanınız ağa destek olmak için varsayılan olarak tüm SSS bakiyenizin 10% 'unu zSSS'e dönüştürecektir. Getirdiği gizlilik avantajını istemiyor veya zSSS stakelemek istemiyorsanız cüzdanınızın otomint özelliğini Ayarlar-&gt;Seçenekler içindeki “zSSS Otomint etkin” seçeneğini değiştirerek devredışı bırakabilirsiniz. SSSQT veya GUI kullanmıyorsanız, sss.conf dosyası içine  &lt;i&gt;enablezeromint=0&lt;/i&gt; ifadesini tırnak işareti olmadan girerek devredışı bırakabilirsiniz. &lt;/p&gt;
                            &lt;/p&gt;&lt;p align="justify"&gt;
                            Teknik detayları hakkında daha çok bilgi almak için
-                           &lt;a style='color: #b088ff' href='https://SSS.org/zsss/'&gt; "SSS Zerocoin (zSSS) Teknik Makalesi"&lt;/a&gt;.
+                           &lt;a style='color: #b088ff' href='https://sssolutions.io/zsss/'&gt; "SSS Zerocoin (zSSS) Teknik Makalesi"&lt;/a&gt;.
                            zSSS'lerinizi tutmak ve stakelemek istiyorsanız, lütfen SSS kısmındaki "Nasıl Stake yaparım"
 kısmını okuyunuz.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
@@ -4323,7 +4323,7 @@ kısmını okuyunuz.
         <translation>6</translation>
     </message>
     <message>
-        <source>How do I receive SSS/zSSS?</source>
+        <source>How do I receive SSS?</source>
         <translation>Nasıl SSS/zSSS alabilirim?</translation>
     </message>
     <message>

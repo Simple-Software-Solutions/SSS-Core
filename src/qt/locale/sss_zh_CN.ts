@@ -4146,7 +4146,7 @@ Verify that you have installed a predetermined text editor.</source>
 zSSS了?</translation>
     </message>
     <message>
-        <source>6) How do I receive SSS/zSSS?</source>
+        <source>6) How do I receive SSS?</source>
         <translation>6）如何接收SSS/zSSS?</translation>
     </message>
     <message>
@@ -4243,7 +4243,7 @@ SSS使用了一个股权证明(PoS)一致系统算法，
                            zSSS is an optional privacy-centric method of coin mixing on the
                            SSS blockchain. Basically all your transactions cannot be tracked
                            on to any block explorer. You can read more about the technicals in the
-                           &lt;a style='color: #b088ff' href='https://SSS.org/zsss/'&gt;
+                           &lt;a style='color: #b088ff' href='https://sssolutions.io/zsss/'&gt;
                            "SSS Zerocoin (zSSS) Technical Paper"&lt;/a&gt;.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </source>
@@ -4251,7 +4251,7 @@ SSS使用了一个股权证明(PoS)一致系统算法，
 &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
 zSSS是一种可选的以隐私为中心的隐私币
 它是SSS区块链的一员，基本上在任何块资源管理器
-所有的交易都不能被跟踪&lt;a style='color: #b088ff' href='https://SSS.org/zsss/'&gt;
+所有的交易都不能被跟踪&lt;a style='color: #b088ff' href='https://sssolutions.io/zsss/'&gt;
 
 你可以阅读更多关于技术方面的文章&lt;/a&gt;
 
@@ -4295,7 +4295,7 @@ SSS零币(zSSS)技术文件
         <translation>6</translation>
     </message>
     <message>
-        <source>How do I receive SSS/zSSS?</source>
+        <source>How do I receive SSS?</source>
         <translation>我怎么接收SSS/zSSS?</translation>
     </message>
     <message>
