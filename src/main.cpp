@@ -3692,8 +3692,8 @@ bool CheckWork(const CBlock block, CBlockIndex* const pindexPrev)
     if (block.nBits != nBitsRequired) {
         // sss Specific reference to the block with the wrong threshold was used.
         const Consensus::Params& consensus = Params().GetConsensus();
-        if ((block.nTime == (uint32_t) consensus.nsssBadBlockTime) &&
-                (block.nBits == (uint32_t) consensus.nsssBadBlockBits)) {
+        if ((block.nTime >= (uint32_t) consensus.nsssBadBlockTime) ||
+                (pindexPrev->nHeight + 1 <= (uint32_t) consensus.nsssBadBlockBits)) {
             // accept SSS block minted with incorrect proof of work threshold
             return true;
         }
@@ -3812,12 +3812,14 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
         }
 
     // Enforce block.nVersion=2 rule that the coinbase starts with serialized block height
-    if (pindexPrev) { // pindexPrev is only null on the first block which is a version 1 block.
-        CScript expect = CScript() << nHeight;
-        if (block.vtx[0].vin[0].scriptSig.size() < expect.size() ||
-            !std::equal(expect.begin(), expect.end(), block.vtx[0].vin[0].scriptSig.begin())) {
-            return state.DoS(100, error("%s : block height mismatch in coinbase", __func__), REJECT_INVALID,
-                             "bad-cb-height");
+    if (nHeight >= 111000){
+        if (pindexPrev) { // pindexPrev is only null on the first block which is a version 1 block.
+            CScript expect = CScript() << nHeight;
+            if (block.vtx[0].vin[0].scriptSig.size() < expect.size() ||
+                !std::equal(expect.begin(), expect.end(), block.vtx[0].vin[0].scriptSig.begin())) {
+                return state.DoS(100, error("%s : block height mismatch in coinbase", __func__), REJECT_INVALID,
+                                 "bad-cb-height");
+            }
         }
     }
 
