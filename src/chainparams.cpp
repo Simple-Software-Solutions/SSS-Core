@@ -140,7 +140,7 @@ public:
         consensus.powLimit   = ~UINT256_ZERO >> 20;   // SSS starting difficulty is 1 / 2^12
         consensus.posLimitV1 = ~UINT256_ZERO >> 24;
         consensus.posLimitV2 = ~UINT256_ZERO >> 20;
-        consensus.nBudgetCycleBlocks = 43200;       // approx. 1 every 30 days
+        consensus.nBudgetCycleBlocks = 32400;       // approx. 1 every 30 days
         consensus.nBudgetFeeConfirmations = 6;      // Number of confirmations for the finalization fee
         consensus.nCoinbaseMaturity = 30;
         consensus.nFutureTimeDriftPoW = 7200;
@@ -157,7 +157,7 @@ public:
         consensus.nTimeSlotLength = 15;
 
         // spork keys
-        consensus.strSporkPubKey = "04a923a6685ea5cfbf15264a0333cc5c2d0a3c704b9305bae418464e385a638a5b7e9a481712a57b47a36363d1cea0def160ad12f947e0e9c7746939af54a12e30";
+        consensus.strSporkPubKey = "04b289a58feffeafb48e295d4299c9e85ffc4897992c0c233d1ab2a8502eb678e4e239b819893fe128718c3af77ab6b2006d43780cfb9ef32ab637f11c1b68dda8";
         consensus.strSporkPubKeyOld = "0499A7AF4806FC6DE640D23BC5936C29B77ADF2174B4F45492727F897AE63CF8D27B2F05040606E0D14B547916379FA10716E344E745F880EDC037307186AA25B7";
         consensus.nTime_EnforceNewSporkKey = 1566860400;    //!> August 26, 2019 11:00:00 PM GMT
         consensus.nTime_RejectOldSporkKey = 1569538800;     //!> September 26, 2019 11:00:00 PM GMT
@@ -166,11 +166,11 @@ public:
         consensus.height_last_PoW = 365;
         consensus.height_last_ZC_AccumCheckpoint = INT_MAX;
         consensus.height_last_ZC_WrappedSerials = INT_MAX;
-        consensus.height_start_BIP65 = 1808634;             // Block v5: 82629b7a9978f5c7ea3f70a12db92633a7d2e436711500db28b97efd48b1e527
+        consensus.height_start_BIP65 = 112450;             // Block v5: 82629b7a9978f5c7ea3f70a12db92633a7d2e436711500db28b97efd48b1e527
         consensus.height_start_InvalidUTXOsCheck = INT_MAX;
         consensus.height_start_MessSignaturesV2 = 112500;  // height_start_TimeProtoV2
         consensus.height_start_StakeModifierNewSelection = 112530;
-        consensus.height_start_StakeModifierV2 = 112530;   // Block v6: 0ef2556e40f3b9f6e02ce611b832e0bbfe7734a8ea751c7b555310ee49b61456
+        consensus.height_start_StakeModifierV2 = 112550;   // Block v6: 0ef2556e40f3b9f6e02ce611b832e0bbfe7734a8ea751c7b555310ee49b61456
         consensus.height_start_TimeProtoV2 = 113000;       // Block v7: 14e477e597d24549cac5e59d97d32155e6ec2861c1003b42d0566f9bf39b65d5
         consensus.height_start_ZC = INT_MAX;                 // Block v4: 5b2482eca24caf2a46bb22e0545db7b7037282733faa3a42ec20542509999a64
         consensus.height_start_ZC_InvalidSerials = INT_MAX;
@@ -196,7 +196,7 @@ public:
         consensus.ZC_MinMintFee = 1 * CENT;
         consensus.ZC_MinStakeDepth = 200;
         consensus.ZC_TimeStart = INT_MAX;        // October 17, 2017 4:30:00 AM
-        consensus.ZC_WrappedSerialsSupply = 4131563 * COIN;   // zerocoin supply at height_last_ZC_WrappedSerials
+        consensus.ZC_WrappedSerialsSupply = 0 * COIN;   // zerocoin supply at height_last_ZC_WrappedSerials
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -210,6 +210,7 @@ public:
         nDefaultPort = 6740;
 
         // Note that of those with the service bits flag, most only support a subset of possible options
+        vSeeds.push_back(CDNSSeedData("136.244.71.225", "136.244.71.225"));
         vSeeds.push_back(CDNSSeedData("78.141.222.69", "78.141.222.69")); //Primary
         vSeeds.push_back(CDNSSeedData("199.247.26.107", "199.247.26.107"));   // Secondary
         vSeeds.push_back(CDNSSeedData("144.202.62.235", "144.202.62.235"));    // Secondary

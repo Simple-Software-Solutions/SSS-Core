@@ -5,19 +5,19 @@
 # See "man systemd.service" for details.
 
 # Note that almost all daemon options could be specified in
-# /etc/pivx/pivx.conf
+# /etc/sss/sss.conf
 
 [Unit]
-Description=PIVX daemon
+Description=SSS daemon
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/pivxd -daemon -conf=/etc/pivx/pivx.conf -pid=/run/pivxd/pivxd.pid
-# Creates /run/pivxd owned by pivx
-RuntimeDirectory=pivxd
-User=pivx
+ExecStart=/usr/bin/sssd -daemon -conf=/etc/sss/sss.conf -pid=/run/sssd/sssd.pid
+# Creates /run/sssd owned by sss
+RuntimeDirectory=sssd
+User=sss
 Type=forking
-PIDFile=/run/pivxd/pivxd.pid
+PIDFile=/run/sssd/sssd.pid
 Restart=on-failure
 
 # Hardening measures

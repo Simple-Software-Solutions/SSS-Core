@@ -917,37 +917,27 @@ CAmount CBudgetManager::GetTotalBudget(int nHeight)
     //get block value and calculate from that
     CAmount nSubsidy = 0;
     const int last_pow_block = Params().GetConsensus().height_last_PoW;
-    if (nHeight <= last_pow_block && nHeight >= 151200) {
-        nSubsidy = 50 * COIN;
-    } else if (nHeight <= 302399 && nHeight > last_pow_block) {
-        nSubsidy = 50 * COIN;
-    } else if (nHeight <= 345599 && nHeight >= 302400) {
-        nSubsidy = 45 * COIN;
-    } else if (nHeight <= 388799 && nHeight >= 345600) {
-        nSubsidy = 40 * COIN;
-    } else if (nHeight <= 431999 && nHeight >= 388800) {
-        nSubsidy = 35 * COIN;
-    } else if (nHeight <= 475199 && nHeight >= 432000) {
-        nSubsidy = 30 * COIN;
-    } else if (nHeight <= 518399 && nHeight >= 475200) {
-        nSubsidy = 25 * COIN;
-    } else if (nHeight <= 561599 && nHeight >= 518400) {
-        nSubsidy = 20 * COIN;
-    } else if (nHeight <= 604799 && nHeight >= 561600) {
-        nSubsidy = 15 * COIN;
-    } else if (nHeight <= 647999 && nHeight >= 604800) {
-        nSubsidy = 10 * COIN;
-    } else if (nHeight >= Params().GetConsensus().height_start_ZC_SerialsV2) {
-        nSubsidy = 10 * COIN;
-    } else {
-        nSubsidy = 5 * COIN;
-    }
+    if (nHeight == 0) {
+	nSubsidy = 0 * COIN;
+    	} else if (nHeight == 1) {
+        nSubsidy = 2000000 * COIN;
+	} else if (nHeight <= Params().GetConsensus().height_last_PoW && nHeight > 1) { //end PoW
+        nSubsidy = 2 * COIN;
+	} else if (nHeight <= 238620 && nHeight > Params().GetConsensus().height_last_PoW) { //Start PoS
+        nSubsidy = 2 * COIN;
+	} else if (nHeight <= 764221 && nHeight >= 238621) {
+        nSubsidy = 2 * COIN;
+	} else if (nHeight <= 1289222 && nHeight >= 764222) {
+        nSubsidy = 2 * COIN;
+	}    else {
+        nSubsidy = 2 * COIN;
+	}
 
     // Amount of blocks in a months period of time (using 1 minutes per) = (60*24*30)
-    if (nHeight <= 172800) {
-        return 648000 * COIN;
+    if (nHeight <= 17280) {
+        return 6480 * COIN;
     } else {
-        return ((nSubsidy / 100) * 10) * 1440 * 30;
+        return ((nSubsidy / 100) * 10) * 1080 * 30;
     }
 }
 

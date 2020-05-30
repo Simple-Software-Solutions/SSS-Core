@@ -293,7 +293,7 @@ fs::path GetDefaultDataDir()
 // Unix: ~/.sss
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "sssolutions";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "SSSolutionsCore";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -308,7 +308,7 @@ fs::path GetDefaultDataDir()
     return pathRet / "sssolutions";
 #else
     // Unix
-    return pathRet / "sssolutions";
+    return pathRet / ".sssolutions";
 #endif
 #endif
 }
