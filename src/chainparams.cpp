@@ -168,10 +168,10 @@ public:
         consensus.height_last_ZC_WrappedSerials = INT_MAX;
         consensus.height_start_BIP65 = 1;             // Block v5: 82629b7a9978f5c7ea3f70a12db92633a7d2e436711500db28b97efd48b1e527
         consensus.height_start_InvalidUTXOsCheck = INT_MAX;
-        consensus.height_start_MessSignaturesV2 = 115500;  // height_start_TimeProtoV2
-        consensus.height_start_StakeModifierNewSelection = 115530;
-        consensus.height_start_StakeModifierV2 = 115550;   // Block v6: 0ef2556e40f3b9f6e02ce611b832e0bbfe7734a8ea751c7b555310ee49b61456
-        consensus.height_start_TimeProtoV2 = 116000;       // Block v7: 14e477e597d24549cac5e59d97d32155e6ec2861c1003b42d0566f9bf39b65d5
+        consensus.height_start_MessSignaturesV2 = 116500;  // height_start_TimeProtoV2
+        consensus.height_start_StakeModifierNewSelection = 116530;
+        consensus.height_start_StakeModifierV2 = 116550;   // Block v6: 0ef2556e40f3b9f6e02ce611b832e0bbfe7734a8ea751c7b555310ee49b61456
+        consensus.height_start_TimeProtoV2 = 117000;       // Block v7: 14e477e597d24549cac5e59d97d32155e6ec2861c1003b42d0566f9bf39b65d5
         consensus.height_start_ZC = INT_MAX;                 // Block v4: 5b2482eca24caf2a46bb22e0545db7b7037282733faa3a42ec20542509999a64
         consensus.height_start_ZC_InvalidSerials = INT_MAX;
         consensus.height_start_ZC_PublicSpends = INT_MAX;
@@ -180,8 +180,8 @@ public:
         consensus.height_ZC_RecalcAccumulators = INT_MAX;
 
         // validation by-pass
-        consensus.nsssBadBlockTime = 1590847387;    // Skip nBit validation of Block 259201 per PR #915
-        consensus.nsssBadBlockBits = 113500;    // Skip nBit validation of Block 259201 per PR #915
+        consensus.nsssBadBlockTime = 1591212925;    // Skip nBit validation of Block 259201 per PR #915
+        consensus.nsssBadBlockBits = 115750;    // Skip nBit validation of Block 259201 per PR #915
 
         // Zerocoin-related params
         consensus.ZC_Modulus = "25195908475657893494027183240048398571429282126204032027777137836043662020707595556264018525880784"
