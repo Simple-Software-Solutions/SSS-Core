@@ -296,7 +296,7 @@
         <file alias="ic-arrow-drop-up-purple">sss/res/img/ic-arrow-drop-up-purple.svg</file>
         <file alias="bg-welcome-2x">sss/res/img/bg-welcome@2x.jpg</file>
         <file alias="bg-welcome-3x">sss/res/img/bg-welcome@3x.jpg</file>
-        <file alias="img-logo-sss">sss/res/img/img-logo-sss.svg</file>
+        <file alias="img-logo-sss">sss/res/img/img-nav-logo-sss.png</file>
         <file alias="bg-welcome-svg">sss/res/img/bg-welcome.svg</file>
         <file alias="bg-welcome-container">sss/res/img/bg-welcome-container.svg</file>
         <file alias="bg-welcome">sss/res/img/bg-welcome.png</file>
