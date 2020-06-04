@@ -7,7 +7,6 @@
 
 #include "kernel.h"
 
-#include "chainparams.cpp"
 #include "db.h"
 #include "legacy/stakemodifier.h"
 #include "script/interpreter.h"
