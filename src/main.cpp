@@ -3692,7 +3692,7 @@ bool CheckWork(const CBlock block, CBlockIndex* const pindexPrev)
     if (block.nBits != nBitsRequired) {
         // sss Specific reference to the block with the wrong threshold was used.
         const Consensus::Params& consensus = Params().GetConsensus();
-        if (pindexPrev->nHeight + 1 <= (consensus.height_start_StakeModifierV2 + 20) || 
+        if (pindexPrev->nHeight + 1 <= (consensus.height_start_StakeModifierV2 + 21) || 
             (pindexPrev->nHeight + 1 <= (uint32_t) consensus.nsssBadBlockBits)) {
             // accept SSS block minted with incorrect proof of work threshold
             return true;
@@ -3764,9 +3764,9 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
     // Reject outdated version blocks
     if((block.nVersion < 3 && nHeight >= 1) ||
         (block.nVersion < 4 && nHeight >= consensus.height_start_ZC) ||
-        (block.nVersion < 5 && nHeight >= consensus.height_start_BIP65) ||
-        (block.nVersion < 6 && nHeight >= consensus.height_start_StakeModifierV2) ||
-        (block.nVersion < 7 && nHeight >= consensus.height_start_TimeProtoV2))
+        (block.nVersion < 5 && nHeight >= consensus.height_start_BIP65))
+//        (block.nVersion < 6 && nHeight - 21 >= consensus.height_start_StakeModifierV2) ||
+//        (block.nVersion < 7 && nHeight >= consensus.height_start_TimeProtoV2))
     {
         std::string stringErr = strprintf("rejected block version %d at height %d", block.nVersion, nHeight);
         return state.Invalid(error("%s : %s", __func__, stringErr), REJECT_OBSOLETE, stringErr);

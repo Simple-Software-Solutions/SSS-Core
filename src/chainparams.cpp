@@ -150,7 +150,7 @@ public:
         consensus.nPoolMaxTransactions = 3;
         consensus.nProposalEstablishmentTime = 60 * 60 * 24;    // must be at least a day old to make it into a budget
         consensus.nStakeMinAge = 60 * 60;
-        consensus.nStakeMinDepth = 60;
+        consensus.nStakeMinDepth = 25;
         consensus.nTargetTimespan = 1 * 90;
         consensus.nTargetTimespanV2 = 1 * 90;
         consensus.nTargetSpacing = 1 * 90;

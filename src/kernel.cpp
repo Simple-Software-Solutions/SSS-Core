@@ -7,6 +7,7 @@
 
 #include "kernel.h"
 
+#include "chainparams.cpp"
 #include "db.h"
 #include "legacy/stakemodifier.h"
 #include "script/interpreter.h"
@@ -167,8 +168,12 @@ bool CheckProofOfStake(const CBlock& block, std::string& strError, const CBlockI
     // Verify Proof Of Stake
     CStakeKernel stakeKernel(pindexPrev, stakeInput.get(), block.nBits, block.nTime);
     if (!stakeKernel.CheckKernelHash()) {
-        strError = "kernel hash check fails";
-        return false;
+        if(Params().GetConsensus().height_start_StakeModifierV2 > pindexPrev->nHeight-21){   
+            return true;
+            } else {
+                strError = "kernel hash check fails";
+                return false;
+            }
     }
 
     // zPoS disabled (ContextCheck) before blocks V7, and the tx input signature is in CoinSpend
