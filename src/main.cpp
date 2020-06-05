@@ -1638,7 +1638,7 @@ int64_t GetBlockValue(int nHeight)
 int64_t GetMasternodePayment()
 {
 
-    return 1.8 * COIN;
+    return 1.7 * COIN;
 
 }
 
