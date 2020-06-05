@@ -3,11 +3,11 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test sssolutions-cli"""
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import sssestFramework
 from test_framework.util import assert_equal, assert_raises_process_error, get_auth_cookie
 import time
 
-class TestBitcoinCli(BitcoinTestFramework):
+class TestBitcoinCli(sssestFramework):
 
     def set_test_params(self):
         self.setup_clean_chain = True

@@ -1,12 +1,12 @@
-# Valgrind suppressions file for sssolutions.
+# Valgrind suppressions file for SSS.
 #
 # Includes known Valgrind warnings in our dependencies that cannot be fixed
 # in-tree.
 #
 # Example use:
-# $ valgrind --suppressions=contrib/valgrind.supp src/test/test_sssolutions
+# $ valgrind --suppressions=contrib/valgrind.supp src/test/test_sss
 # $ valgrind --suppressions=contrib/valgrind.supp --leak-check=full \
-#       --show-leak-kinds=all src/test/test_sssolutions --log_level=test_suite
+#       --show-leak-kinds=all src/test/test_sss --log_level=test_suite
 {
    Suppress libstdc++ warning - https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65434
    Memcheck:Leak

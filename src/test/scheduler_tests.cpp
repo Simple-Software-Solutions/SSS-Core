@@ -1,12 +1,12 @@
 // Copyright (c) 2012-2013 The Bitcoin Core developers
-// Copyright (c) 2017 The PIVX developers
+// Copyright (c) 2017-2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "random.h"
 #include "scheduler.h"
 #if defined(HAVE_CONFIG_H)
-#include "config/sssolutions-config.h"
+#include "config/sss-config.h"
 #else
 #define HAVE_WORKING_BOOST_SLEEP_FOR
 #endif
@@ -46,8 +46,6 @@ static void MicroSleep(uint64_t n)
 
 BOOST_AUTO_TEST_CASE(manythreads)
 {
-    seed_insecure_rand(false);
-
     // Stress test: hundreds of microsecond-scheduled tasks,
     // serviced by 10 threads.
     //
@@ -62,7 +60,7 @@ BOOST_AUTO_TEST_CASE(manythreads)
 
     boost::mutex counterMutex[10];
     int counter[10] = { 0 };
-    boost::random::mt19937 rng(insecure_rand());
+    boost::random::mt19937 rng(42);
     boost::random::uniform_int_distribution<> zeroToNine(0, 9);
     boost::random::uniform_int_distribution<> randomMsec(-11, 1000);
     boost::random::uniform_int_distribution<> randomDelta(-1000, 1000);

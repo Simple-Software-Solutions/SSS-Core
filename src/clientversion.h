@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2017 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The sssolutions developers
+// Copyright (c) 2017-2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,12 +7,12 @@
 #define BITCOIN_CLIENTVERSION_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/sssolutions-config.h"
+#include "config/sss-config.h"
 #endif //HAVE_CONFIG_H
 
 // Check that required client information is defined
 #if !defined(CLIENT_VERSION_MAJOR) || !defined(CLIENT_VERSION_MINOR) || !defined(CLIENT_VERSION_REVISION) || !defined(CLIENT_VERSION_BUILD) || !defined(CLIENT_VERSION_IS_RELEASE) || !defined(COPYRIGHT_YEAR)
-#error Client version information missing: version is not defined by sssolutions-config.h or in any other way
+#error Client version information missing: version is not defined by sss-config.h or in any other way
 #endif
 
 /**
@@ -23,7 +23,7 @@
 #define DO_STRINGIZE(X) #X
 
 //! Copyright string used in Windows .rc files
-#define COPYRIGHT_STR "2009-" STRINGIZE(COPYRIGHT_YEAR) " The Bitcoin Core Developers, 2014-" STRINGIZE(COPYRIGHT_YEAR) " The Dash Core Developers, 2015-" STRINGIZE(COPYRIGHT_YEAR) " The PIVX Core Developers, 2018-" STRINGIZE(COPYRIGHT_YEAR) " The DogeCash Core Developers, 2019-" STRINGIZE(COPYRIGHT_YEAR) " The SSSolutions Core Developers"
+#define COPYRIGHT_STR "2009-" STRINGIZE(COPYRIGHT_YEAR) " The Bitcoin Core Developers, 2014-" STRINGIZE(COPYRIGHT_YEAR) " The Dash Core Developers, 2015-" STRINGIZE(COPYRIGHT_YEAR) " The SSS Core Developers"
 
 /**
  * sssolutionsd-res.rc includes this file, but it cannot cope with real c++ code.
@@ -49,7 +49,10 @@ extern const std::string CLIENT_DATE;
 
 std::string FormatFullVersion();
 std::string FormatSubVersion(const std::string& name, int nClientVersion, const std::vector<std::string>& comments);
-int UnformatSubVersion(const std::string &name);
+
+// Returns a friendly formatted version string to show in the UI
+std::string FormatVersionFriendly();
+
 #endif // WINDRES_PREPROC
 
 #endif // BITCOIN_CLIENTVERSION_H

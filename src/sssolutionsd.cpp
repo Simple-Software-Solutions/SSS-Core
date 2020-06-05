@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2015-2019 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -11,7 +11,7 @@
 #include "masternodeconfig.h"
 #include "noui.h"
 #include "rpc/server.h"
-#include "ui_interface.h"
+#include "guiinterface.h"
 #include "util.h"
 #include "httpserver.h"
 #include "httprpc.h"
@@ -28,8 +28,8 @@
  *
  * \section intro_sec Introduction
  *
- * This is the developer documentation of the reference client for an experimental new digital currency called sssolutions (http://www.sss.io),
- * which enables instant payments to anyone, anywhere in the world. sssolutions uses peer-to-peer technology to operate
+ * This is the developer documentation of the reference client for an experimental new digital currency called SSS (http://www.sss.org),
+ * which enables instant payments to anyone, anywhere in the world. SSS uses peer-to-peer technology to operate
  * with no central authority: managing transactions and issuing money are carried out collectively by the network.
  *
  * The software is a community-driven open source project, released under the MIT license.
@@ -62,18 +62,18 @@ bool AppInit(int argc, char* argv[])
     //
     // Parameters
     //
-    // If Qt is used, parameters/sssolutions.conf are parsed in qt/sssolutions.cpp's main()
+    // If Qt is used, parameters/sss.conf are parsed in qt/sssolutions.cpp's main()
     ParseParameters(argc, argv);
 
     // Process help and version before taking care about datadir
     if (mapArgs.count("-?") || mapArgs.count("-help") || mapArgs.count("-version")) {
-        std::string strUsage = _("SSSolutions Core Daemon") + " " + _("version") + " " + FormatFullVersion() + "\n";
+        std::string strUsage = _("SSS Core Daemon") + " " + _("version") + " " + FormatFullVersion() + "\n";
 
         if (mapArgs.count("-version")) {
             strUsage += LicenseInfo();
         } else {
             strUsage += "\n" + _("Usage:") + "\n" +
-                        "  sssolutionsd [options]                     " + _("Start SSSolutions Core Daemon") + "\n";
+                        "  sssolutionsd [options]                     " + _("Start SSS Core Daemon") + "\n";
 
             strUsage += "\n" + HelpMessage(HMM_BITCOIND);
         }
@@ -89,7 +89,7 @@ bool AppInit(int argc, char* argv[])
         }
         try {
             ReadConfigFile(mapArgs, mapMultiArgs);
-        } catch (std::exception& e) {
+        } catch (const std::exception& e) {
             fprintf(stderr, "Error reading configuration file: %s\n", e.what());
             return false;
         }
@@ -109,7 +109,7 @@ bool AppInit(int argc, char* argv[])
         // Command-line RPC
         bool fCommandLine = false;
         for (int i = 1; i < argc; i++)
-            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "sssolutions:"))
+            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "sss:"))
                 fCommandLine = true;
 
         if (fCommandLine) {
@@ -119,7 +119,7 @@ bool AppInit(int argc, char* argv[])
 #ifndef WIN32
         fDaemon = GetBoolArg("-daemon", false);
         if (fDaemon) {
-            fprintf(stdout, "SSSolutions server starting\n");
+            fprintf(stdout, "SSS server starting\n");
 
             // Daemonize
             pid_t pid = fork();
@@ -140,8 +140,11 @@ bool AppInit(int argc, char* argv[])
 #endif
         SoftSetBoolArg("-server", true);
 
+        // Set this early so that parameter interactions go to console
+        InitLogging();
+        InitParameterInteraction();
         fRet = AppInit2();
-    } catch (std::exception& e) {
+    } catch (const std::exception& e) {
         PrintExceptionContinue(&e, "AppInit()");
     } catch (...) {
         PrintExceptionContinue(NULL, "AppInit()");

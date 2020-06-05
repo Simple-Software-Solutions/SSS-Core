@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2015-2018 The SSSolutions developers
+// Copyright (c) 2015-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -129,7 +129,7 @@ public:
 };
 
 /**
- * sssolutions RPC command dispatcher.
+ * SSS RPC command dispatcher.
  */
 class CRPCTable
 {
@@ -179,8 +179,10 @@ extern std::string HelpExampleCli(std::string methodname, std::string args);
 extern std::string HelpExampleRpc(std::string methodname, std::string args);
 
 extern void EnsureWalletIsUnlocked(bool fAllowAnonOnly = false);
-extern UniValue DozsssSpend(const CAmount nAmount, bool fMintChange, bool fMinimizeChange, vector<CZerocoinMint>& vMintsSelected, std::string address_str);
-//extern UniValue masternode(const UniValue& params, bool fHelp);
+// Ensure the wallet's existence.
+extern void EnsureWallet();
+extern UniValue DozSSSSpend(const CAmount nAmount, std::vector<CZerocoinMint>& vMintsSelected, std::string address_str);
+
 extern UniValue getconnectioncount(const UniValue& params, bool fHelp); // in rpc/net.cpp
 extern UniValue getpeerinfo(const UniValue& params, bool fHelp);
 extern UniValue ping(const UniValue& params, bool fHelp);
@@ -212,7 +214,15 @@ extern UniValue submitblock(const UniValue& params, bool fHelp);
 extern UniValue estimatefee(const UniValue& params, bool fHelp);
 extern UniValue estimatepriority(const UniValue& params, bool fHelp);
 
-extern UniValue getnewaddress(const UniValue& params, bool fHelp); // in rpcwallet.cpp
+extern UniValue delegatestake(const UniValue& params, bool fHelp); // in rpcwallet.cpp
+extern UniValue rawdelegatestake(const UniValue& params, bool fHelp);
+extern UniValue delegatoradd(const UniValue& params, bool fHelp);
+extern UniValue delegatorremove(const UniValue& params, bool fHelp);
+extern UniValue upgradewallet(const UniValue& params, bool fHelp);
+extern UniValue sethdseed(const UniValue& params, bool fHelp);
+extern UniValue getaddressinfo(const UniValue& params, bool fHelp);
+extern UniValue getnewaddress(const UniValue& params, bool fHelp);
+extern UniValue getnewstakingaddress(const UniValue& params, bool fHelp);
 extern UniValue getaccountaddress(const UniValue& params, bool fHelp);
 extern UniValue getrawchangeaddress(const UniValue& params, bool fHelp);
 extern UniValue setaccount(const UniValue& params, bool fHelp);
@@ -224,18 +234,24 @@ extern UniValue signmessage(const UniValue& params, bool fHelp);
 extern UniValue getreceivedbyaddress(const UniValue& params, bool fHelp);
 extern UniValue getreceivedbyaccount(const UniValue& params, bool fHelp);
 extern UniValue getbalance(const UniValue& params, bool fHelp);
+extern UniValue getcoldstakingbalance(const UniValue& params, bool fHelp);
+extern UniValue getdelegatedbalance(const UniValue& params, bool fHelp);
 extern UniValue getunconfirmedbalance(const UniValue& params, bool fHelp);
 extern UniValue movecmd(const UniValue& params, bool fHelp);
 extern UniValue sendfrom(const UniValue& params, bool fHelp);
 extern UniValue sendmany(const UniValue& params, bool fHelp);
 extern UniValue addmultisigaddress(const UniValue& params, bool fHelp);
+extern UniValue listcoldutxos(const UniValue& params, bool fHelp);
 extern UniValue listreceivedbyaddress(const UniValue& params, bool fHelp);
 extern UniValue listreceivedbyaccount(const UniValue& params, bool fHelp);
 extern UniValue listtransactions(const UniValue& params, bool fHelp);
 extern UniValue listaddressgroupings(const UniValue& params, bool fHelp);
 extern UniValue listaccounts(const UniValue& params, bool fHelp);
+extern UniValue listdelegators(const UniValue& params, bool fHelp);
+extern UniValue liststakingaddresses(const UniValue& params, bool fHelp);
 extern UniValue listsinceblock(const UniValue& params, bool fHelp);
 extern UniValue gettransaction(const UniValue& params, bool fHelp);
+extern UniValue abandontransaction(const UniValue& params, bool fHelp);
 extern UniValue backupwallet(const UniValue& params, bool fHelp);
 extern UniValue keypoolrefill(const UniValue& params, bool fHelp);
 extern UniValue walletpassphrase(const UniValue& params, bool fHelp);
@@ -245,7 +261,6 @@ extern UniValue encryptwallet(const UniValue& params, bool fHelp);
 extern UniValue getwalletinfo(const UniValue& params, bool fHelp);
 extern UniValue getblockchaininfo(const UniValue& params, bool fHelp);
 extern UniValue getnetworkinfo(const UniValue& params, bool fHelp);
-extern UniValue reservebalance(const UniValue& params, bool fHelp);
 extern UniValue setstakesplitthreshold(const UniValue& params, bool fHelp);
 extern UniValue getstakesplitthreshold(const UniValue& params, bool fHelp);
 extern UniValue multisend(const UniValue& params, bool fHelp);
@@ -270,10 +285,6 @@ extern UniValue getzsssseed(const UniValue& params, bool fHelp);
 extern UniValue generatemintlist(const UniValue& params, bool fHelp);
 extern UniValue searchdzsss(const UniValue& params, bool fHelp);
 extern UniValue dzsssstate(const UniValue& params, bool fHelp);
-extern UniValue clearspendcache(const UniValue& params, bool fHelp);
-extern UniValue enableautomintaddress(const UniValue& params, bool fHelp);
-extern UniValue createautomintaddress(const UniValue& params, bool fHelp);
-extern UniValue burn(const UniValue& params, bool fHelp);
 
 extern UniValue getrawtransaction(const UniValue& params, bool fHelp); // in rpc/rawtransaction.cpp
 extern UniValue listunspent(const UniValue& params, bool fHelp);
@@ -284,7 +295,7 @@ extern UniValue decoderawtransaction(const UniValue& params, bool fHelp);
 extern UniValue decodescript(const UniValue& params, bool fHelp);
 extern UniValue signrawtransaction(const UniValue& params, bool fHelp);
 extern UniValue sendrawtransaction(const UniValue& params, bool fHelp);
-extern UniValue createrawzerocoinstake(const UniValue& params, bool fHelp);
+extern UniValue createrawzerocoinspend(const UniValue& params, bool fHelp);
 
 extern UniValue findserial(const UniValue& params, bool fHelp); // in rpc/blockchain.cpp
 extern UniValue getblockcount(const UniValue& params, bool fHelp);
@@ -306,13 +317,11 @@ extern UniValue verifychain(const UniValue& params, bool fHelp);
 extern UniValue getchaintips(const UniValue& params, bool fHelp);
 extern UniValue invalidateblock(const UniValue& params, bool fHelp);
 extern UniValue reconsiderblock(const UniValue& params, bool fHelp);
-extern UniValue getaccumulatorvalues(const UniValue& params, bool fHelp);
-extern UniValue getaccumulatorwitness(const UniValue& params, bool fHelp);
-extern UniValue getmintsinblocks(const UniValue& params, bool fHelp);
+extern UniValue getblockindexstats(const UniValue& params, bool fHelp);
 extern UniValue getserials(const UniValue& params, bool fHelp);
-extern UniValue getchecksumblock(const UniValue& params, bool fHelp);
+extern void validaterange(const UniValue& params, int& heightStart, int& heightEnd, int minHeightStart=1);
 
-extern UniValue getpoolinfo(const UniValue& params, bool fHelp); // in rpc/masternode.cpp
+// in rpc/masternode.cpp
 extern UniValue listmasternodes(const UniValue& params, bool fHelp);
 extern UniValue getmasternodecount(const UniValue& params, bool fHelp);
 extern UniValue createmasternodebroadcast(const UniValue& params, bool fHelp);
@@ -341,10 +350,10 @@ extern UniValue mnfinalbudget(const UniValue& params, bool fHelp);
 extern UniValue checkbudgets(const UniValue& params, bool fHelp);
 
 extern UniValue getinfo(const UniValue& params, bool fHelp); // in rpc/misc.cpp
+extern UniValue logging(const UniValue& params, bool fHelp);
 extern UniValue mnsync(const UniValue& params, bool fHelp);
 extern UniValue spork(const UniValue& params, bool fHelp);
 extern UniValue validateaddress(const UniValue& params, bool fHelp);
-
 extern UniValue createmultisig(const UniValue& params, bool fHelp);
 extern UniValue verifymessage(const UniValue& params, bool fHelp);
 extern UniValue setmocktime(const UniValue& params, bool fHelp);
@@ -354,6 +363,6 @@ bool StartRPC();
 void InterruptRPC();
 void StopRPC();
 std::string JSONRPCExecBatch(const UniValue& vReq);
-void RPCNotifyBlockChange(const uint256 nHeight);
+void RPCNotifyBlockChange(bool fInitialDownload, const CBlockIndex* pindex);
 
 #endif // BITCOIN_RPCSERVER_H

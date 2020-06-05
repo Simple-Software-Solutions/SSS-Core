@@ -1111,11 +1111,11 @@
     </message>
     <message>
         <source>Use 2 separate masternodes to mix funds up to 2500 SSS</source>
-        <translation>Käytä 2 erillistä masternodea sekoittaaksesi enintään 10000 sssolutions</translation>
+        <translation>Käytä 2 erillistä masternodea sekoittaaksesi enintään 2500 SSSolutions</translation>
     </message>
     <message>
         <source>Use 8 separate masternodes to mix funds up to 2500 SSS</source>
-        <translation>Käytä 8 erillistä masternodea sekoittaaksesi enintään 10000 sssolutions</translation>
+        <translation>Käytä 8 erillistä masternodea sekoittaaksesi enintään 2500 SSSolutions</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
@@ -1123,11 +1123,11 @@
     </message>
     <message>
         <source>This option is the quickest and will cost about ~0.025 SSS to anonymize 2500 SSS</source>
-        <translation>Tämä vaihtoehto on nopein ja maksaa noin ~0.025 SSS anonymoidaksesi 10000 sssolutions</translation>
+        <translation>Tämä vaihtoehto on nopein ja maksaa noin ~0.025 SSS anonymoidaksesi 2500 SSSolutions</translation>
     </message>
     <message>
         <source>This option is moderately fast and will cost about 0.05 SSS to anonymize 2500 SSS</source>
-        <translation>Tämä vaihtoehto on suhteellisen nopea ja maksaa 0.05 sssolutions anonymoidaksesi 10000 sssolutions</translation>
+        <translation>Tämä vaihtoehto on suhteellisen nopea ja maksaa 0.05 sssolutions anonymoidaksesi 2500 SSSolutions</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
@@ -1135,7 +1135,7 @@
     </message>
     <message>
         <source>0.1 SSS per 2500 SSS you anonymize.</source>
-        <translation>0.1 per 10000 sssolutions, jotka anonymisoit.</translation>
+        <translation>0.1 per 2500 SSSolutions, jotka anonymisoit.</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>

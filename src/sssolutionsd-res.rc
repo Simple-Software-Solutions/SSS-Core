@@ -16,8 +16,8 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "SSSolutions"
-            VALUE "FileDescription",    "sssolutionsd (OSS daemon/client for sssolutions)"
+            VALUE "CompanyName",        "SSS"
+            VALUE "FileDescription",    "sssolutionsd (OSS daemon/client for SSS)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "sssolutionsd"
             VALUE "LegalCopyright",     COPYRIGHT_STR

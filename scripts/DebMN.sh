@@ -67,14 +67,14 @@ function cleanup_mess() {
 	cd /
 	rm -rf .sssolutions
 	rm sss*
-	rm -rf DogeC*
+	rm -rf sss*
 	rm setupdoge*
 	rm doge.txt*
 	rm block*
 	cd /root
 	rm -rf .sssolutions
 	rm sss*
-	rm -rf DogeC*
+	rm -rf sss*
 	rm setupdoge*
 	rm block*
 	rm doge.txt*

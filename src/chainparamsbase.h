@@ -1,5 +1,5 @@
 // Copyright (c) 2014 The Bitcoin developers
-// Copyright (c) 2017 The PIVX developers
+// Copyright (c) 2017-2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -11,7 +11,7 @@
 
 /**
  * CBaseChainParams defines the base parameters (shared between sssolutions-cli and sssolutionsd)
- * of a given instance of the sssolutions system.
+ * of a given instance of the sss system.
  */
 class CBaseChainParams
 {
@@ -20,7 +20,6 @@ public:
         MAIN,
         TESTNET,
         REGTEST,
-        UNITTEST,
 
         MAX_NETWORK_TYPES
     };

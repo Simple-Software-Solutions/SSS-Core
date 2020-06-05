@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
-// Copyright (c) 2017 The PIVX developers
+// Copyright (c) 2017-2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,13 +12,10 @@
 
 #include <stdexcept>
 
-#include <openssl/x509_vfy.h>
-
 #include <QDateTime>
 #include <QDebug>
 #include <QSslCertificate>
 
-using namespace std;
 
 class SSLVerifyError : public std::runtime_error
 {
@@ -47,7 +44,7 @@ bool PaymentRequestPlus::parse(const QByteArray& data)
     return true;
 }
 
-bool PaymentRequestPlus::SerializeToString(string* output) const
+bool PaymentRequestPlus::SerializeToString(std::string* output) const
 {
     return paymentRequest.SerializeToString(output);
 }
@@ -180,7 +177,7 @@ bool PaymentRequestPlus::getMerchant(X509_STORE* certStore, QString& merchant) c
             throw SSLVerifyError("Bad certificate, missing common name.");
         }
         // TODO: detect EV certificates and set merchant = business name instead of unfriendly NID_commonName ?
-    } catch (SSLVerifyError& err) {
+    } catch (const SSLVerifyError& err) {
         fResult = false;
         qWarning() << "PaymentRequestPlus::getMerchant : SSL error: " << err.what();
     }
@@ -201,7 +198,7 @@ QList<std::pair<CScript, CAmount> > PaymentRequestPlus::getPayTo() const
         const unsigned char* scriptStr = (const unsigned char*)details.outputs(i).script().data();
         CScript s(scriptStr, scriptStr + details.outputs(i).script().size());
 
-        result.append(make_pair(s, details.outputs(i).amount()));
+        result.append(std::make_pair(s, details.outputs(i).amount()));
     }
     return result;
 }

@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The sssolutions developers
+// Copyright (c) 2015-2020 The sss developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,13 +12,16 @@
 #include "main.h"
 #include "random.h"
 #include "sync.h"
-#include "ui_interface.h"
+#include "guiinterface.h"
 #include "util.h"
 #include "utilstrencodings.h"
 
+#ifdef ENABLE_WALLET
+#include "wallet/wallet.h"
+#endif // ENABLE_WALLET
+
 #include <boost/bind.hpp>
 #include <boost/filesystem.hpp>
-#include <boost/foreach.hpp>
 #include <boost/iostreams/concepts.hpp>
 #include <boost/iostreams/stream.hpp>
 #include <boost/shared_ptr.hpp>
@@ -28,13 +31,11 @@
 
 #include <univalue.h>
 
-using namespace RPCServer;
-using namespace std;
 
 static bool fRPCRunning = false;
 static bool fRPCInWarmup = true;
 static std::string rpcWarmupStatus("RPC server started");
-static CCriticalSection cs_rpcWarmup;
+static RecursiveMutex cs_rpcWarmup;
 
 /* Timer-creating functions */
 static RPCTimerInterface* timerInterface = NULL;
@@ -71,17 +72,17 @@ void RPCServer::OnPostCommand(boost::function<void (const CRPCCommand&)> slot)
 }
 
 void RPCTypeCheck(const UniValue& params,
-                  const list<UniValue::VType>& typesExpected,
+                  const std::list<UniValue::VType>& typesExpected,
                   bool fAllowNull)
 {
     unsigned int i = 0;
-    BOOST_FOREACH(UniValue::VType t, typesExpected) {
+    for (UniValue::VType t : typesExpected) {
         if (params.size() <= i)
             break;
 
         const UniValue& v = params[i];
         if (!((v.type() == t) || (fAllowNull && (v.isNull())))) {
-            string err = strprintf("Expected type %s, got %s",
+            std::string err = strprintf("Expected type %s, got %s",
                                    uvTypeName(t), uvTypeName(v.type()));
             throw JSONRPCError(RPC_TYPE_ERROR, err);
         }
@@ -90,16 +91,16 @@ void RPCTypeCheck(const UniValue& params,
 }
 
 void RPCTypeCheckObj(const UniValue& o,
-                  const map<string, UniValue::VType>& typesExpected,
+                  const std::map<std::string, UniValue::VType>& typesExpected,
                   bool fAllowNull)
 {
-    BOOST_FOREACH(const PAIRTYPE(string, UniValue::VType)& t, typesExpected) {
+    for (const PAIRTYPE(std::string, UniValue::VType)& t : typesExpected) {
         const UniValue& v = find_value(o, t.first);
         if (!fAllowNull && v.isNull())
             throw JSONRPCError(RPC_TYPE_ERROR, strprintf("Missing %s", t.first));
 
         if (!((v.type() == t.second) || (fAllowNull && (v.isNull())))) {
-            string err = strprintf("Expected type %s for %s, got %s",
+            std::string err = strprintf("Expected type %s for %s, got %s",
                                    uvTypeName(t.second), t.first, uvTypeName(v.type()));
             throw JSONRPCError(RPC_TYPE_ERROR, err);
         }
@@ -120,7 +121,7 @@ CAmount AmountFromValue(const UniValue& value)
     if (dAmount <= 0.0 || dAmount > 21000000.0)
         throw JSONRPCError(RPC_TYPE_ERROR, "Invalid amount");
     CAmount nAmount = roundint64(dAmount * COIN);
-    if (!MoneyRange(nAmount))
+    if (!Params().GetConsensus().MoneyRange(nAmount))
         throw JSONRPCError(RPC_TYPE_ERROR, "Invalid amount");
     return nAmount;
 }
@@ -148,25 +149,25 @@ uint256 ParseHashV(const UniValue& v, std::string strName)
     result.SetHex(strHex);
     return result;
 }
-uint256 ParseHashO(const UniValue& o, string strKey)
+uint256 ParseHashO(const UniValue& o, std::string strKey)
 {
     return ParseHashV(find_value(o, strKey), strKey);
 }
-vector<unsigned char> ParseHexV(const UniValue& v, string strName)
+std::vector<unsigned char> ParseHexV(const UniValue& v, std::string strName)
 {
-    string strHex;
+    std::string strHex;
     if (v.isStr())
         strHex = v.get_str();
     if (!IsHex(strHex))
         throw JSONRPCError(RPC_INVALID_PARAMETER, strName + " must be hexadecimal string (not '" + strHex + "')");
     return ParseHex(strHex);
 }
-vector<unsigned char> ParseHexO(const UniValue& o, string strKey)
+std::vector<unsigned char> ParseHexO(const UniValue& o, std::string strKey)
 {
     return ParseHexV(find_value(o, strKey), strKey);
 }
 
-int ParseInt(const UniValue& o, string strKey)
+int ParseInt(const UniValue& o, std::string strKey)
 {
     const UniValue& v = find_value(o, strKey);
     if (v.isNum())
@@ -175,7 +176,7 @@ int ParseInt(const UniValue& o, string strKey)
     return v.get_int();
 }
 
-bool ParseBool(const UniValue& o, string strKey)
+bool ParseBool(const UniValue& o, std::string strKey)
 {
     const UniValue& v = find_value(o, strKey);
     if (v.isBool())
@@ -189,22 +190,22 @@ bool ParseBool(const UniValue& o, string strKey)
  * Note: This interface may still be subject to change.
  */
 
-string CRPCTable::help(string strCommand) const
+std::string CRPCTable::help(std::string strCommand) const
 {
-    string strRet;
-    string category;
-    set<rpcfn_type> setDone;
-    vector<pair<string, const CRPCCommand*> > vCommands;
+    std::string strRet;
+    std::string category;
+    std::set<rpcfn_type> setDone;
+    std::vector<std::pair<std::string, const CRPCCommand*> > vCommands;
 
-    for (map<string, const CRPCCommand*>::const_iterator mi = mapCommands.begin(); mi != mapCommands.end(); ++mi)
-        vCommands.push_back(make_pair(mi->second->category + mi->first, mi->second));
-    sort(vCommands.begin(), vCommands.end());
+    for (std::map<std::string, const CRPCCommand*>::const_iterator mi = mapCommands.begin(); mi != mapCommands.end(); ++mi)
+        vCommands.push_back(std::make_pair(mi->second->category + mi->first, mi->second));
+    std::sort(vCommands.begin(), vCommands.end());
 
-    BOOST_FOREACH (const PAIRTYPE(string, const CRPCCommand*) & command, vCommands) {
+    for (const PAIRTYPE(std::string, const CRPCCommand*) & command : vCommands) {
         const CRPCCommand* pcmd = command.second;
-        string strMethod = pcmd->name;
+        std::string strMethod = pcmd->name;
         // We already filter duplicates, but these deprecated screw up the sort order
-        if (strMethod.find("label") != string::npos)
+        if (strMethod.find("label") != std::string::npos)
             continue;
         if ((strCommand != "" || pcmd->category == "hidden") && strMethod != strCommand)
             continue;
@@ -218,18 +219,18 @@ string CRPCTable::help(string strCommand) const
             rpcfn_type pfn = pcmd->actor;
             if (setDone.insert(pfn).second)
                 (*pfn)(params, true);
-        } catch (std::exception& e) {
+        } catch (const std::exception& e) {
             // Help text is returned in an exception
-            string strHelp = string(e.what());
+            std::string strHelp = std::string(e.what());
             if (strCommand == "") {
-                if (strHelp.find('\n') != string::npos)
+                if (strHelp.find('\n') != std::string::npos)
                     strHelp = strHelp.substr(0, strHelp.find('\n'));
 
                 if (category != pcmd->category) {
                     if (!category.empty())
                         strRet += "\n";
                     category = pcmd->category;
-                    string firstLetter = category.substr(0, 1);
+                    std::string firstLetter = category.substr(0, 1);
                     boost::to_upper(firstLetter);
                     strRet += "== " + firstLetter + category.substr(1) + " ==\n";
                 }
@@ -246,7 +247,7 @@ string CRPCTable::help(string strCommand) const
 UniValue help(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)
-        throw runtime_error(
+        throw std::runtime_error(
             "help ( \"command\" )\n"
             "\nList all commands, or get help for a specified command.\n"
             "\nArguments:\n"
@@ -254,7 +255,7 @@ UniValue help(const UniValue& params, bool fHelp)
             "\nResult:\n"
             "\"text\"     (string) The help text\n");
 
-    string strCommand;
+    std::string strCommand;
     if (params.size() > 0)
         strCommand = params[0].get_str();
 
@@ -266,13 +267,13 @@ UniValue stop(const UniValue& params, bool fHelp)
 {
     // Accept the deprecated and ignored 'detach' boolean argument
     if (fHelp || params.size() > 1)
-        throw runtime_error(
+        throw std::runtime_error(
             "stop\n"
-            "\nStop sssolutions server.");
+            "\nStop SSS server.");
     // Event loop will exit after current HTTP requests have been handled, so
     // this reply will get back to the client.
     StartShutdown();
-    return "sssolutions server stopping";
+    return "SSS server stopping";
 }
 
 
@@ -303,9 +304,7 @@ static const CRPCCommand vRPCCommands[] =
 
         /* Block chain and UTXO */
         {"blockchain", "findserial", &findserial, true, false, false},
-        {"blockchain", "getaccumulatorvalues", &getaccumulatorvalues, true, false, false},
-        {"blockchain", "getaccumulatorwitness", &getaccumulatorwitness, true, false, false},
-        {"blockchain", "getmintsinblocks", &getmintsinblocks, true, false, false},
+        {"blockchain", "getblockindexstats", &getblockindexstats, true, false, false},
         {"blockchain", "getserials", &getserials, true, false, false},
         {"blockchain", "getblockchaininfo", &getblockchaininfo, true, false, false},
         {"blockchain", "getbestblockhash", &getbestblockhash, true, false, false},
@@ -314,7 +313,6 @@ static const CRPCCommand vRPCCommands[] =
         {"blockchain", "getblockhash", &getblockhash, true, false, false},
         {"blockchain", "getblockheader", &getblockheader, false, false, false},
         {"blockchain", "getchaintips", &getchaintips, true, false, false},
-        {"blockchain", "getchecksumblock", &getchecksumblock, false, false, false},
         {"blockchain", "getdifficulty", &getdifficulty, true, false, false},
         {"blockchain", "getfeeinfo", &getfeeinfo, true, false, false},
         {"blockchain", "getmempoolinfo", &getmempoolinfo, true, true, false},
@@ -331,7 +329,6 @@ static const CRPCCommand vRPCCommands[] =
         {"mining", "getnetworkhashps", &getnetworkhashps, true, false, false},
         {"mining", "prioritisetransaction", &prioritisetransaction, true, false, false},
         {"mining", "submitblock", &submitblock, true, true, false},
-        {"mining", "reservebalance", &reservebalance, true, true, false},
 
 #ifdef ENABLE_WALLET
         /* Coin generation */
@@ -351,6 +348,7 @@ static const CRPCCommand vRPCCommands[] =
 
         /* Utility functions */
         {"util", "createmultisig", &createmultisig, true, true, false},
+        {"util", "logging", &logging, true, false, false},
         {"util", "validateaddress", &validateaddress, true, false, false}, /* uses wallet if enabled */
         {"util", "verifymessage", &verifymessage, true, false, false},
         {"util", "estimatefee", &estimatefee, true, true, false},
@@ -364,44 +362,41 @@ static const CRPCCommand vRPCCommands[] =
         { "hidden",             "waitforblock",           &waitforblock,           true,  true,  false  },
         { "hidden",             "waitforblockheight",     &waitforblockheight,     true,  true,  false  },
 
-        /* sssolutions features */
-    //    {"sssolutions", "masternode", &masternode, true, true, false},
-        {"sssolutions", "listmasternodes", &listmasternodes, true, true, false},
-        {"sssolutions", "getmasternodecount", &getmasternodecount, true, true, false},
-        {"sssolutions", "masternodeconnect", &masternodeconnect, true, true, false},
-        {"sssolutions", "createmasternodebroadcast", &createmasternodebroadcast, true, true, false},
-        {"sssolutions", "decodemasternodebroadcast", &decodemasternodebroadcast, true, true, false},
-        {"sssolutions", "relaymasternodebroadcast", &relaymasternodebroadcast, true, true, false},
-        {"sssolutions", "masternodecurrent", &masternodecurrent, true, true, false},
-        {"sssolutions", "masternodedebug", &masternodedebug, true, true, false},
-        {"sssolutions", "startmasternode", &startmasternode, true, true, false},
-        {"sssolutions", "createmasternodekey", &createmasternodekey, true, true, false},
-        {"sssolutions", "getmasternodeoutputs", &getmasternodeoutputs, true, true, false},
-        {"sssolutions", "listmasternodeconf", &listmasternodeconf, true, true, false},
-        {"sssolutions", "getmasternodestatus", &getmasternodestatus, true, true, false},
-        {"sssolutions", "getmasternodewinners", &getmasternodewinners, true, true, false},
-        {"sssolutions", "getmasternodescores", &getmasternodescores, true, true, false},
-        {"sssolutions", "preparebudget", &preparebudget, true, true, false},
-        {"sssolutions", "submitbudget", &submitbudget, true, true, false},
-        {"sssolutions", "mnbudgetvote", &mnbudgetvote, true, true, false},
-        {"sssolutions", "getbudgetvotes", &getbudgetvotes, true, true, false},
-        {"sssolutions", "getnextsuperblock", &getnextsuperblock, true, true, false},
-        {"sssolutions", "getbudgetprojection", &getbudgetprojection, true, true, false},
-        {"sssolutions", "getbudgetinfo", &getbudgetinfo, true, true, false},
-        {"sssolutions", "mnbudgetrawvote", &mnbudgetrawvote, true, true, false},
-        {"sssolutions", "mnfinalbudget", &mnfinalbudget, true, true, false},
-        {"sssolutions", "checkbudgets", &checkbudgets, true, true, false},
-        {"sssolutions", "mnsync", &mnsync, true, true, false},
-        {"sssolutions", "spork", &spork, true, true, false},
-        {"sssolutions", "getpoolinfo", &getpoolinfo, true, true, false},
+        /* SSS features */
+        {"sss", "listmasternodes", &listmasternodes, true, true, false},
+        {"sss", "getmasternodecount", &getmasternodecount, true, true, false},
+        {"sss", "masternodeconnect", &masternodeconnect, true, true, false},
+        {"sss", "createmasternodebroadcast", &createmasternodebroadcast, true, true, false},
+        {"sss", "decodemasternodebroadcast", &decodemasternodebroadcast, true, true, false},
+        {"sss", "relaymasternodebroadcast", &relaymasternodebroadcast, true, true, false},
+        {"sss", "masternodecurrent", &masternodecurrent, true, true, false},
+        {"sss", "masternodedebug", &masternodedebug, true, true, false},
+        {"sss", "startmasternode", &startmasternode, true, true, false},
+        {"sss", "createmasternodekey", &createmasternodekey, true, true, false},
+        {"sss", "getmasternodeoutputs", &getmasternodeoutputs, true, true, false},
+        {"sss", "listmasternodeconf", &listmasternodeconf, true, true, false},
+        {"sss", "getmasternodestatus", &getmasternodestatus, true, true, false},
+        {"sss", "getmasternodewinners", &getmasternodewinners, true, true, false},
+        {"sss", "getmasternodescores", &getmasternodescores, true, true, false},
+        {"sss", "preparebudget", &preparebudget, true, true, false},
+        {"sss", "submitbudget", &submitbudget, true, true, false},
+        {"sss", "mnbudgetvote", &mnbudgetvote, true, true, false},
+        {"sss", "getbudgetvotes", &getbudgetvotes, true, true, false},
+        {"sss", "getnextsuperblock", &getnextsuperblock, true, true, false},
+        {"sss", "getbudgetprojection", &getbudgetprojection, true, true, false},
+        {"sss", "getbudgetinfo", &getbudgetinfo, true, true, false},
+        {"sss", "mnbudgetrawvote", &mnbudgetrawvote, true, true, false},
+        {"sss", "mnfinalbudget", &mnfinalbudget, true, true, false},
+        {"sss", "checkbudgets", &checkbudgets, true, true, false},
+        {"sss", "mnsync", &mnsync, true, true, false},
+        {"sss", "spork", &spork, true, true, false},
 
 #ifdef ENABLE_WALLET
         /* Wallet */
         {"wallet", "addmultisigaddress", &addmultisigaddress, true, false, true},
         {"wallet", "autocombinerewards", &autocombinerewards, false, false, true},
         {"wallet", "backupwallet", &backupwallet, true, false, true},
-        {"wallet", "enableautomintaddress", &enableautomintaddress, true, false, true},
-        {"wallet", "createautomintaddress", &createautomintaddress, true, false, true},
+        {"wallet", "delegatestake", &delegatestake, false, false, true},
         {"wallet", "dumpprivkey", &dumpprivkey, true, false, true},
         {"wallet", "dumpwallet", &dumpwallet, true, false, true},
         {"wallet", "bip38encrypt", &bip38encrypt, true, false, true},
@@ -411,13 +406,20 @@ static const CRPCCommand vRPCCommands[] =
         {"wallet", "getaccount", &getaccount, true, false, true},
         {"wallet", "getaddressesbyaccount", &getaddressesbyaccount, true, false, true},
         {"wallet", "getbalance", &getbalance, false, false, true},
+        {"wallet", "getcoldstakingbalance", &getcoldstakingbalance, false, false, true},
+        {"wallet", "getdelegatedbalance", &getdelegatedbalance, false, false, true},
+        {"wallet", "upgradewallet", &upgradewallet, true, false, true},
+        {"wallet", "sethdseed", &sethdseed, true, false, true},
+        {"wallet", "getaddressinfo", &getaddressinfo, true, false, true},
         {"wallet", "getnewaddress", &getnewaddress, true, false, true},
+        {"wallet", "getnewstakingaddress", &getnewstakingaddress, true, false, true},
         {"wallet", "getrawchangeaddress", &getrawchangeaddress, true, false, true},
         {"wallet", "getreceivedbyaccount", &getreceivedbyaccount, false, false, true},
         {"wallet", "getreceivedbyaddress", &getreceivedbyaddress, false, false, true},
         {"wallet", "getstakingstatus", &getstakingstatus, false, false, true},
         {"wallet", "getstakesplitthreshold", &getstakesplitthreshold, false, false, true},
         {"wallet", "gettransaction", &gettransaction, false, false, true},
+        {"wallet", "abandontransaction", &abandontransaction, false, false, true},
         {"wallet", "getunconfirmedbalance", &getunconfirmedbalance, false, false, true},
         {"wallet", "getwalletinfo", &getwalletinfo, false, false, true},
         {"wallet", "importprivkey", &importprivkey, true, false, true},
@@ -425,7 +427,10 @@ static const CRPCCommand vRPCCommands[] =
         {"wallet", "importaddress", &importaddress, true, false, true},
         {"wallet", "keypoolrefill", &keypoolrefill, true, false, true},
         {"wallet", "listaccounts", &listaccounts, false, false, true},
+        {"wallet", "listdelegators", &listdelegators, false, false, true},
+        {"wallet", "liststakingaddresses", &liststakingaddresses, false, false, true},
         {"wallet", "listaddressgroupings", &listaddressgroupings, false, false, true},
+        {"wallet", "listcoldutxos", &listcoldutxos, false, false, true},
         {"wallet", "listlockunspent", &listlockunspent, false, false, true},
         {"wallet", "listreceivedbyaccount", &listreceivedbyaccount, false, false, true},
         {"wallet", "listreceivedbyaddress", &listreceivedbyaddress, false, false, true},
@@ -435,6 +440,7 @@ static const CRPCCommand vRPCCommands[] =
         {"wallet", "lockunspent", &lockunspent, true, false, true},
         {"wallet", "move", &movecmd, false, false, true},
         {"wallet", "multisend", &multisend, false, false, true},
+        {"wallet", "rawdelegatestake", &rawdelegatestake, false, false, true},
         {"wallet", "sendfrom", &sendfrom, false, false, true},
         {"wallet", "sendmany", &sendmany, false, false, true},
         {"wallet", "sendtoaddress", &sendtoaddress, false, false, true},
@@ -446,9 +452,10 @@ static const CRPCCommand vRPCCommands[] =
         {"wallet", "walletlock", &walletlock, true, false, true},
         {"wallet", "walletpassphrasechange", &walletpassphrasechange, true, false, true},
         {"wallet", "walletpassphrase", &walletpassphrase, true, false, true},
-        {"wallet", "burn", &burn, true, false, false}, /* uses wallet if enabled */
+        {"wallet", "delegatoradd", &delegatoradd, true, false, true},
+        {"wallet", "delegatorremove", &delegatorremove, true, false, true},
 
-        {"zerocoin", "createrawzerocoinstake", &createrawzerocoinstake, false, false, true},
+        {"zerocoin", "createrawzerocoinspend", &createrawzerocoinspend, false, false, true},
         {"zerocoin", "getzerocoinbalance", &getzerocoinbalance, false, false, true},
         {"zerocoin", "listmintedzerocoins", &listmintedzerocoins, false, false, true},
         {"zerocoin", "listspentzerocoins", &listspentzerocoins, false, false, true},
@@ -469,7 +476,6 @@ static const CRPCCommand vRPCCommands[] =
         {"zerocoin", "generatemintlist", &generatemintlist, false, false, true},
         {"zerocoin", "searchdzsss", &searchdzsss, false, false, true},
         {"zerocoin", "dzsssstate", &dzsssstate, false, false, true},
-        {"zerocoin", "clearspendcache", &clearspendcache, false, false, true}
 
 #endif // ENABLE_WALLET
 };
@@ -487,7 +493,7 @@ CRPCTable::CRPCTable()
 
 const CRPCCommand *CRPCTable::operator[](const std::string &name) const
 {
-    map<string, const CRPCCommand*>::const_iterator it = mapCommands.find(name);
+    std::map<std::string, const CRPCCommand*>::const_iterator it = mapCommands.find(name);
     if (it == mapCommands.end())
         return NULL;
     return (*it).second;
@@ -495,7 +501,7 @@ const CRPCCommand *CRPCTable::operator[](const std::string &name) const
 
 bool StartRPC()
 {
-    LogPrint("rpc", "Starting RPC\n");
+    LogPrint(BCLog::RPC, "Starting RPC\n");
     fRPCRunning = true;
     g_rpcSignals.Started();
     return true;
@@ -503,14 +509,14 @@ bool StartRPC()
 
 void InterruptRPC()
 {
-    LogPrint("rpc", "Interrupting RPC\n");
+    LogPrint(BCLog::RPC, "Interrupting RPC\n");
     // Interrupt e.g. running longpolls
     fRPCRunning = false;
 }
 
 void StopRPC()
 {
-    LogPrint("rpc", "Stopping RPC\n");
+    LogPrint(BCLog::RPC, "Stopping RPC\n");
     deadlineTimers.clear();
     g_rpcSignals.Stopped();
 }
@@ -559,7 +565,7 @@ void JSONRequest::parse(const UniValue& valRequest)
         throw JSONRPCError(RPC_INVALID_REQUEST, "Method must be a string");
     strMethod = valMethod.get_str();
     if (strMethod != "getblocktemplate")
-        LogPrint("rpc", "ThreadRPCServer method=%s\n", SanitizeString(strMethod));
+        LogPrint(BCLog::RPC, "ThreadRPCServer method=%s\n", SanitizeString(strMethod));
 
     // Parse params
     UniValue valParams = find_value(request, "params");
@@ -584,7 +590,7 @@ static UniValue JSONRPCExecOne(const UniValue& req)
         rpc_result = JSONRPCReplyObj(result, NullUniValue, jreq.id);
     } catch (const UniValue& objError) {
         rpc_result = JSONRPCReplyObj(NullUniValue, objError, jreq.id);
-    } catch (std::exception& e) {
+    } catch (const std::exception& e) {
         rpc_result = JSONRPCReplyObj(NullUniValue,
             JSONRPCError(RPC_PARSE_ERROR, e.what()), jreq.id);
     }
@@ -613,7 +619,7 @@ UniValue CRPCTable::execute(const std::string &strMethod, const UniValue &params
     try {
         // Execute
         return pcmd->actor(params, false);
-    } catch (std::exception& e) {
+    } catch (const std::exception& e) {
         throw JSONRPCError(RPC_MISC_ERROR, e.what());
     }
 
@@ -631,12 +637,12 @@ std::vector<std::string> CRPCTable::listCommands() const
     return commandList;
 }
 
-std::string HelpExampleCli(string methodname, string args)
+std::string HelpExampleCli(std::string methodname, std::string args)
 {
     return "> sssolutions-cli " + methodname + " " + args + "\n";
 }
 
-std::string HelpExampleRpc(string methodname, string args)
+std::string HelpExampleRpc(std::string methodname, std::string args)
 {
     return "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", "
            "\"method\": \"" +
@@ -665,7 +671,7 @@ void RPCRunLater(const std::string& name, boost::function<void(void)> func, int6
     if (!timerInterface)
         throw JSONRPCError(RPC_INTERNAL_ERROR, "No timer handler registered for RPC");
     deadlineTimers.erase(name);
-    LogPrint("rpc", "queue run of timer %s in %i seconds (using %s)\n", name, nSeconds, timerInterface->Name());
+    LogPrint(BCLog::RPC, "queue run of timer %s in %i seconds (using %s)\n", name, nSeconds, timerInterface->Name());
     deadlineTimers.insert(std::make_pair(name, boost::shared_ptr<RPCTimerBase>(timerInterface->NewTimer(func, nSeconds*1000))));
 }
 

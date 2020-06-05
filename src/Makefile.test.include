@@ -2,9 +2,9 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-bin_PROGRAMS += test/test_sssolutions
+bin_PROGRAMS += test/test_sss
 TEST_SRCDIR = test
-TEST_BINARY=test/test_sssolutions$(EXEEXT)
+TEST_BINARY=test/test_sss$(EXEEXT)
 
 JSON_TEST_FILES = \
   test/data/script_valid.json \
@@ -18,21 +18,26 @@ JSON_TEST_FILES = \
   test/data/tx_valid.json \
   test/data/sighash.json
 
-RAW_TEST_FILES = test/data/alertTests.raw
+RAW_TEST_FILES =
 
 GENERATED_TEST_FILES = $(JSON_TEST_FILES:.json=.json.h) $(RAW_TEST_FILES:.raw=.raw.h)
 
 BITCOIN_TEST_SUITE = \
+  test/test_sssolutions.h \
   test/test_sssolutions.cpp
-# test_sssolutions binary #
+
+if ENABLE_WALLET
+BITCOIN_TEST_SUITE += \
+  wallet/test/wallet_test_fixture.cpp \
+  wallet/test/wallet_test_fixture.h
+endif
+
+# test_sss binary #
 BITCOIN_TESTS =\
-  test/zerocoin_implementation_tests.cpp\
   test/zerocoin_denomination_tests.cpp\
   test/zerocoin_transactions_tests.cpp \
-  test/zerocoin_coinspend_tests.cpp \
-  test/benchmark_zerocoin.cpp \
-  test/tutorial_zerocoin.cpp \
-  test/libzerocoin_tests.cpp \
+  test/zerocoin_bignum_tests.cpp \
+  test/addrman_tests.cpp \
   test/allocator_tests.cpp \
   test/base32_tests.cpp \
   test/base58_tests.cpp \
@@ -49,10 +54,13 @@ BITCOIN_TESTS =\
   test/key_tests.cpp \
   test/main_tests.cpp \
   test/mempool_tests.cpp \
+  test/merkle_tests.cpp \
   test/mruset_tests.cpp \
   test/multisig_tests.cpp \
+  test/net_tests.cpp \
   test/netbase_tests.cpp \
   test/pmt_tests.cpp \
+  test/random_tests.cpp \
   test/reverselock_tests.cpp \
   test/rpc_tests.cpp \
   test/sanity_tests.cpp \
@@ -64,6 +72,7 @@ BITCOIN_TESTS =\
   test/sighash_tests.cpp \
   test/sigopcount_tests.cpp \
   test/skiplist_tests.cpp \
+  test/sync_tests.cpp \
   test/timedata_tests.cpp \
   test/torcontrol_tests.cpp \
   test/transaction_tests.cpp \
@@ -74,28 +83,27 @@ BITCOIN_TESTS =\
 if ENABLE_WALLET
 BITCOIN_TESTS += \
   test/accounting_tests.cpp \
-  wallet/test/wallet_tests.cpp \
-  test/rpc_wallet_tests.cpp
+  wallet/test/wallet_tests.cpp
 endif
 
-test_test_sssolutions_SOURCES = $(BITCOIN_TEST_SUITE) $(BITCOIN_TESTS) $(JSON_TEST_FILES) $(RAW_TEST_FILES)
-test_test_sssolutions_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) -I$(builddir)/test/ $(TESTDEFS) $(EVENT_FLAGS)
-test_test_sssolutions_LDADD = $(LIBBITCOIN_SERVER) $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBBITCOIN_ZEROCOIN) \
+test_test_sss_SOURCES = $(BITCOIN_TEST_SUITE) $(BITCOIN_TESTS) $(JSON_TEST_FILES) $(RAW_TEST_FILES)
+test_test_sss_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) -I$(builddir)/test/ $(TESTDEFS) $(EVENT_FLAGS)
+test_test_sss_LDADD = $(LIBBITCOIN_SERVER) $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBBITCOIN_ZEROCOIN) \
   $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) $(BOOST_LIBS) $(BOOST_UNIT_TEST_FRAMEWORK_LIB) $(LIBSECP256K1) $(EVENT_LIBS) $(EVENT_PTHREADS_LIBS)
 if ENABLE_WALLET
-test_test_sssolutions_LDADD += $(LIBBITCOIN_WALLET)
+test_test_sss_LDADD += $(LIBBITCOIN_WALLET)
 endif
-test_test_sssolutions_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+test_test_sss_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
-test_test_sssolutions_LDADD += $(LIBBITCOIN_CONSENSUS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
-test_test_sssolutions_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) -static
+test_test_sss_LDADD += $(LIBBITCOIN_CONSENSUS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
+test_test_sss_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) -static
 
 if ENABLE_ZMQ
-test_test_sssolutions_LDADD += $(ZMQ_LIBS)
+test_test_sss_LDADD += $(ZMQ_LIBS)
 endif
 #
 
-nodist_test_test_sssolutions_SOURCES = $(GENERATED_TEST_FILES)
+nodist_test_test_sss_SOURCES = $(GENERATED_TEST_FILES)
 
 $(BITCOIN_TESTS): $(GENERATED_TEST_FILES)
 
@@ -103,13 +111,13 @@ CLEAN_BITCOIN_TEST = test/*.gcda test/*.gcno $(GENERATED_TEST_FILES)
 
 CLEANFILES += $(CLEAN_BITCOIN_TEST)
 
-sssolutions_test: $(TEST_BINARY)
+sss_test: $(TEST_BINARY)
 
-sssolutions_test_check: $(TEST_BINARY) FORCE
+sss_test_check: $(TEST_BINARY) FORCE
 	$(MAKE) check-TESTS TESTS=$^
 
-sssolutions_test_clean : FORCE
-	rm -f $(CLEAN_BITCOIN_TEST) $(test_test_sssolutions_OBJECTS) $(TEST_BINARY)
+sss_test_clean : FORCE
+	rm -f $(CLEAN_BITCOIN_TEST) $(test_test_sss_OBJECTS) $(TEST_BINARY)
 
 check-local: $(BITCOIN_TESTS:.cpp=.cpp.test)
 	@echo "Running test/util/bitcoin-util-test.py..."

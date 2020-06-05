@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=SSS Core
+Comment=SSS P2P Cryptocurrency
+Comment[fr]=SSS, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=SSS, eşten eşe kriptografik sanal para birimi
+Exec=sssolutions-qt %u
+Terminal=false
+Type=Application
+Icon=sss128
+MimeType=x-scheme-handler/sss;
+Categories=Office;Finance;
+StartupWMClass=sssolutions-qt

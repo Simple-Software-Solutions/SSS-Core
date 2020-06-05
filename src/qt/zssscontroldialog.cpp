@@ -1,50 +1,71 @@
-// Copyright (c) 2017-2019 The sssolutions developers
+// Copyright (c) 2017-2020 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "zssscontroldialog.h"
 #include "ui_zssscontroldialog.h"
 
-#include "zsss/accumulators.h"
 #include "main.h"
 #include "walletmodel.h"
+#include "guiutil.h"
 
-using namespace std;
-using namespace libzerocoin;
 
-std::set<std::string> zsssControlDialog::setSelectedMints;
-std::set<CMintMeta> zsssControlDialog::setMints;
+std::set<std::string> zSSSControlDialog::setSelectedMints;
+std::set<CMintMeta> zSSSControlDialog::setMints;
 
-bool CzsssControlWidgetItem::operator<(const QTreeWidgetItem &other) const {
+bool CzSSSControlWidgetItem::operator<(const QTreeWidgetItem &other) const {
     int column = treeWidget()->sortColumn();
-    if (column == zsssControlDialog::COLUMN_DENOMINATION || column == zsssControlDialog::COLUMN_VERSION || column == zsssControlDialog::COLUMN_CONFIRMATIONS)
+    if (column == zSSSControlDialog::COLUMN_DENOMINATION || column == zSSSControlDialog::COLUMN_VERSION || column == zSSSControlDialog::COLUMN_CONFIRMATIONS)
         return data(column, Qt::UserRole).toLongLong() < other.data(column, Qt::UserRole).toLongLong();
     return QTreeWidgetItem::operator<(other);
 }
 
 
-zsssControlDialog::zsssControlDialog(QWidget *parent) :
+zSSSControlDialog::zSSSControlDialog(QWidget *parent) :
     QDialog(parent, Qt::WindowSystemMenuHint | Qt::WindowTitleHint | Qt::WindowCloseButtonHint),
-    ui(new Ui::zsssControlDialog),
+    ui(new Ui::zSSSControlDialog),
     model(0)
 {
     ui->setupUi(this);
     setMints.clear();
-    privacyDialog = (PrivacyDialog*)parent;
+
+    /* Open CSS when configured */
+    this->setStyleSheet(GUIUtil::loadStyleSheet());
+
+    ui->frame->setProperty("cssClass", "container-dialog");
+
+    // Title
+    ui->labelTitle->setText(tr("Select zSSS Denominations to Spend"));
+    ui->labelTitle->setProperty("cssClass", "text-title-dialog");
+
+
+    // Label Style
+    ui->labelzSSS->setProperty("cssClass", "text-main-purple");
+    ui->labelzSSS_int->setProperty("cssClass", "text-main-purple");
+    ui->labelQuantity->setProperty("cssClass", "text-main-purple");
+    ui->labelQuantity_int->setProperty("cssClass", "text-main-purple");
+
+    ui->layoutAmount->setProperty("cssClass", "container-border-purple");
+    ui->layoutQuantity->setProperty("cssClass", "container-border-purple");
+
+    // Buttons
+
+    ui->btnEsc->setText("");
+    ui->btnEsc->setProperty("cssClass", "ic-close");
+    ui->pushButtonAll->setProperty("cssClass", "btn-check");
 
     // click on checkbox
-    connect(ui->treeWidget, SIGNAL(itemChanged(QTreeWidgetItem*, int)), this, SLOT(updateSelection(QTreeWidgetItem*, int)));
-
+    connect(ui->treeWidget, &QTreeWidget::itemChanged, this, &zSSSControlDialog::updateSelection);
     // push select/deselect all button
-    connect(ui->pushButtonAll, SIGNAL(clicked()), this, SLOT(ButtonAllClicked()));
+    connect(ui->pushButtonAll, &QPushButton::clicked, this, &zSSSControlDialog::ButtonAllClicked);
 }
 
-zsssControlDialog::~zsssControlDialog()
+zSSSControlDialog::~zSSSControlDialog()
 {
     delete ui;
 }
 
-void zsssControlDialog::setModel(WalletModel *model)
+void zSSSControlDialog::setModel(WalletModel *model)
 {
     this->model = model;
     updateList();
@@ -52,7 +73,7 @@ void zsssControlDialog::setModel(WalletModel *model)
 
 
 //Update the tree widget
-void zsssControlDialog::updateList()
+void zSSSControlDialog::updateList()
 {
     // need to prevent the slot from being called each time something is changed
     ui->treeWidget->blockSignals(true);
@@ -60,9 +81,9 @@ void zsssControlDialog::updateList()
 
     // add a top level item for each denomination
     QFlags<Qt::ItemFlag> flgTristate = Qt::ItemIsEnabled | Qt::ItemIsUserCheckable | Qt::ItemIsTristate;
-    map<libzerocoin::CoinDenomination, int> mapDenomPosition;
+    std::map<libzerocoin::CoinDenomination, int> mapDenomPosition;
     for (auto denom : libzerocoin::zerocoinDenomList) {
-        CzsssControlWidgetItem* itemDenom(new CzsssControlWidgetItem);
+        CzSSSControlWidgetItem* itemDenom(new CzSSSControlWidgetItem);
         ui->treeWidget->addTopLevelItem(itemDenom);
 
         //keep track of where this is positioned in tree widget
@@ -80,11 +101,10 @@ void zsssControlDialog::updateList()
 
     //populate rows with mint info
     int nBestHeight = chainActive.Height();
-    map<CoinDenomination, int> mapMaturityHeight = GetMintMaturityHeight();
     for (const CMintMeta& mint : setMints) {
         // assign this mint to the correct denomination in the tree view
         libzerocoin::CoinDenomination denom = mint.denom;
-        CzsssControlWidgetItem *itemMint = new CzsssControlWidgetItem(ui->treeWidget->topLevelItem(mapDenomPosition.at(denom)));
+        CzSSSControlWidgetItem *itemMint = new CzSSSControlWidgetItem(ui->treeWidget->topLevelItem(mapDenomPosition.at(denom)));
 
         // if the mint is already selected, then it needs to have the checkbox checked
         std::string strPubCoinHash = mint.hashPubcoin.GetHex();
@@ -109,26 +129,15 @@ void zsssControlDialog::updateList()
         itemMint->setText(COLUMN_CONFIRMATIONS, QString::number(nConfirmations));
         itemMint->setData(COLUMN_CONFIRMATIONS, Qt::UserRole, QVariant((qlonglong) nConfirmations));
 
-        {
-            LOCK(pwalletMain->zsssTracker->cs_spendcache);
-
-            CoinWitnessData *witnessData = pwalletMain->zsssTracker->GetSpendCache(mint.hashStake);
-            if (witnessData->nHeightAccStart > 0  && witnessData->nHeightAccEnd > 0) {
-                int nPercent = std::max(0, std::min(100, (int)((double)(witnessData->nHeightAccEnd - witnessData->nHeightAccStart) / (double)(nBestHeight - witnessData->nHeightAccStart - 220) * 100)));
-                QString percent = QString::number(nPercent) + QString("%");
-                itemMint->setText(COLUMN_PRECOMPUTE, percent);
-            } else {
-                itemMint->setText(COLUMN_PRECOMPUTE, QString("0%"));
-            }
-        }
-
         // check for maturity
-        bool isMature = false;
-        if (mapMaturityHeight.count(mint.denom))
-            isMature = mint.nHeight < mapMaturityHeight.at(denom);
+        // Always mature, public spends doesn't require any new accumulation.
+        bool isMature = true;
+        //if (mapMaturityHeight.count(mint.denom))
+        //    isMature = mint.nHeight < mapMaturityHeight.at(denom);
 
         // disable selecting this mint if it is not spendable - also display a reason why
-        bool fSpendable = isMature && nConfirmations >= Params().Zerocoin_MintRequiredConfirmations() && mint.isSeedCorrect;
+        const int nRequiredConfs = Params().GetConsensus().ZC_MinMintConfirmations;
+        bool fSpendable = isMature && nConfirmations >= nRequiredConfs && mint.isSeedCorrect;
         if(!fSpendable) {
             itemMint->setDisabled(true);
             itemMint->setCheckState(COLUMN_CHECKBOX, Qt::Unchecked);
@@ -137,15 +146,15 @@ void zsssControlDialog::updateList()
             if (setSelectedMints.count(strPubCoinHash))
                 setSelectedMints.erase(strPubCoinHash);
 
-            string strReason = "";
-            if(nConfirmations < Params().Zerocoin_MintRequiredConfirmations())
-                strReason = strprintf("Needs %d more confirmations", Params().Zerocoin_MintRequiredConfirmations() - nConfirmations);
+            std::string strReason = "";
+            if(nConfirmations < nRequiredConfs)
+                strReason = strprintf("Needs %d more confirmations", nRequiredConfs - nConfirmations);
             else if (model->getEncryptionStatus() == WalletModel::EncryptionStatus::Locked)
-                strReason = "Your wallet is locked. Impossible to precompute or spend zsss.";
+                strReason = "Your wallet is locked. Impossible to spend zSSS.";
             else if (!mint.isSeedCorrect)
-                strReason = "The zsss seed used to mint this zsss is not the same as currently hold in the wallet";
+                strReason = "The zSSS seed used to mint this zSSS is not the same as currently hold in the wallet";
             else
-                strReason = strprintf("Needs %d more mints added to network", Params().Zerocoin_RequiredAccumulation());
+                strReason = "Needs 1 more mint added to network";
 
             itemMint->setText(COLUMN_ISSPENDABLE, QString::fromStdString(strReason));
         } else {
@@ -158,7 +167,7 @@ void zsssControlDialog::updateList()
 }
 
 // Update the list when a checkbox is clicked
-void zsssControlDialog::updateSelection(QTreeWidgetItem* item, int column)
+void zSSSControlDialog::updateSelection(QTreeWidgetItem* item, int column)
 {
     // only want updates from non top level items that are available to spend
     if (item->parent() && column == COLUMN_CHECKBOX && !item->isDisabled()){
@@ -180,7 +189,7 @@ void zsssControlDialog::updateSelection(QTreeWidgetItem* item, int column)
 }
 
 // Update the Quantity and Amount display
-void zsssControlDialog::updateLabels()
+void zSSSControlDialog::updateLabels()
 {
     int64_t nAmount = 0;
     for (const CMintMeta& mint : setMints) {
@@ -189,14 +198,14 @@ void zsssControlDialog::updateLabels()
     }
 
     //update this dialog's labels
-    ui->labelzsss_int->setText(QString::number(nAmount));
+    ui->labelzSSS_int->setText(QString::number(nAmount));
     ui->labelQuantity_int->setText(QString::number(setSelectedMints.size()));
 
     //update PrivacyDialog labels
-    privacyDialog->setzsssControlLabels(nAmount, setSelectedMints.size());
+    //privacyDialog->setzSSSControlLabels(nAmount, setSelectedMints.size());
 }
 
-std::vector<CMintMeta> zsssControlDialog::GetSelectedMints()
+std::vector<CMintMeta> zSSSControlDialog::GetSelectedMints()
 {
     std::vector<CMintMeta> listReturn;
     for (const CMintMeta& mint : setMints) {
@@ -208,7 +217,7 @@ std::vector<CMintMeta> zsssControlDialog::GetSelectedMints()
 }
 
 // select or deselect all of the mints
-void zsssControlDialog::ButtonAllClicked()
+void zSSSControlDialog::ButtonAllClicked()
 {
     ui->treeWidget->blockSignals(true);
     Qt::CheckState state = Qt::Checked;

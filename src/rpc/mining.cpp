@@ -1,7 +1,8 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The sssolutions developers
+// Copyright (c) 2015-2019 The PIVX developers
+// Copyright (c) 2020 The SSS developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -16,6 +17,7 @@
 #include "pow.h"
 #include "rpc/server.h"
 #include "util.h"
+#include "validationinterface.h"
 #ifdef ENABLE_WALLET
 #include "wallet/db.h"
 #include "wallet/wallet.h"
@@ -27,7 +29,6 @@
 
 #include <univalue.h>
 
-using namespace std;
 
 /**
  * Return average network hashes per second based on the last 'lookup' blocks,
@@ -75,7 +76,7 @@ UniValue GetNetworkHashPS(int lookup, int height)
 UniValue getnetworkhashps(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() > 2)
-        throw runtime_error(
+        throw std::runtime_error(
             "getnetworkhashps ( blocks height )\n"
             "\nReturns the estimated network hashes per second based on the last n blocks.\n"
             "Pass in [blocks] to override # of blocks, -1 specifies since last difficulty change.\n"
@@ -98,10 +99,10 @@ UniValue getnetworkhashps(const UniValue& params, bool fHelp)
 UniValue getgenerate(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
-        throw runtime_error(
+        throw std::runtime_error(
             "getgenerate\n"
             "\nReturn if the server is set to generate coins or not. The default is false.\n"
-            "It is set with the command line argument -gen (or sssolutions.conf setting gen)\n"
+            "It is set with the command line argument -gen (or sss.conf setting gen)\n"
             "It can also be set with the setgenerate call.\n"
 
             "\nResult\n"
@@ -117,7 +118,7 @@ UniValue getgenerate(const UniValue& params, bool fHelp)
 UniValue generate(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 1)
-        throw runtime_error(
+        throw std::runtime_error(
             "generate numblocks\n"
             "\nMine blocks immediately (before the RPC call returns)\n"
             "\nNote: this function can only be used on the regtest network\n"
@@ -133,57 +134,72 @@ UniValue generate(const UniValue& params, bool fHelp)
             + HelpExampleCli("generate", "11")
         );
 
-    if (!Params().MineBlocksOnDemand())
+    if (!Params().IsRegTestNet())
         throw JSONRPCError(RPC_METHOD_NOT_FOUND, "This method can only be used on regtest");
 
-    int nHeightStart = 0;
+    const int nGenerate = params[0].get_int();
     int nHeightEnd = 0;
     int nHeight = 0;
-    int nGenerate = params[0].get_int();
-    CReserveKey reservekey(pwalletMain);
 
     {   // Don't keep cs_main locked
         LOCK(cs_main);
-        nHeightStart = chainActive.Height();
-        nHeight = nHeightStart;
-        nHeightEnd = nHeightStart+nGenerate;
+        nHeight = chainActive.Height();
+        nHeightEnd = nHeight + nGenerate;
     }
-    unsigned int nExtraNonce = 0;
-    UniValue blockHashes(UniValue::VARR);
-    bool fPoS = nHeight >= Params().LAST_POW_BLOCK();
-    while (nHeight < nHeightEnd)
-    {
 
-        unique_ptr<CBlockTemplate> pblocktemplate(CreateNewBlockWithKey(reservekey, pwalletMain, fPoS));
-        if (!pblocktemplate.get())
-            throw JSONRPCError(RPC_INTERNAL_ERROR, "Couldn't create new block");
+    const int last_pow_block = Params().GetConsensus().height_last_PoW;
+    bool fPoS = nHeight >= last_pow_block;
+    if (fPoS) {
+        // If we are in PoS, wallet must be unlocked.
+        EnsureWalletIsUnlocked();
+    }
+
+    UniValue blockHashes(UniValue::VARR);
+    CReserveKey reservekey(pwalletMain);
+    unsigned int nExtraNonce = 0;
+    while (nHeight < nHeightEnd && !ShutdownRequested())
+    {
+        std::unique_ptr<CBlockTemplate> pblocktemplate(fPoS ?
+                                                       CreateNewBlock(CScript(), pwalletMain, fPoS) :
+                                                       CreateNewBlockWithKey(reservekey, pwalletMain));
+        if (!pblocktemplate.get()) break;
         CBlock *pblock = &pblocktemplate->block;
 
-        if(!fPoS){
+        if(!fPoS) {
             {
                 LOCK(cs_main);
                 IncrementExtraNonce(pblock, chainActive.Tip(), nExtraNonce);
             }
+            while (pblock->nNonce < std::numeric_limits<uint32_t>::max() &&
+                    !CheckProofOfWork(pblock->GetHash(), pblock->nBits)) {
+                ++pblock->nNonce;
+            }
+            if (ShutdownRequested()) break;
+            if (pblock->nNonce == std::numeric_limits<uint32_t>::max()) continue;
         }
-        while (!CheckProofOfWork(pblock->GetHash(), pblock->nBits)) {
-            // Yes, there is a chance every nonce could fail to satisfy the -regtest
-            // target -- 1 in 2^(2^32). That ain't gonna happen.
-            ++pblock->nNonce;
-        }
+
         CValidationState state;
-        if (!ProcessNewBlock(state, NULL, pblock))
+        if (!ProcessNewBlock(state, nullptr, pblock))
             throw JSONRPCError(RPC_INTERNAL_ERROR, "ProcessNewBlock, block not accepted");
+
         ++nHeight;
-        fPoS = nHeight >= Params().LAST_POW_BLOCK();
         blockHashes.push_back(pblock->GetHash().GetHex());
+
+        // Check PoS if needed.
+        if (!fPoS) fPoS = (nHeight >= last_pow_block);
     }
+
+    const int nGenerated = blockHashes.size();
+    if (nGenerated == 0 || (!fPoS && nGenerated < nGenerate))
+        throw JSONRPCError(RPC_INTERNAL_ERROR, "Couldn't create new blocks");
+
     return blockHashes;
 }
 
 UniValue setgenerate(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
-        throw runtime_error(
+        throw std::runtime_error(
             "setgenerate generate ( genproclimit )\n"
             "\nSet 'generate' true or false to turn generation on or off.\n"
             "Generation is limited to 'genproclimit' processors, -1 is unlimited.\n"
@@ -203,12 +219,15 @@ UniValue setgenerate(const UniValue& params, bool fHelp)
     if (pwalletMain == NULL)
         throw JSONRPCError(RPC_METHOD_NOT_FOUND, "Method not found (disabled)");
 
-    if (Params().MineBlocksOnDemand())
-        throw JSONRPCError(RPC_METHOD_NOT_FOUND, "Use the generate method instead of setgenerate on this network");
+    if (Params().IsRegTestNet())
+        throw JSONRPCError(RPC_INVALID_REQUEST, "Use the generate method instead of setgenerate on regtest");
 
     bool fGenerate = true;
     if (params.size() > 0)
         fGenerate = params[0].get_bool();
+
+    if (fGenerate && (chainActive.Height() >= Params().GetConsensus().height_last_PoW))
+        throw JSONRPCError(RPC_INVALID_REQUEST, "Proof of Work phase has already ended");
 
     int nGenProcLimit = -1;
     if (params.size() > 1) {
@@ -227,7 +246,7 @@ UniValue setgenerate(const UniValue& params, bool fHelp)
 UniValue gethashespersec(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
-        throw runtime_error(
+        throw std::runtime_error(
             "gethashespersec\n"
             "\nReturns a recent hashes per second performance measurement while generating.\n"
             "See the getgenerate and setgenerate calls to turn generation on and off.\n"
@@ -248,7 +267,7 @@ UniValue gethashespersec(const UniValue& params, bool fHelp)
 UniValue getmininginfo(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
-        throw runtime_error(
+        throw std::runtime_error(
             "getmininginfo\n"
             "\nReturns a json object containing mining-related information."
 
@@ -281,7 +300,7 @@ UniValue getmininginfo(const UniValue& params, bool fHelp)
     obj.push_back(Pair("genproclimit", (int)GetArg("-genproclimit", -1)));
     obj.push_back(Pair("networkhashps", getnetworkhashps(params, false)));
     obj.push_back(Pair("pooledtx", (uint64_t)mempool.size()));
-    obj.push_back(Pair("testnet", Params().TestnetToBeDeprecatedFieldRPC()));
+    obj.push_back(Pair("testnet", Params().NetworkID() == CBaseChainParams::TESTNET));
     obj.push_back(Pair("chain", Params().NetworkIDString()));
 #ifdef ENABLE_WALLET
     obj.push_back(Pair("generate", getgenerate(params, false)));
@@ -295,7 +314,7 @@ UniValue getmininginfo(const UniValue& params, bool fHelp)
 UniValue prioritisetransaction(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 3)
-        throw runtime_error(
+        throw std::runtime_error(
             "prioritisetransaction <txid> <priority delta> <fee delta>\n"
             "Accepts the transaction into mined blocks at a higher (or lower) priority\n"
 
@@ -345,7 +364,7 @@ static UniValue BIP22ValidationResult(const CValidationState& state)
 UniValue getblocktemplate(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)
-        throw runtime_error(
+        throw std::runtime_error(
             "getblocktemplate ( \"jsonrequestobject\" )\n"
             "\nIf the request parameters include a 'mode' key, that is used to explicitly select between the default 'template' request or a 'proposal'.\n"
             "It returns data needed to construct a block to work on.\n"
@@ -403,7 +422,6 @@ UniValue getblocktemplate(const UniValue& params, bool fHelp)
             "        { ... }                       (json object) vote candidate\n"
             "        ,...\n"
             "  ],\n"
-            "  \"masternode_payments\" : true|false,         (boolean) true, if masternode payments are enabled\n"
             "  \"enforce_masternode_payments\" : true|false  (boolean) true, if masternode payments are enforced\n"
             "}\n"
 
@@ -459,10 +477,10 @@ UniValue getblocktemplate(const UniValue& params, bool fHelp)
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid mode");
 
     if (vNodes.empty())
-        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "sssolutions is not connected!");
+        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "SSS is not connected!");
 
     if (IsInitialBlockDownload())
-        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "sssolutions is downloading blocks...");
+        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "SSS is downloading blocks...");
 
     static unsigned int nTransactionsUpdatedLast;
 
@@ -489,9 +507,9 @@ UniValue getblocktemplate(const UniValue& params, bool fHelp)
         {
             checktxtime = std::chrono::steady_clock::now() + std::chrono::minutes(1);
 
-            WaitableLock lock(csBestBlock);
-            while (chainActive.Tip()->GetBlockHash() == hashWatchedChain && IsRPCRunning()) {
-                if (cvBlockChange.wait_until(lock, checktxtime) == std::cv_status::timeout)
+            WAIT_LOCK(g_best_block_mutex, lock);
+            while (g_best_block == hashWatchedChain && IsRPCRunning()) {
+                if (g_best_block_cv.wait_until(lock, checktxtime) == std::cv_status::timeout)
                 {
                     // Timeout: Check transactions for update
                     if (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLastLP)
@@ -543,9 +561,9 @@ UniValue getblocktemplate(const UniValue& params, bool fHelp)
     UniValue aCaps(UniValue::VARR); aCaps.push_back("proposal");
 
     UniValue transactions(UniValue::VARR);
-    map<uint256, int64_t> setTxIndex;
+    std::map<uint256, int64_t> setTxIndex;
     int i = 0;
-    BOOST_FOREACH (CTransaction& tx, pblock->vtx) {
+    for (CTransaction& tx : pblock->vtx) {
         uint256 txHash = tx.GetHash();
         setTxIndex[txHash] = i++;
 
@@ -559,7 +577,7 @@ UniValue getblocktemplate(const UniValue& params, bool fHelp)
         entry.push_back(Pair("hash", txHash.GetHex()));
 
         UniValue deps(UniValue::VARR);
-        BOOST_FOREACH (const CTxIn& in, tx.vin) {
+        for (const CTxIn& in : tx.vin) {
             if (setTxIndex.count(in.prevout.hash))
                 deps.push_back(setTxIndex[in.prevout.hash]);
         }
@@ -617,7 +635,6 @@ UniValue getblocktemplate(const UniValue& params, bool fHelp)
         result.push_back(Pair("payee_amount", ""));
     }
 
-    result.push_back(Pair("masternode_payments", pblock->nTime > Params().StartMasternodePayments()));
     result.push_back(Pair("enforce_masternode_payments", true));
 
     return result;
@@ -645,7 +662,7 @@ protected:
 UniValue submitblock(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
-        throw runtime_error(
+        throw std::runtime_error(
             "submitblock \"hexdata\" ( \"jsonparametersobject\" )\n"
             "\nAttempts to submit new block to network.\n"
             "The 'jsonparametersobject' parameter is currently ignored.\n"
@@ -708,7 +725,7 @@ UniValue submitblock(const UniValue& params, bool fHelp)
 UniValue estimatefee(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
-        throw runtime_error(
+        throw std::runtime_error(
             "estimatefee nblocks\n"
             "\nEstimates the approximate fee per kilobyte\n"
             "needed for a transaction to begin confirmation\n"
@@ -742,7 +759,7 @@ UniValue estimatefee(const UniValue& params, bool fHelp)
 UniValue estimatepriority(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
-        throw runtime_error(
+        throw std::runtime_error(
             "estimatepriority nblocks\n"
             "\nEstimates the approximate priority\n"
             "a zero-fee transaction needs to begin confirmation\n"

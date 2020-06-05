@@ -1,11 +1,11 @@
-// Copyright (c) 2018 The sssolutions developers
+// Copyright (c) 2018 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef sssolutions_INVALID_H
-#define sssolutions_INVALID_H
+#ifndef SSS_INVALID_H
+#define SSS_INVALID_H
 
-#endif //sssolutions_INVALID_H
+#endif //SSS_INVALID_H
 
 #include <libzerocoin/bignum.h>
 #include <univalue/include/univalue.h>
