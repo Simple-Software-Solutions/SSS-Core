@@ -4337,7 +4337,7 @@ SSS零币(zSSS)技术文件
                            &lt;li&gt;
                            Once all those steps are followed staking should be enabled.
                            &lt;li&gt;
-                           You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. There package will be lit up and will state "Staking Enabled" to indicate it is staking.  Using the command line interface (sss-cli); the command &lt;i&gt;getstakingstatus&lt;/i&gt; will confirm that staking is active.
+                           You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. There package will be lit up and will state "Staking Enabled" to indicate it is staking.  Using the command line interface (sssolutions-cli); the command &lt;i&gt;getstakingstatus&lt;/i&gt; will confirm that staking is active.
                            &lt;/li&gt;&lt;/ol&gt;
                            &lt;/p&gt;&lt;p align="justify"&gt;
                            To Stake zSSS:
@@ -4365,7 +4365,7 @@ SSS零币(zSSS)技术文件
 &lt;li&gt;
 一旦所有这些步骤都遵循了，应该就可以启用加注
 &lt;li&gt;
-您可以通过将鼠标移到钱包界面左上角的行中的package图标上来查看在钱包中进行标记的状态。被点亮，并将状态“Staking启用”，以表明它是加注状态。使用命令行接口(sss-cli);命令getstakingstatus将确认加注是活跃状态。
+您可以通过将鼠标移到钱包界面左上角的行中的package图标上来查看在钱包中进行标记的状态。被点亮，并将状态“Staking启用”，以表明它是加注状态。使用命令行接口(sssolutions-cli);命令getstakingstatus将确认加注是活跃状态。
 &lt;/li&gt;&lt;/ol&gt;
 &lt;/p&gt;&lt;p align="justify"&gt;
 加注zSSS:&lt;/p&gt;&lt;p align="justify"&gt;

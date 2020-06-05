@@ -14,7 +14,7 @@
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
-        return @"io.sss.sss-Qt";
+        return @"io.sss.sssolutions-qt";
     } else {
         return [self __bundleIdentifier];
     }

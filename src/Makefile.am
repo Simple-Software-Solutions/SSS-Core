@@ -67,11 +67,11 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += sssd
+  bin_PROGRAMS += sssolutionsd
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += sss-cli sss-tx
+  bin_PROGRAMS += sssolutions-cli sssolutions-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
@@ -211,7 +211,7 @@ obj/build.h: FORCE
 	  "$(abs_top_srcdir)"
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between sssd and sss-qt
+# server: shared between sssolutionsd and sssolutions-qt
 libbitcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libbitcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_server_a_SOURCES = \
@@ -260,7 +260,7 @@ libbitcoin_zmq_a_SOURCES = \
   zmq/zmqpublishnotifier.cpp
 endif
 
-# wallet: shared between sssd and sss-qt, but only linked
+# wallet: shared between sssolutionsd and sssolutions-qt, but only linked
 # when wallet enabled
 libbitcoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
@@ -368,7 +368,7 @@ if USE_NUM_OPENSSL
   libzerocoin_libbitcoin_zerocoin_a_SOURCES += libzerocoin/bignum_openssl.cpp
 endif
 
-# common: shared between sssd, and sss-qt and non-server tools
+# common: shared between sssolutionsd, and sssolutions-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_common_a_SOURCES = \
@@ -433,7 +433,7 @@ libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 AM_LDFLAGS += $(COMPAT_LDFLAGS)
 endif
 
-# cli: shared between sss-cli and sss-qt
+# cli: shared between sssolutions-cli and sssolutions-qt
 libbitcoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_cli_a_SOURCES = \
@@ -443,16 +443,16 @@ libbitcoin_cli_a_SOURCES = \
 nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
-# sssd binary #
-sssd_SOURCES = sssd.cpp
-sssd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-sssd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-sssd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# sssolutionsd binary #
+sssolutionsd_SOURCES = sssolutionsd.cpp
+sssolutionsd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+sssolutionsd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+sssolutionsd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-sssd_SOURCES += sssd-res.rc
+sssolutionsd_SOURCES += sssolutionsd-res.rc
 endif
-sssd_LDADD = \
+sssolutionsd_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_WALLET) \
   $(LIBBITCOIN_COMMON) \
@@ -466,16 +466,16 @@ sssd_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-sssd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
+sssolutionsd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
-# sss-cli binary #
-sss_cli_SOURCES = sss-cli.cpp
+# sssolutions-cli binary #
+sss_cli_SOURCES = sssolutions-cli.cpp
 sss_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
 sss_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 sss_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-sss_cli_SOURCES += sss-cli-res.rc
+sss_cli_SOURCES += sssolutions-cli-res.rc
 endif
 
 sss_cli_LDADD = \
@@ -487,14 +487,14 @@ sss_cli_LDADD = \
 sss_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
-# sss-tx binary #
-sss_tx_SOURCES = sss-tx.cpp
+# sssolutions-tx binary #
+sss_tx_SOURCES = sssolutions-tx.cpp
 sss_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 sss_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 sss_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-sss_tx_SOURCES += sss-tx-res.rc
+sss_tx_SOURCES += sssolutions-tx-res.rc
 endif
 
 sss_tx_LDADD = \

@@ -73,7 +73,7 @@ bool AppInit(int argc, char* argv[])
             strUsage += LicenseInfo();
         } else {
             strUsage += "\n" + _("Usage:") + "\n" +
-                        "  sssd [options]                     " + _("Start SSS Core Daemon") + "\n";
+                        "  sssolutionsd [options]                     " + _("Start SSS Core Daemon") + "\n";
 
             strUsage += "\n" + HelpMessage(HMM_BITCOIND);
         }
@@ -113,7 +113,7 @@ bool AppInit(int argc, char* argv[])
                 fCommandLine = true;
 
         if (fCommandLine) {
-            fprintf(stderr, "Error: There is no RPC client functionality in sssd anymore. Use the sss-cli utility instead.\n");
+            fprintf(stderr, "Error: There is no RPC client functionality in sssolutionsd anymore. Use the sssolutions-cli utility instead.\n");
             exit(1);
         }
 #ifndef WIN32
@@ -164,7 +164,7 @@ int main(int argc, char* argv[])
 {
     SetupEnvironment();
 
-    // Connect sssd signal handlers
+    // Connect sssolutionsd signal handlers
     noui_connect();
 
     return (AppInit(argc, argv) ? 0 : 1);

@@ -1,7 +1,7 @@
 # It is not recommended to modify this file in-place, because it will
 # be overwritten during package upgrades. If you want to add further
 # options or overwrite existing ones then use
-# $ systemctl edit sssd.service
+# $ systemctl edit sssolutionsd.service
 # See "man systemd.service" for details.
 
 # Note that almost all daemon options could be specified in
@@ -12,12 +12,12 @@ Description=SSS daemon
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/sssd -daemon -datadir=/var/lib/sss -conf=/etc/sss/sss.conf -pid=/run/sssd/sssd.pid
-# Creates /run/sssd owned by sss
-RuntimeDirectory=sssd
+ExecStart=/usr/bin/sssolutionsd -daemon -datadir=/var/lib/sss -conf=/etc/sss/sss.conf -pid=/run/sssolutionsd/sssolutionsd.pid
+# Creates /run/sssolutionsd owned by sss
+RuntimeDirectory=sssolutionsd
 User=sss
 Type=forking
-PIDFile=/run/sssd/sssd.pid
+PIDFile=/run/sssolutionsd/sssolutionsd.pid
 Restart=on-failure
 
 # Hardening measures

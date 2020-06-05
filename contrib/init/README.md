@@ -1,11 +1,11 @@
 Sample configuration files for:
 ```
-SystemD: sssd.service
-Upstart: sssd.conf
-OpenRC:  sssd.openrc
-         sssd.openrcconf
-CentOS:  sssd.init
-macOS:    org.sss.sssd.plist
+SystemD: sssolutionsd.service
+Upstart: sssolutionsd.conf
+OpenRC:  sssolutionsd.openrc
+         sssolutionsd.openrcconf
+CentOS:  sssolutionsd.init
+macOS:    org.sss.sssolutionsd.plist
 ```
 have been made available to assist packagers in creating node packages here.
 

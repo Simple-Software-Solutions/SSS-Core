@@ -1,8 +1,8 @@
-/usr/bin/sss-cli		--	gen_context(system_u:object_r:sss_exec_t,s0)
-/usr/sbin/sssd		--	gen_context(system_u:object_r:sss_exec_t,s0)
-/usr/lib(64)?/sss/sssd		--	gen_context(system_u:object_r:sss_exec_t,s0)
+/usr/bin/sssolutions-cli		--	gen_context(system_u:object_r:sss_exec_t,s0)
+/usr/sbin/sssolutionsd		--	gen_context(system_u:object_r:sss_exec_t,s0)
+/usr/lib(64)?/sss/sssolutionsd		--	gen_context(system_u:object_r:sss_exec_t,s0)
 
 /etc/sss(/.*)?		gen_context(system_u:object_r:sss_conf_t,s0)
 /var/lib/sss(/.*)?		gen_context(system_u:object_r:sss_var_lib_t,s0)
 
-(/var)?/run/sssd(/.*)?   gen_context(system_u:object_r:sss_var_run_t,s0)
+(/var)?/run/sssolutionsd(/.*)?   gen_context(system_u:object_r:sss_var_run_t,s0)

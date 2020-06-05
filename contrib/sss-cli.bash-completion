@@ -1,9 +1,9 @@
-# bash programmable completion for sss-cli(1)
+# bash programmable completion for sssolutions-cli(1)
 # Copyright (c) 2012-2016 The Bitcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-# call $sss-cli for RPC
+# call $sssolutions-cli for RPC
 _sss_rpc() {
     # determine already specified args necessary for RPC
     local rpcargs=()
@@ -28,8 +28,8 @@ _sss_cli() {
     local cur prev words=() cword
     local sss_cli
 
-    # save and use original argument to invoke sss-cli for -help, help and RPC
-    # as sss-cli might not be in $PATH
+    # save and use original argument to invoke sssolutions-cli for -help, help and RPC
+    # as sssolutions-cli might not be in $PATH
     sss_cli="$1"
 
     COMPREPLY=()
@@ -143,7 +143,7 @@ _sss_cli() {
             ;;
     esac
 } &&
-complete -F _sss_cli sss-cli
+complete -F _sss_cli sssolutions-cli
 
 # Local variables:
 # mode: shell-script

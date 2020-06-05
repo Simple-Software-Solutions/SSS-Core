@@ -373,8 +373,8 @@ SOURCES += src/activemasternode.cpp \
            src/crypter.cpp \
            src/obfuscation-relay.cpp \
            src/obfuscation.cpp \
-           src/sss-cli.cpp \
-           src/sss-tx.cpp \
+           src/sssolutions-cli.cpp \
+           src/sssolutions-tx.cpp \
            src/sss.cpp \
            src/db.cpp \
            src/eccryptoverify.cpp \

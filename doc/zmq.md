@@ -47,7 +47,7 @@ operation.
 
 By default, the ZeroMQ feature is automatically compiled in if the
 necessary prerequisites are found.  To disable, use --disable-zmq
-during the *configure* step of building sssd:
+during the *configure* step of building sssolutionsd:
 
     $ ./configure --disable-zmq (other options)
 
@@ -70,8 +70,8 @@ address. The same address can be used in more than one notification.
 
 For instance:
 
-    $ sssd -zmqpubhashtx=tcp://127.0.0.1:28332 \
-               -zmqpubrawtx=ipc:///tmp/sssd.tx.raw
+    $ sssolutionsd -zmqpubhashtx=tcp://127.0.0.1:28332 \
+               -zmqpubrawtx=ipc:///tmp/sssolutionsd.tx.raw
 
 Each PUB notification has a topic and body, where the header
 corresponds to the notification type. For instance, for the
@@ -91,9 +91,9 @@ arriving. Please see `contrib/zmq/zmq_sub.py` for a working example.
 
 ## Remarks
 
-From the perspective of sssd, the ZeroMQ socket is write-only; PUB
+From the perspective of sssolutionsd, the ZeroMQ socket is write-only; PUB
 sockets don't even have a read function. Thus, there is no state
-introduced into sssd directly. Furthermore, no information is
+introduced into sssolutionsd directly. Furthermore, no information is
 broadcast that wasn't already received from the public P2P network.
 
 No authentication or authorization is done on connecting clients; it
@@ -106,5 +106,5 @@ retrieve the chain from the last known block to the new tip.
 
 There are several possibilities that ZMQ notification can get lost
 during transmission depending on the communication type you are
-using. sssd appends an up-counting sequence number to each
+using. sssolutionsd appends an up-counting sequence number to each
 notification which allows listeners to detect lost notifications.

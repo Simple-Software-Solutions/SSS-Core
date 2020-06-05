@@ -32,7 +32,7 @@ Homepage: http://www.sss.org
 Vcs-Git: git://github.com/sss-core/SSS.git
 Vcs-Browser: http://github.com/sss-core/SSS
 
-Package: sssd
+Package: sssolutionsd
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
@@ -45,10 +45,10 @@ Description: peer-to-peer network based digital currency - daemon
  Full transaction history is stored locally at each client.  This
  requires 10+ GB of space, slowly growing.
  .
- This package provides the daemon, sssd, and the CLI tool
- sss-cli to interact with the daemon.
+ This package provides the daemon, sssolutionsd, and the CLI tool
+ sssolutions-cli to interact with the daemon.
 
-Package: sss-qt
+Package: sssolutions-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
@@ -61,4 +61,4 @@ Description: peer-to-peer network based digital currency - Qt GUI
  Full transaction history is stored locally at each client.  This
  requires 10+ GB of space, slowly growing.
  .
- This package provides sss-Qt, a GUI for SSS based on Qt.
+ This package provides sssolutions-qt, a GUI for SSS based on Qt.

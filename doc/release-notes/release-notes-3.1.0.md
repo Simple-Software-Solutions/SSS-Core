@@ -15,7 +15,7 @@ Users updating from a previous version after Tuesday, May 8, 2018 12:00:00 AM GM
 How to Upgrade
 ==============
 
-If you are running an older version, shut it down. Wait until it has completely shut down (which might take a few minutes for older versions), then run the installer (on Windows) or just copy over /Applications/SSS-Qt (on Mac) or sss/sss-qt (on Linux).
+If you are running an older version, shut it down. Wait until it has completely shut down (which might take a few minutes for older versions), then run the installer (on Windows) or just copy over /Applications/sssolutions-qt (on Mac) or sss/sssolutions-qt (on Linux).
 
 
 Compatibility
@@ -251,8 +251,8 @@ Minor Enhancements
 -	Enforced v1 zSSS spends to require a security level of 100
 -	Updates to zSSS spends to avoid segfaults
 -	Updates to configuration will now reflect on the privacy tab
--	Fixed a  bug that would not start masternodes from the SSS-Qt masternodes tab
--	Updated SSS-Qt tooltips
+-	Fixed a  bug that would not start masternodes from the sssolutions-qt masternodes tab
+-	Updated sssolutions-qt tooltips
 -	Icon added to the wallet GUI to reflect the status of autominting (active / inactive)
 -	Updated errors causing the blockchain to corrupt when experiencing unexpected wallet shutdowns
 -	Updated RPC help outputs & removed the deprecated obfuscation. 
@@ -348,7 +348,7 @@ Detailed release notes follow. This overview includes changes that affect behavi
 ### RPC/REST
  - #562 `772160b1b` [Wallet/RPC] Add argument to mint zerocoin from specific UTXO (warrows)
  - #539 `b6a02e9d6` [RPC] Allow watchonly coins to be shown for listunspent (blondfrogs)
- - #543 `e4522ff07` [RPC] Segfault sss-cli getinfo while loading block index (Mrs-X)
+ - #543 `e4522ff07` [RPC] Segfault sssolutions-cli getinfo while loading block index (Mrs-X)
  - #524 `2541b5001` [RPC] Add blocksizenotify command (Mrs-X)
  - #495 `4946224c1` [RPC] Show script verification errors in signrawtransaction result (Fuzzbawls)
  - #468 `00b8b8e72` [RPC/REST] Migrate to libevent based httpd server (Fuzzbawls)

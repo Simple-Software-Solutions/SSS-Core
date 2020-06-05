@@ -10,7 +10,7 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between sss-cli and sssd)
+ * CBaseChainParams defines the base parameters (shared between sssolutions-cli and sssolutionsd)
  * of a given instance of the sss system.
  */
 class CBaseChainParams

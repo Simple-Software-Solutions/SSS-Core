@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>org.sss.sssd</string>
+	<string>org.sss.sssolutionsd</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/usr/local/bin/sssd</string>
+		<string>/usr/local/bin/sssolutionsd</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>

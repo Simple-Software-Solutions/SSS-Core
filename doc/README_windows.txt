@@ -11,7 +11,7 @@ with each other, with the help of a P2P network to check for double-spending.
 
 Setup
 -----
-Unpack the files into a directory and run sss-qt.exe.
+Unpack the files into a directory and run sssolutions-qt.exe.
 
 SSS Core is the original SSS client and it builds the backbone of the network.
 However, it downloads and stores the entire history of SSS transactions;

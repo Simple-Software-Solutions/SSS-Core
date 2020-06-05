@@ -4272,7 +4272,7 @@ zSSS es un método opcional centrado en la privacidad de monedas en la Blockchai
                            stake zSSS or take advantage of the privacy benefit it brings,
                            you can disable the automatic minting in your SSS wallet by
                            going to Settings-&gt;Options and deselecting “Enable zSSS Automint”.
-                           If you are not making use of the SSS-QT or GUI you can simply open
+                           If you are not making use of the sssolutions-qt or GUI you can simply open
                            your sss.conf file and add &lt;i&gt;enablezeromint=0&lt;/i&gt; Without the quotation
                            marks and restart your wallet to disable automint.&lt;/p&gt;
                            &lt;/p&gt;&lt;p align="justify"&gt;
@@ -4289,7 +4289,7 @@ a zSSS para ayudar a la red. Si no deseas hacer
 stake por zSSS o aprovechar el beneficio de privacidad que te brinda,
 puedes desactivar la acuñación automática en tu billetera SSS yendo
 a Ajustes-&gt;Opciones y deseleccionando "Activar zSSS Automint".
-Si no estás haciendo uso de la SSS-QT o GUI puedes simplemente abrir
+Si no estás haciendo uso de la sssolutions-qt o GUI puedes simplemente abrir
 tu archivo sss.conf y agregar &lt;i&gt; enablezeromint=0&lt;/i&gt; Sin las comillas
 luego reinicia tu billetera para deshabilitar la impresión automática.&lt;/p&gt;
 &lt;/p&gt;&lt;p align="justify"&gt;
@@ -4345,7 +4345,7 @@ Si quieres más zSSS necesitarás acuñar tu saldo en la pestaña "Privacidad".
                            &lt;li&gt;
                            Once all those steps are followed staking should be enabled.
                            &lt;li&gt;
-                           You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. There package will be lit up and will state "Staking Enabled" to indicate it is staking.  Using the command line interface (sss-cli); the command &lt;i&gt;getstakingstatus&lt;/i&gt; will confirm that staking is active.
+                           You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. There package will be lit up and will state "Staking Enabled" to indicate it is staking.  Using the command line interface (sssolutions-cli); the command &lt;i&gt;getstakingstatus&lt;/i&gt; will confirm that staking is active.
                            &lt;/li&gt;&lt;/ol&gt;
                            &lt;/p&gt;&lt;p align="justify"&gt;
                            To Stake zSSS:
@@ -4372,7 +4372,7 @@ Asegúrate de que tu billetera esté completamente sincronizada y de que esté u
 &lt;li&gt;
 Una vez que se siguen todos estos pasos, se debe habilitar el stake.
 &lt;li&gt;
- Puedes ver el estado del stake en la billetera pasando el ratón sobre el icono del paquete en la fila de la parte superior izquierda de la interfaz de la billetera. El paquete se iluminará y mostrará el mensaje "Stake Activado" para indicar que está hecho el stake. Usando la interfaz de línea de comandos (sss-cli); el comando &lt;i&gt;getstakingstatus&lt;/i&gt; confirmará que el stake está activo.
+ Puedes ver el estado del stake en la billetera pasando el ratón sobre el icono del paquete en la fila de la parte superior izquierda de la interfaz de la billetera. El paquete se iluminará y mostrará el mensaje "Stake Activado" para indicar que está hecho el stake. Usando la interfaz de línea de comandos (sssolutions-cli); el comando &lt;i&gt;getstakingstatus&lt;/i&gt; confirmará que el stake está activo.
 &lt;/li&gt;&lt;/ol&gt;
 &lt;/p&gt;&lt;p align="justify"&gt;
 Para hacer stake zSSS:

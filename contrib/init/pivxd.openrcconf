@@ -1,25 +1,25 @@
-# /etc/conf.d/sssd: config file for /etc/init.d/sssd
+# /etc/conf.d/sssolutionsd: config file for /etc/init.d/sssolutionsd
 
 # Config file location
 #BITCOIND_CONFIGFILE="/etc/sss/sss.conf"
 
 # What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
-#BITCOIND_PIDDIR="/var/run/sssd"
+#BITCOIND_PIDDIR="/var/run/sssolutionsd"
 
 # What filename to give the pidfile
-#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/sssd.pid"
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/sssolutionsd.pid"
 
-# Where to write sssd data (be mindful that the blockchain is large)
-#BITCOIND_DATADIR="/var/lib/sssd"
+# Where to write sssolutionsd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/sssolutionsd"
 
-# User and group to own sssd process
+# User and group to own sssolutionsd process
 #BITCOIND_USER="sss"
 #BITCOIND_GROUP="sss"
 
-# Path to sssd executable
-#BITCOIND_BIN="/usr/bin/sssd"
+# Path to sssolutionsd executable
+#BITCOIND_BIN="/usr/bin/sssolutionsd"
 
-# Nice value to run sssd under
+# Nice value to run sssolutionsd under
 #BITCOIND_NICE=0
 
 # Additional options (avoid -conf and -datadir, use flags above)

@@ -75,9 +75,9 @@ static bool AppInitRPC(int argc, char* argv[])
         std::string strUsage = _("SSS Core RPC client version") + " " + FormatFullVersion() + "\n";
         if (!mapArgs.count("-version")) {
             strUsage += "\n" + _("Usage:") + "\n" +
-                        "  sss-cli [options] <command> [params]  " + _("Send command to SSS Core") + "\n" +
-                        "  sss-cli [options] help                " + _("List commands") + "\n" +
-                        "  sss-cli [options] help <command>      " + _("Get help for a command") + "\n";
+                        "  sssolutions-cli [options] <command> [params]  " + _("Send command to SSS Core") + "\n" +
+                        "  sssolutions-cli [options] help                " + _("List commands") + "\n" +
+                        "  sssolutions-cli [options] help <command>      " + _("Get help for a command") + "\n";
 
             strUsage += "\n" + HelpMessageCli();
         }

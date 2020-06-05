@@ -29,16 +29,16 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>SSS-Qt</string>
+  <string>sssolutions-qt</string>
 
   <key>CFBundleName</key>
-  <string>SSS-Qt</string>
+  <string>sssolutions-qt</string>
 
   <key>LSHasLocalizedDisplayName</key>
   <true/>
 
   <key>CFBundleIdentifier</key>
-  <string>io.sss.sss-Qt</string>
+  <string>io.sss.sssolutions-qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>

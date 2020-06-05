@@ -27,13 +27,13 @@ Source1:	http://download.oracle.com/berkeley-db/db-%{bdbv}.NC.tar.gz
 Source10:	https://raw.githubusercontent.com/sss-core/sss/v%{version}/contrib/debian/examples/sss.conf
 
 #man pages
-Source20:	https://raw.githubusercontent.com/sss-core/sss/v%{version}/doc/man/sssd.1
-Source21:	https://raw.githubusercontent.com/sss-core/sss/v%{version}/doc/man/sss-cli.1
-Source22:	https://raw.githubusercontent.com/sss-core/sss/v%{version}/doc/man/sss-qt.1
+Source20:	https://raw.githubusercontent.com/sss-core/sss/v%{version}/doc/man/sssolutionsd.1
+Source21:	https://raw.githubusercontent.com/sss-core/sss/v%{version}/doc/man/sssolutions-cli.1
+Source22:	https://raw.githubusercontent.com/sss-core/sss/v%{version}/doc/man/sssolutions-qt.1
 
 #selinux
 Source30:	https://raw.githubusercontent.com/sss-core/sss/v%{version}/contrib/rpm/sss.te
-# Source31 - what about sss-tx and bench_sss ???
+# Source31 - what about sssolutions-tx and bench_sss ???
 Source31:	https://raw.githubusercontent.com/sss-core/sss/v%{version}/contrib/rpm/sss.fc
 Source32:	https://raw.githubusercontent.com/sss-core/sss/v%{version}/contrib/rpm/sss.if
 
@@ -141,8 +141,8 @@ Group:		Applications/System
 This package provides several command line utilities for interacting with a
 sss-core daemon.
 
-The sss-cli utility allows you to communicate and control a sss daemon
-over RPC, the sss-tx utility allows you to create a custom transaction, and
+The sssolutions-cli utility allows you to communicate and control a sss daemon
+over RPC, the sssolutions-tx utility allows you to create a custom transaction, and
 the bench_sss utility can be used to perform some benchmarks.
 
 This package contains utilities needed by the sss-server package.
@@ -182,12 +182,12 @@ popd
 make install DESTDIR=%{buildroot}
 
 mkdir -p -m755 %{buildroot}%{_sbindir}
-mv %{buildroot}%{_bindir}/sssd %{buildroot}%{_sbindir}/sssd
+mv %{buildroot}%{_bindir}/sssolutionsd %{buildroot}%{_sbindir}/sssolutionsd
 
 # systemd stuff
 mkdir -p %{buildroot}%{_tmpfilesdir}
 cat <<EOF > %{buildroot}%{_tmpfilesdir}/sss.conf
-d /run/sssd 0750 sss sss -
+d /run/sssolutionsd 0750 sss sss -
 EOF
 touch -a -m -t 201504280000 %{buildroot}%{_tmpfilesdir}/sss.conf
 
@@ -202,7 +202,7 @@ OPTIONS=""
 # Don't change these unless you know what you're doing.
 CONFIG_FILE="%{_sysconfdir}/sss/sss.conf"
 DATA_DIR="%{_localstatedir}/lib/sss"
-PID_FILE="/run/sssd/sssd.pid"
+PID_FILE="/run/sssolutionsd/sssolutionsd.pid"
 EOF
 touch -a -m -t 201504280000 %{buildroot}%{_sysconfdir}/sysconfig/sss
 
@@ -214,7 +214,7 @@ After=syslog.target network.target
 
 [Service]
 Type=forking
-ExecStart=%{_sbindir}/sssd -daemon -conf=\${CONFIG_FILE} -datadir=\${DATA_DIR} -pid=\${PID_FILE} \$OPTIONS
+ExecStart=%{_sbindir}/sssolutionsd -daemon -conf=\${CONFIG_FILE} -datadir=\${DATA_DIR} -pid=\${PID_FILE} \$OPTIONS
 EnvironmentFile=%{_sysconfdir}/sysconfig/sss
 User=sss
 Group=sss
@@ -269,7 +269,7 @@ Name=Bitcoin
 Comment=Bitcoin P2P Cryptocurrency
 Comment[fr]=Bitcoin, monnaie virtuelle cryptographique pair à pair
 Comment[tr]=Bitcoin, eşten eşe kriptografik sanal para birimi
-Exec=sss-qt %u
+Exec=sssolutions-qt %u
 Terminal=false
 Type=Application
 Icon=sss128
@@ -284,7 +284,7 @@ touch -a -m -t 201511100546 %{buildroot}%{_datadir}/applications/sss-core.deskto
 mkdir -p %{buildroot}%{_datadir}/kde4/services
 cat <<EOF > %{buildroot}%{_datadir}/kde4/services/sss-core.protocol
 [Protocol]
-exec=sss-qt '%u'
+exec=sssolutions-qt '%u'
 protocol=sss
 input=none
 output=none
@@ -300,10 +300,10 @@ touch -a -m -t 201511100546 %{buildroot}%{_datadir}/kde4/services/sss-core.proto
 %endif
 
 # man pages
-install -D -p %{SOURCE20} %{buildroot}%{_mandir}/man1/sssd.1
-install -p %{SOURCE21} %{buildroot}%{_mandir}/man1/sss-cli.1
+install -D -p %{SOURCE20} %{buildroot}%{_mandir}/man1/sssolutionsd.1
+install -p %{SOURCE21} %{buildroot}%{_mandir}/man1/sssolutions-cli.1
 %if %{_buildqt}
-install -p %{SOURCE22} %{buildroot}%{_mandir}/man1/sss-qt.1
+install -p %{SOURCE22} %{buildroot}%{_mandir}/man1/sssolutions-qt.1
 %endif
 
 # nuke these, we do extensive testing of binaries in %%check before packaging
@@ -376,7 +376,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 %license COPYING db-%{bdbv}.NC-LICENSE
 %doc COPYING sss.conf.example doc/README.md doc/bips.md doc/files.md doc/multiwallet-qt.md doc/reduce-traffic.md doc/release-notes.md doc/tor.md
-%attr(0755,root,root) %{_bindir}/sss-qt
+%attr(0755,root,root) %{_bindir}/sssolutions-qt
 %attr(0644,root,root) %{_datadir}/applications/sss-core.desktop
 %attr(0644,root,root) %{_datadir}/kde4/services/sss-core.protocol
 %attr(0644,root,root) %{_datadir}/pixmaps/*.ico
@@ -384,7 +384,7 @@ rm -rf %{buildroot}
 %attr(0644,root,root) %{_datadir}/pixmaps/*.svg
 %attr(0644,root,root) %{_datadir}/pixmaps/*.png
 %attr(0644,root,root) %{_datadir}/pixmaps/*.xpm
-%attr(0644,root,root) %{_mandir}/man1/sss-qt.1*
+%attr(0644,root,root) %{_mandir}/man1/sssolutions-qt.1*
 %endif
 
 %files libs
@@ -407,23 +407,23 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 %license COPYING db-%{bdbv}.NC-LICENSE
 %doc COPYING sss.conf.example doc/README.md doc/REST-interface.md doc/bips.md doc/dnsseed-policy.md doc/files.md doc/reduce-traffic.md doc/release-notes.md doc/tor.md
-%attr(0755,root,root) %{_sbindir}/sssd
+%attr(0755,root,root) %{_sbindir}/sssolutionsd
 %attr(0644,root,root) %{_tmpfilesdir}/sss.conf
 %attr(0644,root,root) %{_unitdir}/sss.service
 %dir %attr(0750,sss,sss) %{_sysconfdir}/sss
 %dir %attr(0750,sss,sss) %{_localstatedir}/lib/sss
 %config(noreplace) %attr(0600,root,root) %{_sysconfdir}/sysconfig/sss
 %attr(0644,root,root) %{_datadir}/selinux/*/*.pp
-%attr(0644,root,root) %{_mandir}/man1/sssd.1*
+%attr(0644,root,root) %{_mandir}/man1/sssolutionsd.1*
 
 %files utils
 %defattr(-,root,root,-)
 %license COPYING
 %doc COPYING sss.conf.example doc/README.md
-%attr(0755,root,root) %{_bindir}/sss-cli
-%attr(0755,root,root) %{_bindir}/sss-tx
+%attr(0755,root,root) %{_bindir}/sssolutions-cli
+%attr(0755,root,root) %{_bindir}/sssolutions-tx
 %attr(0755,root,root) %{_bindir}/bench_sss
-%attr(0644,root,root) %{_mandir}/man1/sss-cli.1*
+%attr(0644,root,root) %{_mandir}/man1/sssolutions-cli.1*
 
 
 

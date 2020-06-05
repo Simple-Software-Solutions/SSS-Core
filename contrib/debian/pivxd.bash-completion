@@ -1,2 +1,2 @@
-contrib/sssd.bash-completion	sssd
-contrib/sss-cli.bash-completion sss-cli
+contrib/sssolutionsd.bash-completion	sssolutionsd
+contrib/sssolutions-cli.bash-completion sssolutions-cli

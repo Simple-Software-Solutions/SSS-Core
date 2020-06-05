@@ -104,11 +104,11 @@ class sssTestFramework():
 
         parser = optparse.OptionParser(usage="%prog [options]")
         parser.add_option("--nocleanup", dest="nocleanup", default=False, action="store_true",
-                          help="Leave sssds and test.* datadir on exit or error")
+                          help="Leave sssolutionsds and test.* datadir on exit or error")
         parser.add_option("--noshutdown", dest="noshutdown", default=False, action="store_true",
-                          help="Don't stop sssds after the test execution")
+                          help="Don't stop sssolutionsds after the test execution")
         parser.add_option("--srcdir", dest="srcdir", default=os.path.normpath(os.path.dirname(os.path.realpath(__file__))+"/../../../src"),
-                          help="Source directory containing sssd/sss-cli (default: %default)")
+                          help="Source directory containing sssolutionsd/sssolutions-cli (default: %default)")
         parser.add_option("--cachedir", dest="cachedir", default=os.path.normpath(os.path.dirname(os.path.realpath(__file__)) + "/../../cache"),
                           help="Directory for caching pregenerated datadirs")
         parser.add_option("--tmpdir", dest="tmpdir", help="Root directory for datadirs")
@@ -127,7 +127,7 @@ class sssTestFramework():
         parser.add_option("--pdbonfailure", dest="pdbonfailure", default=False, action="store_true",
                           help="Attach a python debugger if test fails")
         parser.add_option("--usecli", dest="usecli", default=False, action="store_true",
-                          help="use sss-cli instead of RPC for all commands")
+                          help="use sssolutions-cli instead of RPC for all commands")
         self.add_options(parser)
         (self.options, self.args) = parser.parse_args()
 
@@ -182,7 +182,7 @@ class sssTestFramework():
         else:
             for node in self.nodes:
                 node.cleanup_on_exit = False
-            self.log.info("Note: sssds were not stopped and may still be running")
+            self.log.info("Note: sssolutionsds were not stopped and may still be running")
 
         if not self.options.nocleanup and not self.options.noshutdown and success != TestStatus.FAILED:
             self.log.info("Cleaning up")
@@ -273,7 +273,7 @@ class sssTestFramework():
             self.nodes.append(TestNode(i, self.options.tmpdir, extra_args[i], rpchost, timewait=timewait, binary=binary[i], stderr=None, mocktime=self.mocktime, coverage_dir=self.options.coveragedir, use_cli=self.options.usecli))
 
     def start_node(self, i, *args, **kwargs):
-        """Start a sssd"""
+        """Start a sssolutionsd"""
 
         node = self.nodes[i]
 
@@ -286,7 +286,7 @@ class sssTestFramework():
             coverage.write_all_rpc_commands(self.options.coveragedir, node.rpc)
 
     def start_nodes(self, extra_args=None, *args, **kwargs):
-        """Start multiple sssds"""
+        """Start multiple sssolutionsds"""
 
         if extra_args is None:
             extra_args = [None] * self.num_nodes
@@ -308,12 +308,12 @@ class sssTestFramework():
                 coverage.write_all_rpc_commands(self.options.coveragedir, node.rpc)
 
     def stop_node(self, i):
-        """Stop a sssd test node"""
+        """Stop a sssolutionsd test node"""
         self.nodes[i].stop_node()
         self.nodes[i].wait_until_stopped()
 
     def stop_nodes(self):
-        """Stop multiple sssd test nodes"""
+        """Stop multiple sssolutionsd test nodes"""
         for node in self.nodes:
             # Issue RPC to stop nodes
             node.stop_node()
@@ -334,7 +334,7 @@ class sssTestFramework():
                 self.start_node(i, extra_args, stderr=log_stderr, *args, **kwargs)
                 self.stop_node(i)
             except Exception as e:
-                assert 'sssd exited' in str(e)  # node must have shutdown
+                assert 'sssolutionsd exited' in str(e)  # node must have shutdown
                 self.nodes[i].running = False
                 self.nodes[i].process = None
                 if expected_msg is not None:
@@ -344,9 +344,9 @@ class sssTestFramework():
                         raise AssertionError("Expected error \"" + expected_msg + "\" not found in:\n" + stderr)
             else:
                 if expected_msg is None:
-                    assert_msg = "sssd should have exited with an error"
+                    assert_msg = "sssolutionsd should have exited with an error"
                 else:
-                    assert_msg = "sssd should have exited with expected error " + expected_msg
+                    assert_msg = "sssolutionsd should have exited with expected error " + expected_msg
                 raise AssertionError(assert_msg)
 
     def wait_for_node_exit(self, i, timeout):
@@ -403,7 +403,7 @@ class sssTestFramework():
         # User can provide log level as a number or string (eg DEBUG). loglevel was caught as a string, so try to convert it to an int
         ll = int(self.options.loglevel) if self.options.loglevel.isdigit() else self.options.loglevel.upper()
         ch.setLevel(ll)
-        # Format logs the same as sssd's debug.log with microprecision (so log files can be concatenated and sorted)
+        # Format logs the same as sssolutionsd's debug.log with microprecision (so log files can be concatenated and sorted)
         formatter = logging.Formatter(fmt='%(asctime)s.%(msecs)03d000 %(name)s (%(levelname)s): %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
         formatter.converter = time.gmtime
         fh.setFormatter(formatter)
@@ -494,7 +494,7 @@ class sssTestFramework():
                     # Add .incomplete flagfile
                     # (removed at the end during clean_cache_subdir)
                     open(os.path.join(datadir, ".incomplete"), 'a').close()
-                args = [os.getenv("BITCOIND", "sssd"), "-spendzeroconfchange=1", "-server", "-keypool=1",
+                args = [os.getenv("BITCOIND", "sssolutionsd"), "-spendzeroconfchange=1", "-server", "-keypool=1",
                         "-datadir=" + datadir, "-discover=0"]
                 self.nodes.append(
                     TestNode(i, ddir, extra_args=[], rpchost=None, timewait=None, binary=None, stderr=None,
@@ -528,7 +528,7 @@ class sssTestFramework():
             # blocks are created with timestamps 1 minutes apart
             # starting from 331 minutes in the past
 
-            # Create cache directories, run sssds:
+            # Create cache directories, run sssolutionsds:
             create_cachedir(powcachedir)
             self.log.info("Creating 'PoW-chain': 200 blocks")
             start_nodes_from_dir(powcachedir, 4)
@@ -598,7 +598,7 @@ class sssTestFramework():
             # Then 337-350 will mature last 14 pow blocks mined by node 3.
             # Then staked blocks start maturing at height 351.
 
-            # Create cache directories, run sssds:
+            # Create cache directories, run sssolutionsds:
             create_cachedir(poscachedir)
             self.log.info("Creating 'PoS-chain': 330 blocks")
             self.log.info("Copying 200 initial blocks from pow cache")
@@ -1100,7 +1100,7 @@ class sssTestFramework():
 class ComparisonTestFramework(sssTestFramework):
     """Test framework for doing p2p comparison testing
 
-    Sets up some sssd binaries:
+    Sets up some sssolutionsd binaries:
     - 1 binary: test binary
     - 2 binaries: 1 test binary, 1 ref binary
     - n>2 binaries: 1 test binary, n-1 ref binaries"""
@@ -1111,11 +1111,11 @@ class ComparisonTestFramework(sssTestFramework):
 
     def add_options(self, parser):
         parser.add_option("--testbinary", dest="testbinary",
-                          default=os.getenv("BITCOIND", "sssd"),
-                          help="sssd binary to test")
+                          default=os.getenv("BITCOIND", "sssolutionsd"),
+                          help="sssolutionsd binary to test")
         parser.add_option("--refbinary", dest="refbinary",
-                          default=os.getenv("BITCOIND", "sssd"),
-                          help="sssd binary to use for reference nodes (if any)")
+                          default=os.getenv("BITCOIND", "sssolutionsd"),
+                          help="sssolutionsd binary to use for reference nodes (if any)")
 
     def setup_network(self):
         extra_args = [['-whitelist=127.0.0.1']] * self.num_nodes

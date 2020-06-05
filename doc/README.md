@@ -13,16 +13,16 @@ The following are some helpful notes on how to run SSS Core on your native platf
 
 Unpack the files into a directory and run:
 
-- `bin/sss-qt` (GUI) or
-- `bin/sssd` (headless)
+- `bin/sssolutions-qt` (GUI) or
+- `bin/sssolutionsd` (headless)
 
 ### Windows
 
-Unpack the files into a directory, and then run sss-qt.exe.
+Unpack the files into a directory, and then run sssolutions-qt.exe.
 
 ### macOS
 
-Drag SSS-Qt to your applications folder, and then run SSS-Qt.
+Drag sssolutions-qt to your applications folder, and then run sssolutions-qt.
 
 ### Need Help?
 

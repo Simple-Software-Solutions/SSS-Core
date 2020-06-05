@@ -5353,7 +5353,7 @@ Verify that you have installed a predetermined text editor.</source>
                            stake zSSS or take advantage of the privacy benefit it brings,
                            you can disable the automatic minting in your SSS wallet by
                            going to Settings-&gt;Options and deselecting “Enable zSSS Automint”.
-                           If you are not making use of the SSS-QT or GUI you can simply open
+                           If you are not making use of the sssolutions-qt or GUI you can simply open
                            your sss.conf file and add &lt;i&gt;enablezeromint=0&lt;/i&gt; Without the quotation
                            marks and restart your wallet to disable automint.&lt;/p&gt;
                            &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
@@ -5412,7 +5412,7 @@ Verify that you have installed a predetermined text editor.</source>
                            &lt;li&gt;
                            Once all those steps are followed staking should be enabled.
                            &lt;li&gt;
-                           You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. There package will be lit up and will state &quot;Staking Enabled&quot; to indicate it is staking.  Using the command line interface (sss-cli); the command &lt;i&gt;getstakingstatus&lt;/i&gt; will confirm that staking is active.
+                           You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. There package will be lit up and will state &quot;Staking Enabled&quot; to indicate it is staking.  Using the command line interface (sssolutions-cli); the command &lt;i&gt;getstakingstatus&lt;/i&gt; will confirm that staking is active.
                            &lt;/li&gt;&lt;/ol&gt;
                            &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
                            To Stake zSSS:

@@ -1,6 +1,6 @@
-usr/local/bin/sss-qt usr/bin
+usr/local/bin/sssolutions-qt usr/bin
 share/pixmaps/sss32.xpm usr/share/pixmaps
 share/pixmaps/sss16.xpm usr/share/pixmaps
 share/pixmaps/sss128.png usr/share/pixmaps
-debian/sss-qt.desktop usr/share/applications
-debian/sss-qt.protocol usr/share/kde4/services/
+debian/sssolutions-qt.desktop usr/share/applications
+debian/sssolutions-qt.protocol usr/share/kde4/services/

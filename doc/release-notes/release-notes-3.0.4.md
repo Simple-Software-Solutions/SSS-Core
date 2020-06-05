@@ -21,7 +21,7 @@ Users will have a grace period to update their clients before versions prior to 
 How to Upgrade
 ==============
 
-If you are running an older version, shut it down. Wait until it has completely shut down (which might take a few minutes for older versions), then run the installer (on Windows) or just copy over /Applications/SSS-Qt (on Mac) or sssd/sss-qt (on Linux).
+If you are running an older version, shut it down. Wait until it has completely shut down (which might take a few minutes for older versions), then run the installer (on Windows) or just copy over /Applications/sssolutions-qt (on Mac) or sssolutionsd/sssolutions-qt (on Linux).
 
 
 Compatibility
@@ -103,7 +103,7 @@ git merge commit are mentioned.
 - #298 `3580394` Reorg help to stop travis errors (Jon Spock)
 - #302 `efb648b` [Cleanup] Remove unused variables (rejectedpromise)
 - #307 `dbd801d` Remove hard-coded GIT_ARCHIVE define (Jon Spock)
-- #314 `f1c830a` Fix issue causing crash when sssd --help was invoked (Jon Spock)
+- #314 `f1c830a` Fix issue causing crash when sssolutionsd --help was invoked (Jon Spock)
 - #326 `8b6a13e` Combine 2 LogPrintf statement to reduce debug.log clutter (Jon Spock)
 - #328 `a6c18c8` [Main] SSS not responding on user quitting app (Aaron Langford)
 

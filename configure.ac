@@ -13,10 +13,10 @@ AC_CONFIG_HEADERS([src/config/sss-config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([build-aux/m4])
 
-BITCOIN_DAEMON_NAME=sssd
-BITCOIN_GUI_NAME=sss-qt
-BITCOIN_CLI_NAME=sss-cli
-BITCOIN_TX_NAME=sss-tx
+BITCOIN_DAEMON_NAME=sssolutionsd
+BITCOIN_GUI_NAME=sssolutions-qt
+BITCOIN_CLI_NAME=sssolutions-cli
+BITCOIN_TX_NAME=sssolutions-tx
 
 dnl Unless the user specified ARFLAGS, force it to be cr
 AC_ARG_VAR(ARFLAGS, [Flags for the archiver, defaults to <cr> if not set])
@@ -407,7 +407,7 @@ CPPFLAGS="$CPPFLAGS -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS"
 
 AC_ARG_WITH([utils],
   [AS_HELP_STRING([--with-utils],
-  [build sss-cli sss-tx (default=yes)])],
+  [build sssolutions-cli sssolutions-tx (default=yes)])],
   [build_bitcoin_utils=$withval],
   [build_bitcoin_utils=yes])
 
@@ -419,7 +419,7 @@ AC_ARG_WITH([libs],
 
 AC_ARG_WITH([daemon],
   [AS_HELP_STRING([--with-daemon],
-  [build sssd daemon (default=yes)])],
+  [build sssolutionsd daemon (default=yes)])],
   [build_bitcoind=$withval],
   [build_bitcoind=yes])
 
@@ -1224,11 +1224,11 @@ AC_SUBST(UNIVALUE_LIBS)
 
 BITCOIN_QT_PATH_PROGS([PROTOC], [protoc],$protoc_bin_path)
 
-AC_MSG_CHECKING([whether to build sssd])
+AC_MSG_CHECKING([whether to build sssolutionsd])
 AM_CONDITIONAL([BUILD_BITCOIND], [test x$build_bitcoind = xyes])
 AC_MSG_RESULT($build_bitcoind)
 
-AC_MSG_CHECKING([whether to build utils (sss-cli sss-tx)])
+AC_MSG_CHECKING([whether to build utils (sssolutions-cli sssolutions-tx)])
 AM_CONDITIONAL([BUILD_BITCOIN_UTILS], [test x$build_bitcoin_utils = xyes])
 AC_MSG_RESULT($build_bitcoin_utils)
 
@@ -1356,7 +1356,7 @@ if test x$bitcoin_enable_qt != xno; then
     AC_MSG_WARN("xgettext is required to update qt translations")
   fi
 
-  AC_MSG_CHECKING([whether to build test_sss-qt])
+  AC_MSG_CHECKING([whether to build test_sssolutions-qt])
   if test x$use_gui_tests$bitcoin_enable_qt_test = xyesyes; then
     AC_MSG_RESULT([yes])
     BUILD_TEST_QT="yes"

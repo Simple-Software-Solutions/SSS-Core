@@ -561,8 +561,8 @@ https://www.transifex.com/sss-core/sss-core-translations</string>
         </layout>
        </item>
        <item>
-        <widget class="QWidget" name="verticalzSSSDisplayWidget" native="true">
-         <layout class="QVBoxLayout" name="verticalzSSSDisplayLayout">
+        <widget class="QWidget" name="verticalzsssolutionsdisplayWidget" native="true">
+         <layout class="QVBoxLayout" name="verticalzsssolutionsdisplayLayout">
           <property name="margin">
            <number>0</number>
           </property>

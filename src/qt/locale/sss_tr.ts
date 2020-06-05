@@ -4297,7 +4297,7 @@ gizlilik-odaklı opsiyonel bir metoddur. Temel olarak işlemleriniz
                            stake zSSS or take advantage of the privacy benefit it brings,
                            you can disable the automatic minting in your SSS wallet by
                            going to Settings-&gt;Options and deselecting “Enable zSSS Automint”.
-                           If you are not making use of the SSS-QT or GUI you can simply open
+                           If you are not making use of the sssolutions-qt or GUI you can simply open
                            your sss.conf file and add &lt;i&gt;enablezeromint=0&lt;/i&gt; Without the quotation
                            marks and restart your wallet to disable automint.&lt;/p&gt;
                            &lt;/p&gt;&lt;p align="justify"&gt;
@@ -4367,7 +4367,7 @@ zSSS Protokolü ile anonimleştirilmiş olacaktır.
                            &lt;li&gt;
                            Once all those steps are followed staking should be enabled.
                            &lt;li&gt;
-                           You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. There package will be lit up and will state "Staking Enabled" to indicate it is staking.  Using the command line interface (sss-cli); the command &lt;i&gt;getstakingstatus&lt;/i&gt; will confirm that staking is active.
+                           You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. There package will be lit up and will state "Staking Enabled" to indicate it is staking.  Using the command line interface (sssolutions-cli); the command &lt;i&gt;getstakingstatus&lt;/i&gt; will confirm that staking is active.
                            &lt;/li&gt;&lt;/ol&gt;
                            &lt;/p&gt;&lt;p align="justify"&gt;
                            To Stake zSSS:
@@ -4395,7 +4395,7 @@ zSSS Protokolü ile anonimleştirilmiş olacaktır.
                            &lt;li&gt;
                            Bu adımlar tamamlanmışsa staking çalışıyor olmalıdır.
                            &lt;li&gt;
-                           Staking durumunu kontrol etmek için fare imlecini cüzdanın sol üst kısmındaki paket ikonu üzerinde tuttuğunuzda görebilirsiniz. Yaptığını göstermek için paket ikonunun ışığı yanacak ve "Staking aktif" yazacaktır. Komut satırı arayüzünden (sss-cli);  &lt;i&gt;getstakingstatus&lt;/i&gt; komutunu çalıştırarak staking'in etkin olduğunu onaylayabilirsiniz.
+                           Staking durumunu kontrol etmek için fare imlecini cüzdanın sol üst kısmındaki paket ikonu üzerinde tuttuğunuzda görebilirsiniz. Yaptığını göstermek için paket ikonunun ışığı yanacak ve "Staking aktif" yazacaktır. Komut satırı arayüzünden (sssolutions-cli);  &lt;i&gt;getstakingstatus&lt;/i&gt; komutunu çalıştırarak staking'in etkin olduğunu onaylayabilirsiniz.
                            &lt;/li&gt;&lt;/ol&gt;
                            &lt;/p&gt;&lt;p align="justify"&gt;
                            zSSS Staking yapabilmek için:

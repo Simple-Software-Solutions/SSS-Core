@@ -12,12 +12,12 @@ Description=SSS daemon
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/sssd -daemon -conf=/etc/sss/sss.conf -pid=/run/sssd/sssd.pid
-# Creates /run/sssd owned by sss
-RuntimeDirectory=sssd
+ExecStart=/usr/bin/sssolutionsd -daemon -conf=/etc/sss/sss.conf -pid=/run/sssolutionsd/sssolutionsd.pid
+# Creates /run/sssolutionsd owned by sss
+RuntimeDirectory=sssolutionsd
 User=sss
 Type=forking
-PIDFile=/run/sssd/sssd.pid
+PIDFile=/run/sssolutionsd/sssolutionsd.pid
 Restart=on-failure
 
 # Hardening measures

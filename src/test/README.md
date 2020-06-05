@@ -5,18 +5,18 @@ and tests weren't explicitly disabled.
 
 After configuring, they can be run with `make check`.
 
-To run the sssd tests manually, launch `src/test/test_sss`. To recompile
+To run the sssolutionsd tests manually, launch `src/test/test_sss`. To recompile
 after a test file was modified, run `make` and then run the test again. If you
 modify a non-test file, use `make -C src/test` to recompile only what's needed
-to run the sssd tests.
+to run the sssolutionsd tests.
 
-To add more sssd tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
+To add more sssolutionsd tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
 .cpp files in the `test/` directory or add new .cpp files that
 implement new BOOST_FIXTURE_TEST_SUITE sections.
 
-To run the sss-qt tests manually, launch `src/qt/test/test_sss-qt`
+To run the sssolutions-qt tests manually, launch `src/qt/test/test_sssolutions-qt`
 
-To add more sss-qt tests, add them to the `src/qt/test/` directory and
+To add more sssolutions-qt tests, add them to the `src/qt/test/` directory and
 the `src/qt/test/test_main.cpp` file.
 
 ### Running individual tests

@@ -1,5 +1,5 @@
 [Protocol]
-exec=sss-qt '%u'
+exec=sssolutions-qt '%u'
 protocol=sss
 input=none
 output=none

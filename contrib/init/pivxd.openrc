@@ -5,23 +5,23 @@
 if [ -d "/var/lib/sss/.sss" ]; then
 	BITCOIND_DEFAULT_DATADIR="/var/lib/sss/.sss"
 else
-	BITCOIND_DEFAULT_DATADIR="/var/lib/sssd"
+	BITCOIND_DEFAULT_DATADIR="/var/lib/sssolutionsd"
 fi
 
 BITCOIND_CONFIGFILE=${BITCOIND_CONFIGFILE:-/etc/sss/sss.conf}
-BITCOIND_PIDDIR=${BITCOIND_PIDDIR:-/var/run/sssd}
-BITCOIND_PIDFILE=${BITCOIND_PIDFILE:-${BITCOIND_PIDDIR}/sssd.pid}
+BITCOIND_PIDDIR=${BITCOIND_PIDDIR:-/var/run/sssolutionsd}
+BITCOIND_PIDFILE=${BITCOIND_PIDFILE:-${BITCOIND_PIDDIR}/sssolutionsd.pid}
 BITCOIND_DATADIR=${BITCOIND_DATADIR:-${BITCOIND_DEFAULT_DATADIR}}
 BITCOIND_USER=${BITCOIND_USER:-${BITCOIN_USER:-sss}
 BITCOIND_GROUP=${BITCOIND_GROUP:-sss}
-BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/sssd}
+BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/sssolutionsd}
 BITCOIND_NICE=${BITCOIND_NICE:-${NICELEVEL:-0}}
 BITCOIND_OPTS="${BITCOIND_OPTS:-${BITCOIN_OPTS}}"
 
 name="SSS Core Daemon"
 description="SSS crypto-currency p2p network daemon"
 
-command="/usr/bin/sssd"
+command="/usr/bin/sssolutionsd"
 command_args="-pid=\"${BITCOIND_PIDFILE}\" \
 		-conf=\"${BITCOIND_CONFIGFILE}\" \
 		-datadir=\"${BITCOIND_DATADIR}\" \
@@ -71,7 +71,7 @@ checkconfig()
 {
 	if ! grep -qs '^rpcpassword=' "${BITCOIND_CONFIGFILE}" ; then
 		eerror ""
-		eerror "ERROR: You must set a secure rpcpassword to run sssd."
+		eerror "ERROR: You must set a secure rpcpassword to run sssolutionsd."
 		eerror "The setting must appear in ${BITCOIND_CONFIGFILE}"
 		eerror ""
 		eerror "This password is security critical to securing wallets "

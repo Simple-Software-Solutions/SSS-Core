@@ -17,13 +17,13 @@ BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
             VALUE "CompanyName",        "SSS"
-            VALUE "FileDescription",    "sssd (OSS daemon/client for SSS)"
+            VALUE "FileDescription",    "sssolutionsd (OSS daemon/client for SSS)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "sssd"
+            VALUE "InternalName",       "sssolutionsd"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "sssd.exe"
-            VALUE "ProductName",        "sssd"
+            VALUE "OriginalFilename",   "sssolutionsd.exe"
+            VALUE "ProductName",        "sssolutionsd"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

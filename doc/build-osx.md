@@ -79,7 +79,7 @@ In this case there is no dependency on Berkeley DB 4.8.
 Running
 -------
 
-SSS Core is now available at `./src/sssd`
+SSS Core is now available at `./src/sssolutionsd`
 
 Before running, you may create an empty configuration file:
 
@@ -89,7 +89,7 @@ Before running, you may create an empty configuration file:
 
     chmod 600 "/Users/${USER}/Library/Application Support/SSS/sss.conf"
 
-The first time you run sssd, it will start downloading the blockchain. This process could take many hours, or even days on slower than average systems.
+The first time you run sssolutionsd, it will start downloading the blockchain. This process could take many hours, or even days on slower than average systems.
 
 You can monitor the download process by looking at the debug.log file:
 
@@ -98,9 +98,9 @@ You can monitor the download process by looking at the debug.log file:
 Other commands:
 -------
 
-    ./src/sssd -daemon # Starts the sss daemon.
-    ./src/sss-cli --help # Outputs a list of command-line options.
-    ./src/sss-cli help # Outputs a list of RPC commands when the daemon is running.
+    ./src/sssolutionsd -daemon # Starts the sss daemon.
+    ./src/sssolutions-cli --help # Outputs a list of command-line options.
+    ./src/sssolutions-cli help # Outputs a list of RPC commands when the daemon is running.
 
 Notes
 -----

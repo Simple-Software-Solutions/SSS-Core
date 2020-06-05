@@ -21,7 +21,7 @@ Masternodes will need to be restarted once both the masternode daemon and the co
 How to Upgrade
 ==============
 
-If you are running an older version, shut it down. Wait until it has completely shut down (which might take a few minutes for older versions), then run the installer (on Windows) or just copy over /Applications/SSS-Qt (on Mac) or sssd/sss-qt (on Linux).
+If you are running an older version, shut it down. Wait until it has completely shut down (which might take a few minutes for older versions), then run the installer (on Windows) or just copy over /Applications/sssolutions-qt (on Mac) or sssolutionsd/sssolutions-qt (on Linux).
 
 
 Compatibility

@@ -2,7 +2,7 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-bin_PROGRAMS += qt/sss-qt
+bin_PROGRAMS += qt/sssolutions-qt
 EXTRA_LIBRARIES += qt/libbitcoinqt.a
 
 # sss qt core #
@@ -715,7 +715,7 @@ RES_CSS = \
 
 RES_MOVIES = $(wildcard $(srcdir)/qt/res/movies/spinner-*.png)
 
-BITCOIN_RC = qt/res/sss-qt-res.rc
+BITCOIN_RC = qt/res/sssolutions-qt-res.rc
 
 BITCOIN_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
   -I$(builddir)/qt/forms -DQT_NO_KEYWORDS
@@ -744,7 +744,7 @@ $(qt_libbitcoinqt_a_OBJECTS) $(qt_sss_qt_OBJECTS) : | $(QT_MOC)
 $(QT_MOC): $(PROTOBUF_H)
 $(QT_MOC_CPP): $(PROTOBUF_H)
 
-# sss-qt binary #
+# sssolutions-qt binary #
 qt_sss_qt_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
   $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS) $(SVG_CFLAGS) $(CHARTS_CFLAGS)
 qt_sss_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
@@ -799,9 +799,9 @@ CLEAN_QT = $(nodist_qt_libbitcoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda 
 CLEANFILES += $(CLEAN_QT)
 
 sss_qt_clean: FORCE
-	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_sss_qt_OBJECTS) qt/sss-qt$(EXEEXT) $(LIBBITCOINQT)
+	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_sss_qt_OBJECTS) qt/sssolutions-qt$(EXEEXT) $(LIBBITCOINQT)
 
-sss_qt : qt/sss-qt$(EXEEXT)
+sss_qt : qt/sssolutions-qt$(EXEEXT)
 
 ui_%.h: %.ui
 	@test -f $(UIC)

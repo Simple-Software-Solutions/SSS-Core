@@ -17,13 +17,13 @@ BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
             VALUE "CompanyName",        "sss"
-            VALUE "FileDescription",    "sss-cli (OSS RPC client for sss)"
+            VALUE "FileDescription",    "sssolutions-cli (OSS RPC client for sss)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "sss-cli"
+            VALUE "InternalName",       "sssolutions-cli"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "sss-cli.exe"
-            VALUE "ProductName",        "sss-cli"
+            VALUE "OriginalFilename",   "sssolutions-cli.exe"
+            VALUE "ProductName",        "sssolutions-cli"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

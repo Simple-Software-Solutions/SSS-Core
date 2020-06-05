@@ -1,8 +1,8 @@
 # Copyright (c) 2013-2016 The Bitcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
-bin_PROGRAMS += qt/test/test_sss-qt
-TESTS += qt/test/test_sss-qt
+bin_PROGRAMS += qt/test/test_sssolutions-qt
+TESTS += qt/test/test_sssolutions-qt
 
 TEST_QT_MOC_CPP = qt/test/moc_uritests.cpp
 
@@ -47,9 +47,9 @@ CLEAN_BITCOIN_QT_TEST = $(TEST_QT_MOC_CPP) qt/test/*.gcda qt/test/*.gcno
 
 CLEANFILES += $(CLEAN_BITCOIN_QT_TEST)
 
-test_sss_qt : qt/test/test_sss-qt$(EXEEXT)
+test_sss_qt : qt/test/test_sssolutions-qt$(EXEEXT)
 
-test_sss_qt_check : qt/test/test_sss-qt$(EXEEXT) FORCE
+test_sss_qt_check : qt/test/test_sssolutions-qt$(EXEEXT) FORCE
 	$(MAKE) check-TESTS TESTS=$^
 
 test_sss_qt_clean: FORCE

@@ -17,7 +17,7 @@ SSS Core v2.3.0 is a mandatory update for all users. This release contains valid
 How to Upgrade
 --------------
 
-If you are running an older version, shut it down. Wait until it has completely shut down (which might take a few minutes for older versions), then run the installer (on Windows) or just copy over /Applications/SSS-Qt (on Mac) or sssd/sss-qt (on Linux).
+If you are running an older version, shut it down. Wait until it has completely shut down (which might take a few minutes for older versions), then run the installer (on Windows) or just copy over /Applications/sssolutions-qt (on Mac) or sssolutionsd/sssolutions-qt (on Linux).
 
 
 Compatibility
@@ -120,7 +120,7 @@ The third parameter indicates if the wallet should be unlocked for staking and a
 ZeroMQ (ZMQ) Notifications
 --------------
 
-sssd can now (optionally) asynchronously notify clients through a ZMQ-based PUB socket of the arrival of new transactions and blocks. This feature requires installation of the ZMQ C API library 4.x and configuring its use through the command line or configuration file. Please see [docs/zmq.md](/doc/zmq.md) for details of operation.
+sssolutionsd can now (optionally) asynchronously notify clients through a ZMQ-based PUB socket of the arrival of new transactions and blocks. This feature requires installation of the ZMQ C API library 4.x and configuring its use through the command line or configuration file. Please see [docs/zmq.md](/doc/zmq.md) for details of operation.
 
 **All** Masternodes List GUI Removal
 --------------

@@ -72,7 +72,7 @@ OptionsDialog::OptionsDialog(QWidget* parent, bool enableWallet) : QDialog(paren
         ui->tabWidget->removeTab(ui->tabWidget->indexOf(ui->tabWallet));
 
         ui->verticalzSSSOptionsWidget->hide();
-        ui->verticalzSSSDisplayWidget->hide();
+        ui->verticalzsssolutionsdisplayWidget->hide();
     }
 
     /* Display elements init */

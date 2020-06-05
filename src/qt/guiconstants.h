@@ -55,7 +55,7 @@ static const int MAX_URI_LENGTH = 255;
 
 #define QAPP_ORG_NAME "SSS"
 #define QAPP_ORG_DOMAIN "sss.org"
-#define QAPP_APP_NAME_DEFAULT "SSS-Qt"
-#define QAPP_APP_NAME_TESTNET "SSS-Qt-testnet"
+#define QAPP_APP_NAME_DEFAULT "sssolutions-qt"
+#define QAPP_APP_NAME_TESTNET "sssolutions-qt-testnet"
 
 #endif // BITCOIN_QT_GUICONSTANTS_H
