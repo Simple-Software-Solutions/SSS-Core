@@ -11,7 +11,7 @@
 #include "txdb.h"
 #include "wallet/wallet.h"
 #include "wallet/walletdb.h"
-#include "test/test_sss.h"
+#include "test/test_sssolutions.h"
 #include <boost/test/unit_test.hpp>
 #include <iostream>
 

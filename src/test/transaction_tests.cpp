@@ -5,7 +5,7 @@
 
 #include "data/tx_invalid.json.h"
 #include "data/tx_valid.json.h"
-#include "test/test_sss.h"
+#include "test/test_sssolutions.h"
 
 #include "consensus/tx_verify.h"
 #include "clientversion.h"
@@ -15,7 +15,7 @@
 #include "script/script.h"
 #include "script/script_error.h"
 #include "core_io.h"
-#include "test_sss.h"
+#include "test_sssolutions.h"
 
 #include <map>
 #include <string>

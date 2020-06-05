@@ -23,8 +23,8 @@ RAW_TEST_FILES =
 GENERATED_TEST_FILES = $(JSON_TEST_FILES:.json=.json.h) $(RAW_TEST_FILES:.raw=.raw.h)
 
 BITCOIN_TEST_SUITE = \
-  test/test_sss.h \
-  test/test_sss.cpp
+  test/test_sssolutions.h \
+  test/test_sssolutions.cpp
 
 if ENABLE_WALLET
 BITCOIN_TEST_SUITE += \

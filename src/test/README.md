@@ -42,7 +42,7 @@ unit tests as possible).
 
 The build system is setup to compile an executable called `test_sss`
 that runs all of the unit tests.  The main source file is called
-test_sss.cpp, which simply includes other files that contain the
+test_sssolutions.cpp, which simply includes other files that contain the
 actual unit tests (outside of a couple required preprocessor
 directives). To add a new unit test file to our test suite you need
 to add the file to `src/Makefile.test.include`. The pattern is to

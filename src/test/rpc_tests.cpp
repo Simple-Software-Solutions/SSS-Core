@@ -10,7 +10,7 @@
 #include "netbase.h"
 #include "util.h"
 
-#include "test/test_sss.h"
+#include "test/test_sssolutions.h"
 
 #include <boost/algorithm/string.hpp>
 #include <boost/test/unit_test.hpp>

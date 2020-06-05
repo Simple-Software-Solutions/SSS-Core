@@ -16,8 +16,8 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "sssolutions"
-            VALUE "FileDescription",    "sssolutions-cli (OSS RPC client for sssolutions)"
+            VALUE "CompanyName",        "sss"
+            VALUE "FileDescription",    "sssolutions-cli (OSS RPC client for sss)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "sssolutions-cli"
             VALUE "LegalCopyright",     COPYRIGHT_STR

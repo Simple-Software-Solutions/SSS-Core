@@ -4,7 +4,7 @@
 
 #include "hash.h"
 #include "utilstrencodings.h"
-#include "test/test_sss.h"
+#include "test/test_sssolutions.h"
 
 #include <vector>
 

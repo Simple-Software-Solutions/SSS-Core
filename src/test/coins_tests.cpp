@@ -7,7 +7,7 @@
 #include "script/standard.h"
 #include "uint256.h"
 #include "utilstrencodings.h"
-#include "test/test_sss.h"
+#include "test/test_sssolutions.h"
 
 #include <vector>
 #include <map>

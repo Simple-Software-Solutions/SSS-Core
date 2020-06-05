@@ -2985,7 +2985,7 @@ Address: %4
 </translation>
     </message>
     <message>
-        <location filename="../sss.cpp" line="+505"/>
+        <location filename="../sssolutions.cpp" line="+505"/>
         <source>A fatal error occurred. SSS can no longer continue safely and will quit.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3466,7 +3466,7 @@ transaction history, making transactions untraceable </source>
         <translation>%1 ms</translation>
     </message>
     <message>
-        <location filename="../sss.cpp" line="+75"/>
+        <location filename="../sssolutions.cpp" line="+75"/>
         <location line="+7"/>
         <location line="+13"/>
         <location line="+19"/>

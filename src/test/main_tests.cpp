@@ -6,7 +6,7 @@
 
 #include "primitives/transaction.h"
 #include "main.h"
-#include "test_sss.h"
+#include "test_sssolutions.h"
 
 #include <boost/test/unit_test.hpp>
 

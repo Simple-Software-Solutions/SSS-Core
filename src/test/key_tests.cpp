@@ -10,7 +10,7 @@
 #include "uint256.h"
 #include "util.h"
 #include "utilstrencodings.h"
-#include "test_sss.h"
+#include "test_sssolutions.h"
 
 #include <string>
 #include <vector>

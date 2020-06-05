@@ -9,7 +9,7 @@
 #include "uint256.h"
 #include "version.h"
 #include "consensus/merkle.h"
-#include "test/test_sss.h"
+#include "test/test_sssolutions.h"
 
 #include <vector>
 

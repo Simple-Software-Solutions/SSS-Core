@@ -11,7 +11,7 @@
 #include "clientversion.h"
 #include "main.h"
 #include "utiltime.h"
-#include "test/test_sss.h"
+#include "test/test_sssolutions.h"
 
 #include <cstdio>
 

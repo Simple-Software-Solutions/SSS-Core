@@ -238,7 +238,7 @@ def update_build_systems():
     filename_lang.sort(key=lambda x: x[0])
 
     # update qrc locales
-    with open('src/qt/sss_locale.qrc', 'w') as f:
+    with open('src/qt/sssolutions_locale.qrc', 'w') as f:
         f.write('<!DOCTYPE RCC><RCC version="1.0">\n')
         f.write('    <qresource prefix="/translations">\n')
         for (filename, basename, lang) in filename_lang:

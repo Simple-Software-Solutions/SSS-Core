@@ -14,7 +14,7 @@
 #include "script/script_error.h"
 #include "script/sign.h"
 #include "util.h"
-#include "test_sss.h"
+#include "test_sssolutions.h"
 
 #if defined(HAVE_CONSENSUS_LIB)
 #include "script/bitcoinconsensus.h"

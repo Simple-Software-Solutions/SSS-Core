@@ -469,35 +469,35 @@ sssolutionsd_LDADD = \
 sssolutionsd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
 # sssolutions-cli binary #
-sss_cli_SOURCES = sssolutions-cli.cpp
-sss_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-sss_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-sss_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+sssolutions_cli_SOURCES = sssolutions-cli.cpp
+sssolutions_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+sssolutions_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+sssolutions_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-sss_cli_SOURCES += sssolutions-cli-res.rc
+sssolutions_cli_SOURCES += sssolutions-cli-res.rc
 endif
 
-sss_cli_LDADD = \
+sssolutions_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO)
 
-sss_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+sssolutions_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
 # sssolutions-tx binary #
-sss_tx_SOURCES = sssolutions-tx.cpp
-sss_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-sss_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-sss_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+sssolutions_tx_SOURCES = sssolutions-tx.cpp
+sssolutions_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+sssolutions_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+sssolutions_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-sss_tx_SOURCES += sssolutions-tx-res.rc
+sssolutions_tx_SOURCES += sssolutions-tx-res.rc
 endif
 
-sss_tx_LDADD = \
+sssolutions_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_ZEROCOIN) \
@@ -505,7 +505,7 @@ sss_tx_LDADD = \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-sss_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+sssolutions_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
 # bitcoinconsensus library #

@@ -69,7 +69,7 @@ To assist in updating translations, we have created a script to help.
 
 1. `python contrib/devtools/update-translations.py`
 2. `git add` new translations from `src/qt/locale/`
-3. Update `src/qt/sss_locale.qrc` manually or via
+3. Update `src/qt/sssolutions_locale.qrc` manually or via
 ```bash
 git ls-files src/qt/locale/*ts|xargs -n1 basename|sed 's/\(sss_\(.*\)\).ts/<file alias="\2">locale\/\1.qm<\/file>/'
 ```
@@ -92,7 +92,7 @@ When new plurals are added to the source file, it's important to do the followin
 7. Save the source file
 
 ### Translating a new language
-To create a new language template, you will need to edit the languages manifest file `src/qt/sss_locale.qrc` and add a new entry. Below is an example of the English language entry.
+To create a new language template, you will need to edit the languages manifest file `src/qt/sssolutions_locale.qrc` and add a new entry. Below is an example of the English language entry.
 
 ```xml
 <qresource prefix="/translations">

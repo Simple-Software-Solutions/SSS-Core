@@ -13,7 +13,7 @@
 #include "crypto/hmac_sha512.h"
 #include "random.h"
 #include "utilstrencodings.h"
-#include "test/test_sss.h"
+#include "test/test_sssolutions.h"
 
 #include <vector>
 

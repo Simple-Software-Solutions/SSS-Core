@@ -206,7 +206,7 @@
     </layout>
   </widget>
   <resources>
-    <include location="../sss.qrc"/>
+    <include location="../sssolutions.qrc"/>
   </resources>
   <connections>
     <connection>

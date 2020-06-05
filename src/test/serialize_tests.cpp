@@ -6,7 +6,7 @@
 #include "serialize.h"
 #include "streams.h"
 #include "hash.h"
-#include "test/test_sss.h"
+#include "test/test_sssolutions.h"
 
 #include <stdint.h>
 

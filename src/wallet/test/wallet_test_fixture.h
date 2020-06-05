@@ -5,7 +5,7 @@
 #ifndef BITCOIN_WALLET_TEST_FIXTURE_H
 #define BITCOIN_WALLET_TEST_FIXTURE_H
 
-#include "test/test_sss.h"
+#include "test/test_sssolutions.h"
 
 /** Testing setup and teardown for wallet.
  */

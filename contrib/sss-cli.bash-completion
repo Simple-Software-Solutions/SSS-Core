@@ -14,7 +14,7 @@ _sss_rpc() {
                 ;;
         esac
     done
-    $sss_cli "${rpcargs[@]}" "$@"
+    $sssolutions_cli "${rpcargs[@]}" "$@"
 }
 
 # Add wallet accounts to COMPREPLY
@@ -24,13 +24,13 @@ _sss_accounts() {
     COMPREPLY=( "${COMPREPLY[@]}" $( compgen -W "$accounts" -- "$cur" ) )
 }
 
-_sss_cli() {
+_sssolutions_cli() {
     local cur prev words=() cword
-    local sss_cli
+    local sssolutions_cli
 
     # save and use original argument to invoke sssolutions-cli for -help, help and RPC
     # as sssolutions-cli might not be in $PATH
-    sss_cli="$1"
+    sssolutions_cli="$1"
 
     COMPREPLY=()
     _get_comp_words_by_ref -n = cur prev words cword
@@ -125,7 +125,7 @@ _sss_cli() {
 
             # only parse -help if senseful
             if [[ -z "$cur" || "$cur" =~ ^- ]]; then
-                helpopts=$($sss_cli -help 2>&1 | awk '$1 ~ /^-/ { sub(/=.*/, "="); print $1 }' )
+                helpopts=$($sssolutions_cli -help 2>&1 | awk '$1 ~ /^-/ { sub(/=.*/, "="); print $1 }' )
             fi
 
             # only parse help if senseful
@@ -143,7 +143,7 @@ _sss_cli() {
             ;;
     esac
 } &&
-complete -F _sss_cli sssolutions-cli
+complete -F _sssolutions_cli sssolutions-cli
 
 # Local variables:
 # mode: shell-script

@@ -12,7 +12,7 @@
 #include "script/interpreter.h"
 #include "util.h"
 #include "version.h"
-#include "test_sss.h"
+#include "test_sssolutions.h"
 
 #include <iostream>
 

@@ -7,7 +7,7 @@
 
 #include "random.h"
 #include "util.h"
-#include "test/test_sss.h"
+#include "test/test_sssolutions.h"
 
 #include <set>
 
