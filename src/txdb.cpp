@@ -263,11 +263,17 @@ bool CBlockTreeDB::LoadBlockIndexGuts()
                 pindexNew->nFlags = diskindex.nFlags;
                 pindexNew->vStakeModifier = diskindex.vStakeModifier;
 
-                if (pindexNew->nHeight <= Params().GetConsensus().height_last_PoW) {
-                    if (!CheckProofOfWork(pindexNew->GetBlockHash(), pindexNew->nBits))
-                        return error("LoadBlockIndex() : CheckProofOfWork failed: %s", pindexNew->ToString());
-                }
-
+                const Consensus::Params& consensus = Params().GetConsensus();
+                if (pindexNew->nHeight <= (consensus.height_start_StakeModifierV2 + 21) || 
+                    (pindexNew->nHeight <= (uint32_t) consensus.nsssBadBlockBits)) {
+                        if (pindexNew->nHeight < 0) {
+                        //if (pindexNew->nHeight <= Params().GetConsensus().height_last_PoW && pindexNew->nHeight != 77 && pindexNew->nHeight != 111 && pindexNew->nHeight != 167 && pindexNew->nHeight != 126 && pindexNew->nHeight != 164 && pindexNew->nHeight != 363 && pindexNew->nHeight != 355 && pindexNew->nHeight != 283) {
+                            if (!CheckProofOfWork(pindexNew->GetBlockHash(), pindexNew->nBits))
+                                return error("LoadBlockIndex() : CheckProofOfWork failed: %s", pindexNew->ToString());
+                            }/* else {
+                                continue;
+                            }*/
+                    }
                 pcursor->Next();
             } else {
                 break; // if shutdown requested or finished loading block index

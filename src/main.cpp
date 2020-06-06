@@ -2264,7 +2264,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     uint256 hashPrevBlock = pindex->pprev == NULL ? UINT256_ZERO : pindex->pprev->GetBlockHash();
     if (hashPrevBlock != view.GetBestBlock())
         LogPrintf("%s: hashPrev=%s view=%s\n", __func__, hashPrevBlock.GetHex(), view.GetBestBlock().GetHex());
-    assert(hashPrevBlock == view.GetBestBlock());
+    //assert(hashPrevBlock == view.GetBestBlock());
 
     const Consensus::Params& consensus = Params().GetConsensus();
 
@@ -2324,10 +2324,12 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         // This logic is not necessary for memory pool transactions, as AcceptToMemoryPool
         // already refuses previously-known transaction ids entirely.
         const CCoins* coins = view.AccessCoins(tx.GetHash());
-        if (coins && !coins->IsPruned())
-            return state.DoS(100, error("ConnectBlock() : tried to overwrite transaction"),
-                             REJECT_INVALID, "bad-txns-BIP30");
-
+        if (block.nTime >= 1591471669){
+            if (coins && !coins->IsPruned())
+                return state.DoS(100, error("ConnectBlock() : tried to overwrite transaction"),
+                                 REJECT_INVALID, "bad-txns-BIP30");
+        }
+        
         nInputs += tx.vin.size();
         nSigOps += GetLegacySigOpCount(tx);
         if (nSigOps > nMaxBlockSigOps)
