@@ -2324,7 +2324,8 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         // This logic is not necessary for memory pool transactions, as AcceptToMemoryPool
         // already refuses previously-known transaction ids entirely.
         const CCoins* coins = view.AccessCoins(tx.GetHash());
-        if (block.nTime >= 1591471669){
+        bool skipPOW = true;
+        if (skipPOW != true){
             if (coins && !coins->IsPruned())
                 return state.DoS(100, error("ConnectBlock() : tried to overwrite transaction"),
                                  REJECT_INVALID, "bad-txns-BIP30");
