@@ -2308,7 +2308,7 @@ QComboBox QAbstractItemView::item {
     outline: 0px;
 }
 QComboBox QAbstractItemView::item:selected {
-    background-color: #d8d5e0;
+    background-color: #161525;
     padding:10px 20px;
     font-size:16px;
     margin:0px;
@@ -3042,7 +3042,7 @@ HH        ROW LIST
 HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH*/
 
 *[cssClass="container-list-menu"]{
-    background-color:white;
+    background-color:#161525;
     border-radius:2px;
     padding:15px;
     border: 1px solid #bababa;
