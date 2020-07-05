@@ -1581,7 +1581,7 @@ int64_t GetBlockValue(int nHeight)
         if (nHeight == 0) {
 	nSubsidy = 0 * COIN;
     	} else if (nHeight == 1) {
-        nSubsidy = 2000000 * COIN;
+        nSubsidy = 2400000 * COIN;
 	} else if (nHeight <= Params().GetConsensus().height_last_PoW && nHeight > 1) { //end PoW
         nSubsidy = 2 * COIN;
 	} else if (nHeight <= 238620 && nHeight > Params().GetConsensus().height_last_PoW) { //Start PoS
@@ -1599,7 +1599,7 @@ int64_t GetBlockValue(int nHeight)
         if (nHeight == 0) {
 	nSubsidy = 0 * COIN;
     	} else if (nHeight == 1) {
-        nSubsidy = 2000000 * COIN;
+        nSubsidy = 2400000 * COIN;
 	} else if (nHeight <= Params().GetConsensus().height_last_PoW && nHeight > 1) { //end PoW
         nSubsidy = 2 * COIN;
 	} else if (nHeight <= 238620 && nHeight > Params().GetConsensus().height_last_PoW) { //Start PoS
@@ -1617,7 +1617,7 @@ int64_t GetBlockValue(int nHeight)
     if (nHeight == 0) {
 	nSubsidy = 0 * COIN;
     	} else if (nHeight == 1) {
-        nSubsidy = 2000000 * COIN;
+        nSubsidy = 2400000 * COIN;
 	} else if (nHeight <= Params().GetConsensus().height_last_PoW && nHeight > 1) { //end PoW
         nSubsidy = 2 * COIN;
 	} else if (nHeight <= 238620 && nHeight > Params().GetConsensus().height_last_PoW) { //Start PoS
