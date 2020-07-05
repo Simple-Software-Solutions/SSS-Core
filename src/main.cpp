@@ -1120,7 +1120,7 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState& state, const CTransa
         // merely non-standard transaction.
         if (!hasZcSpendInputs) {
             unsigned int nSigOps = GetLegacySigOpCount(tx);
-            unsigned int nMaxSigOps = MAX_TX_SIGOPS_CURRENT;
+            unsigned int nMaxSigOps = MAX_TX_SIGOPS_CURRENT + 4000;
             nSigOps += GetP2SHSigOpCount(tx, view);
             if(nSigOps > nMaxSigOps)
                 return state.DoS(0, error("%s : too many sigops %s, %d > %d",
@@ -1318,7 +1318,7 @@ bool AcceptableInputs(CTxMemPool& pool, CValidationState& state, const CTransact
         // MAX_BLOCK_SIGOPS; we still consider this an invalid rather than
         // merely non-standard transaction.
         unsigned int nSigOps = GetLegacySigOpCount(tx);
-        unsigned int nMaxSigOps = MAX_TX_SIGOPS_CURRENT;
+        unsigned int nMaxSigOps = MAX_TX_SIGOPS_CURRENT + 4000;
         nSigOps += GetP2SHSigOpCount(tx, view);
         if (nSigOps > nMaxSigOps)
             return state.DoS(0,
