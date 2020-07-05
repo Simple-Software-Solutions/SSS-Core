@@ -114,12 +114,12 @@ QPushButton[cssClass="img-nav-logo"] {
 *[cssClass="btn-nav-cold-staking"]:checked {
     background-color: qlineargradient(x1:0, x2: 1, stop: 0 #3c2559, stop: 1 #1f162b);
     font-size:14px;
-    color: #B088FF;
+    color: #938da5;
 }
 
 *[cssClass="btn-nav-cold-staking"]:checked:hover {
     background-color: qlineargradient(x1:0, x2: 1, stop: 0 #3c2559, stop: 1 #1f162b);
-    color: #B088FF;
+    color: #938da5;
 }
 
 *[cssClass="btn-nav-cold-staking"]:hover {

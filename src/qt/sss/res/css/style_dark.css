@@ -114,12 +114,12 @@ QPushButton[cssClass="img-nav-logo"] {
 *[cssClass="btn-nav-cold-staking"]:checked {
     background-color: #007BFE;
     font-size:14px;
-    color: #B088FF;
+    color: #938da5;
 }
 
 *[cssClass="btn-nav-cold-staking"]:checked:hover {
     background-color: #007BFE;
-    color: #B088FF;
+    color: #938da5;
 }
 
 *[cssClass="btn-nav-cold-staking"]:hover {

@@ -3693,12 +3693,7 @@ bool CheckWork(const CBlock block, CBlockIndex* const pindexPrev)
     }
 
     if (block.nBits != nBitsRequired) {
-        // sss Specific reference to the block with the wrong threshold was used.
-        const Consensus::Params& consensus = Params().GetConsensus();
-        if (block.nTime >= consensus.nsssBadBlockTime) {
-            // accept SSS block minted with incorrect proof of work threshold
         return error("%s : incorrect proof of work at %d", __func__, pindexPrev->nHeight + 1);
-        }
     }
 
     return true;
