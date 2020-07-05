@@ -125,7 +125,7 @@ QPushButton[cssClass="img-nav-logo"] {
 *[cssClass="btn-nav-cold-staking"]:hover {
     qproperty-icon: url("://ic-nav-cold-staking-hover");
     qproperty-iconSize: 24px 40px;
-    background-color: #1A000000;
+    background-color: #B088FF;
     color: #938da5;
 }
 

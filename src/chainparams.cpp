@@ -97,10 +97,10 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints = 
 	boost::assign::map_list_of
-	(0, uint256("0x000000a944318a84b834b0e4e4aeb66d86390f66728efacfc9070111ac5ed01e"));
+	(0, uint256("0x00000cd5494c17d5286b961b8dc51cd8f1ea20194355fc95ad10810208e96b63"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1579905574, // * UNIX timestamp of last checkpoint block
+    1593946797, // * UNIX timestamp of last checkpoint block
     4000,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     200};
@@ -129,12 +129,12 @@ public:
     {
         networkID = CBaseChainParams::MAIN;
         strNetworkID = "main";
-        devAddress = "SUMs2GNB4hSzrbfs3ZJ5gj5HTtSKJLCj38";
+        devAddress = "SMiThh2Kk7pQ7EZz6NYTM4TxqzejcrKwbZ";
 
-        genesis = CreateGenesisBlock(1579905574, 101535, 0x1e0ffff0, 1, 0 * COIN);
+        genesis = CreateGenesisBlock(1593946797, 135999, 0x1e0ffff0, 1, 0 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256("0x000000a944318a84b834b0e4e4aeb66d86390f66728efacfc9070111ac5ed01e"));
-        assert(genesis.hashMerkleRoot == uint256("0xfbd93e09afe676a797f04369061c0bbb15fc499c8c28cc8b477da5fd48dba5bf"));
+        //assert(consensus.hashGenesisBlock == uint256("0x00000cd5494c17d5286b961b8dc51cd8f1ea20194355fc95ad10810208e96b63"));
+        //assert(genesis.hashMerkleRoot == uint256("0xfbd93e09afe676a797f04369061c0bbb15fc499c8c28cc8b477da5fd48dba5bf"));
 
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.powLimit   = ~UINT256_ZERO >> 20;   // SSS starting difficulty is 1 / 2^12
@@ -205,9 +205,9 @@ public:
          */
         pchMessageStart[0] = 0xa0;
         pchMessageStart[1] = 0x40;
-        pchMessageStart[2] = 0x14;
+        pchMessageStart[2] = 0x74;
         pchMessageStart[3] = 0x19;
-        nDefaultPort = 6740;
+        nDefaultPort = 5740;
 
         // Note that of those with the service bits flag, most only support a subset of possible options
         vSeeds.push_back(CDNSSeedData("136.244.71.225", "136.244.71.225"));

@@ -112,27 +112,27 @@ QPushButton[cssClass="img-nav-logo"] {
 }
 
 *[cssClass="btn-nav-cold-staking"]:checked {
-    background-color: #0f0b16;
+    background-color: #007BFE;
     font-size:14px;
     color: #B088FF;
 }
 
 *[cssClass="btn-nav-cold-staking"]:checked:hover {
-    background-color: #0f0b16;
+    background-color: #007BFE;
     color: #B088FF;
 }
 
 *[cssClass="btn-nav-cold-staking"]:hover {
     qproperty-icon: url("://ic-nav-cold-staking-hover");
     qproperty-iconSize: 24px 40px;
-    background-color: #0f0b16;
+    background-color: #007BFE;
     color: #938da5;
 }
 
 *[cssClass="btn-nav-cold-staking-active"] {
     qproperty-icon:url("://ic-nav-cold-staking-active")  ;
     qproperty-iconSize: 24px 40px;
-    background-color: #0f0b16;
+    background-color: #007BFE;
     font-size:14px;
     color: #007BFE;
 }
