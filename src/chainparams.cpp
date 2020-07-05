@@ -210,9 +210,9 @@ public:
         nDefaultPort = 5740;
 
         // Note that of those with the service bits flag, most only support a subset of possible options
-        vSeeds.push_back(CDNSSeedData("136.244.71.225", "136.244.71.225"));
-        vSeeds.push_back(CDNSSeedData("78.141.222.69", "78.141.222.69")); //Primary
-        vSeeds.push_back(CDNSSeedData("199.247.26.107", "199.247.26.107"));   // Secondary
+        vSeeds.push_back(CDNSSeedData("86.7.2.29", "86.7.2.29"));
+        vSeeds.push_back(CDNSSeedData("73.88.144.49", "73.88.144.49")); //Primary
+        /*vSeeds.push_back(CDNSSeedData("199.247.26.107", "199.247.26.107"));   // Secondary
         vSeeds.push_back(CDNSSeedData("144.202.62.235", "144.202.62.235"));    // Secondary
         vSeeds.push_back(CDNSSeedData("76.30.247.15", "76.30.247.15")); // Secondary
         vSeeds.push_back(CDNSSeedData("162.212.156.128", "162.212.156.128"));   // Secondary
@@ -220,7 +220,7 @@ public:
         vSeeds.push_back(CDNSSeedData("45.77.59.114", "45.77.59.114")); // Secondary
         vSeeds.push_back(CDNSSeedData("149.28.107.108", "149.28.107.108"));   // Secondary
         vSeeds.push_back(CDNSSeedData("66.42.117.130", "66.42.117.130"));    // Secondary
-        vSeeds.push_back(CDNSSeedData("45.76.141.219", "45.76.141.219"));    // Secondary
+        vSeeds.push_back(CDNSSeedData("45.76.141.219", "45.76.141.219"));    // Secondary*/
 
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 63); //Address starts with a "S"
