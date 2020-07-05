@@ -210,7 +210,7 @@ public:
         nDefaultPort = 5740;
 
         // Note that of those with the service bits flag, most only support a subset of possible options
-        vSeeds.push_back(CDNSSeedData("86.7.2.29", "86.7.2.29"));
+        vSeeds.push_back(CDNSSeedData("104.238.185.210", "104.238.185.210"));
         vSeeds.push_back(CDNSSeedData("73.88.144.49", "73.88.144.49")); //Primary
         /*vSeeds.push_back(CDNSSeedData("199.247.26.107", "199.247.26.107"));   // Secondary
         vSeeds.push_back(CDNSSeedData("144.202.62.235", "144.202.62.235"));    // Secondary
