@@ -1486,7 +1486,7 @@ bool AppInit2()
 
                 // If the loaded chain has a wrong genesis, bail out immediately
                 // (we're likely using a testnet datadir, or the other way around).
-                if (!mapBlockIndex.empty() && mapBlockIndex.count(consensus.hashGenesisBlock) == 0)
+                if (consensus.hashGenesisBlock != uint256("0x000006bbb950f1ff74e9db655586a49a18ceb9107f6b94756b7f48bbd07efcb0")) // && mapBlockIndex.count(consensus.hashGenesisBlock) == 0
                     return UIError(_("Incorrect or no genesis block found. Wrong datadir for network?"));
 
                 // Initialize the block index (no-op if non-empty database was already loaded)

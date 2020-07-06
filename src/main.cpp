@@ -2264,8 +2264,8 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     uint256 hashPrevBlock = pindex->pprev == NULL ? UINT256_ZERO : pindex->pprev->GetBlockHash();
     if (hashPrevBlock != view.GetBestBlock())
         LogPrintf("%s: hashPrev=%s view=%s\n", __func__, hashPrevBlock.GetHex(), view.GetBestBlock().GetHex());
-    //assert(hashPrevBlock == view.GetBestBlock());
-
+    assert(hashPrevBlock == view.GetBestBlock());
+    
     const Consensus::Params& consensus = Params().GetConsensus();
 
     // Special case for the genesis block, skipping connection of its transactions
@@ -3693,7 +3693,10 @@ bool CheckWork(const CBlock block, CBlockIndex* const pindexPrev)
     }
 
     if (block.nBits != nBitsRequired) {
-        return error("%s : incorrect proof of work at %d", __func__, pindexPrev->nHeight + 1);
+        const Consensus::Params& consensus = Params().GetConsensus();
+        if (block.nTime <= consensus.nsssBadBlockTime) {
+            return error("%s : incorrect proof of work at %d", __func__, pindexPrev->nHeight + 1);
+        }
     }
 
     return true;

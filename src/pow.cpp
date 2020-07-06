@@ -136,6 +136,7 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits)
 
     // Check proof of work matches claimed amount
     if (hash > bnTarget)
+        if(!skipPOW)
         return error("CheckProofOfWork() : hash doesn't match nBits");
         
     return true;

@@ -9,6 +9,7 @@
 #include "libzerocoin/Params.h"
 #include "chainparams.h"
 #include "consensus/merkle.h"
+#include "pow.h"
 #include "random.h"
 #include "util.h"
 #include "utilstrencodings.h"
@@ -97,10 +98,10 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints = 
 	boost::assign::map_list_of
-	(0, uint256("0x00000cd5494c17d5286b961b8dc51cd8f1ea20194355fc95ad10810208e96b63"));
+	(0, uint256("0x000006bbb950f1ff74e9db655586a49a18ceb9107f6b94756b7f48bbd07efcb0"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1593946797, // * UNIX timestamp of last checkpoint block
+    1593988812, // * UNIX timestamp of last checkpoint block
     4000,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     200};
@@ -129,12 +130,33 @@ public:
     {
         networkID = CBaseChainParams::MAIN;
         strNetworkID = "main";
-        devAddress = "SMiThh2Kk7pQ7EZz6NYTM4TxqzejcrKwbZ";
+        devAddress = "SMiThh2Kk7pQ7EZz6NYTM4TxqzejcrKwbZ";	
+	    /*uint32_t nNonce = 0;
+        uint32_t nTime =1593988812;
+        uint32_t nBits = 0x1e0ffff0;
+        
 
-        genesis = CreateGenesisBlock(1593946797, 135999, 0x1e0ffff0, 1, 0 * COIN);
+        if(nNonce == 0)
+        {	
+            printf("Looking for genesis block...\n");	
+            uint256 hashTarget;	
+	        hashTarget.SetCompact(nBits);	
+            while(uint256(genesis.GetHash()) > hashTarget)	
+            {	
+                nNonce++;	
+	            genesis = CreateGenesisBlock(nTime, nNonce, 0x1e0ffff0, 1, 0 * COIN);	
+	            if (nNonce % 128 == 0)	
+	            printf("\rnonce %08x", nNonce);
+            }	
+        }
+        printf("genesis is %s\n", genesis.ToString().c_str());
+        CreateGenesisBlock(nTime, nNonce, 0x1e0ffff0, 1, 0 * COIN);
+	    system("pause");*/
+
+        genesis = CreateGenesisBlock(1593988812, 630809, 0x1e0ffff0, 1, 0 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        //assert(consensus.hashGenesisBlock == uint256("0x00000cd5494c17d5286b961b8dc51cd8f1ea20194355fc95ad10810208e96b63"));
-        //assert(genesis.hashMerkleRoot == uint256("0xfbd93e09afe676a797f04369061c0bbb15fc499c8c28cc8b477da5fd48dba5bf"));
+        assert(consensus.hashGenesisBlock == uint256("0x000006bbb950f1ff74e9db655586a49a18ceb9107f6b94756b7f48bbd07efcb0"));
+        assert(genesis.hashMerkleRoot == uint256("0xfbd93e09afe676a797f04369061c0bbb15fc499c8c28cc8b477da5fd48dba5bf"));
 
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.powLimit   = ~UINT256_ZERO >> 20;   // SSS starting difficulty is 1 / 2^12
@@ -180,8 +202,8 @@ public:
         consensus.height_ZC_RecalcAccumulators = INT_MAX;
 
         // validation by-pass
-        consensus.nsssBadBlockTime = 1593035140;    // Skip nBit validation of Block 259201 per PR #915
-        consensus.nsssBadBlockBits = 119750;    // Skip nBit validation of Block 259201 per PR #915
+        consensus.nsssBadBlockTime = 1593985900;    // Skip nBit validation of Block 259201 per PR #915
+        consensus.nsssBadBlockBits = 500;    // Skip nBit validation of Block 259201 per PR #915
 
         // Zerocoin-related params
         consensus.ZC_Modulus = "25195908475657893494027183240048398571429282126204032027777137836043662020707595556264018525880784"
