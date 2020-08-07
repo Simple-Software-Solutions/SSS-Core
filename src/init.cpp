@@ -1486,7 +1486,8 @@ bool AppInit2()
 
                 // If the loaded chain has a wrong genesis, bail out immediately
                 // (we're likely using a testnet datadir, or the other way around).
-                if (!mapBlockIndex.empty() && mapBlockIndex.count(consensus.hashGenesisBlock) != 0)
+                //if (!mapBlockIndex.empty() && mapBlockIndex.count(consensus.hashGenesisBlock) != 0)
+                if (!mapBlockIndex.empty() && consensus.hashGenesisBlock != uint256("0x000000a944318a84b834b0e4e4aeb66d86390f66728efacfc9070111ac5ed01e"))
                     return UIError(_("Incorrect or no genesis block found. Wrong datadir for network?"));
 
                 // Initialize the block index (no-op if non-empty database was already loaded)
@@ -1583,12 +1584,12 @@ bool AppInit2()
                         }
                     }
 
-                    /*// Zerocoin must check at level 4
+                    // Zerocoin must check at level 4
                     if (!CVerifyDB().VerifyDB(pcoinsdbview, 4, GetArg("-checkblocks", 10))) {
                         strLoadError = _("Corrupted block database detected");
                         fVerifyingBlocks = false;
                         break;
-                    }*/
+                    }
                 }
             } catch (const std::exception& e) {
                 LogPrintf("%s\n", e.what());
