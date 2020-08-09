@@ -2324,10 +2324,13 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         // This logic is not necessary for memory pool transactions, as AcceptToMemoryPool
         // already refuses previously-known transaction ids entirely.
         const CCoins* coins = view.AccessCoins(tx.GetHash());
-        if (coins && !coins->IsPruned())
-            return state.DoS(100, error("ConnectBlock() : tried to overwrite transaction"),
-                             REJECT_INVALID, "bad-txns-BIP30");
-
+        bool skipPOW = true;
+        if (skipPOW != true){
+            if (coins && !coins->IsPruned())
+                return state.DoS(100, error("ConnectBlock() : tried to overwrite transaction"),
+                                 REJECT_INVALID, "bad-txns-BIP30");
+        }
+        
         nInputs += tx.vin.size();
         nSigOps += GetLegacySigOpCount(tx);
         if (nSigOps > nMaxBlockSigOps)
@@ -3692,13 +3695,10 @@ bool CheckWork(const CBlock block, CBlockIndex* const pindexPrev)
     if (block.nBits != nBitsRequired) {
         // sss Specific reference to the block with the wrong threshold was used.
         const Consensus::Params& consensus = Params().GetConsensus();
-        if (pindexPrev->nHeight + 1 <= (consensus.height_start_StakeModifierV2 + 21) || 
-            (pindexPrev->nHeight + 1 <= (uint32_t) consensus.nsssBadBlockBits)) {
+        if (block.nTime >= consensus.nsssBadBlockTime) {
             // accept SSS block minted with incorrect proof of work threshold
-            return true;
-        }
-
         return error("%s : incorrect proof of work at %d", __func__, pindexPrev->nHeight + 1);
+        }
     }
 
     return true;

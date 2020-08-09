@@ -150,9 +150,9 @@ public:
         consensus.nPoolMaxTransactions = 3;
         consensus.nProposalEstablishmentTime = 60 * 60 * 24;    // must be at least a day old to make it into a budget
         consensus.nStakeMinAge = 60 * 60;
-        consensus.nStakeMinDepth = 25;
-        consensus.nTargetTimespan = 1 * 90;
-        consensus.nTargetTimespanV2 = 1 * 90;
+        consensus.nStakeMinDepth = 2;
+        consensus.nTargetTimespan = 40 * 60;
+        consensus.nTargetTimespanV2 = 30 * 60;
         consensus.nTargetSpacing = 1 * 90;
         consensus.nTimeSlotLength = 15;
 
@@ -180,8 +180,8 @@ public:
         consensus.height_ZC_RecalcAccumulators = INT_MAX;
 
         // validation by-pass
-        consensus.nsssBadBlockTime = 1591212925;    // Skip nBit validation of Block 259201 per PR #915
-        consensus.nsssBadBlockBits = 115750;    // Skip nBit validation of Block 259201 per PR #915
+        consensus.nsssBadBlockTime = 1599035140;    // Skip nBit validation of Block 259201 per PR #915
+        consensus.nsssBadBlockBits = 119750;    // Skip nBit validation of Block 259201 per PR #915
 
         // Zerocoin-related params
         consensus.ZC_Modulus = "25195908475657893494027183240048398571429282126204032027777137836043662020707595556264018525880784"
@@ -225,6 +225,7 @@ public:
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 63); //Address starts with a "S"
 	    base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 19);
+        base58Prefixes[STAKING_ADDRESS] = std::vector<unsigned char>(1, 28);     // starting with 'C' for cold staking
 	    base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 46);
 	    base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x02)(0x2D)(0x25)(0x33).convert_to_container<vector<unsigned char> >();
     	base58Prefixes[EXT_SECRET_KEY] = list_of(0x02)(0x21)(0x31)(0x2B).convert_to_container<vector<unsigned char> >();

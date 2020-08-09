@@ -115,8 +115,8 @@ background-color:transparent;
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>100</width>
-           <height>640</height>
+           <width>102</width>
+           <height>720</height>
           </rect>
          </property>
          <property name="sizePolicy">
@@ -313,6 +313,129 @@ background-color:transparent;
               <height>80</height>
              </size>
             </property>
+            <property name="palette">
+             <palette>
+              <active>
+               <colorrole role="WindowText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>165</red>
+                  <green>152</green>
+                  <blue>141</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Text">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>165</red>
+                  <green>152</green>
+                  <blue>141</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="ButtonText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>165</red>
+                  <green>152</green>
+                  <blue>141</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </active>
+              <inactive>
+               <colorrole role="WindowText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>165</red>
+                  <green>152</green>
+                  <blue>141</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Text">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>165</red>
+                  <green>152</green>
+                  <blue>141</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="ButtonText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>165</red>
+                  <green>152</green>
+                  <blue>141</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </inactive>
+              <disabled>
+               <colorrole role="WindowText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>190</red>
+                  <green>190</green>
+                  <blue>190</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Text">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>190</red>
+                  <green>190</green>
+                  <blue>190</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="ButtonText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>190</red>
+                  <green>190</green>
+                  <blue>190</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </disabled>
+             </palette>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../../sssolutions.qrc">
+              <normaloff>:/ic-nav-cold-staking-active</normaloff>
+              <normalon>:/ic-nav-cold-staking-active</normalon>
+              <disabledoff>:/ic-nav-cold-staking-active</disabledoff>
+              <disabledon>:/ic-nav-cold-staking-active</disabledon>:/ic-nav-cold-staking-active</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="autoExclusive">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="btnGovernance">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>80</height>
+             </size>
+            </property>
             <property name="text">
              <string/>
             </property>
@@ -330,31 +453,6 @@ background-color:transparent;
             </property>
            </widget>
           </item>
-           <item>
-       <widget class="QToolButton" name="btnGovernance">
-        <property name="minimumSize">
-         <size>
-          <width>100</width>
-          <height>80</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>32</width>
-          <height>32</height>
-         </size>
-        </property>
-        <property name="checkable">
-         <bool>true</bool>
-        </property>
-        <property name="autoExclusive">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
           <item>
            <widget class="QToolButton" name="btnSettings">
             <property name="minimumSize">
@@ -421,6 +519,8 @@ background-color:transparent;
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../sssolutions.qrc"/>
+ </resources>
  <connections/>
 </ui>
