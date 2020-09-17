@@ -21,7 +21,7 @@ More information at [sss.org](http://www.sss.org) Visit our ANN thread at [Bitco
 <tr><td>Premine</td><td>2,000,000 SSS*</td></tr>
 </table>
 
-*60,000 SSS Premine was burned in block [279917](http://www.presstab.pw/phpexplorer/SSS/block.php?blockhash=206d9cfe859798a0b0898ab00d7300be94de0f5469bb446cecb41c3e173a57e0)
+*1,000,000 SSS Premine was airdropped to Infinex holders as part of coin swap
 
 ### Reward Distribution
 
