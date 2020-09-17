@@ -32,19 +32,10 @@ More information at [sss.org](http://www.sss.org) Visit our ANN thread at [Bitco
 <tr><td>1</td><td>60,000 SSS</td><td>Initial Pre-mine, burnt in block <a href="http://www.presstab.pw/phpexplorer/SSS/block.php?blockhash=206d9cfe859798a0b0898ab00d7300be94de0f5469bb446cecb41c3e173a57e0">279917</a></td></tr>
 </table>
 
-### PoW Rewards Breakdown
-
-<table>
-<th>Block Height</th><th>Masternodes</th><th>Miner</th><th>Budget</th>
-<tr><td>2-43200</td><td>20% (50 SSS)</td><td>80% (200 SSS)</td><td>N/A</td></tr>
-<tr><td>43201-151200</td><td>20% (50 SSS)</td><td>70% (200 SSS)</td><td>10% (25 SSS)</td></tr>
-<tr><td>151201-259200</td><td>45% (22.5 SSS)</td><td>45% (22.5 SSS)</td><td>10% (5 SSS)</td></tr>
-</table>
-
 ### PoS Rewards Breakdown
 
 <table>
-<th>Phase</th><th>Block Height</th><th>Reward</th><th>Masternodes & Stakers</th><th>
+<th>Phase</th><th>Block Height</th><th>Reward</th><th>Masternode, Stakers & Dev</th><th>
 <tr><td>Phase 0</td><td>0-200</td><td>2,000,000 SSS</td><td>Pre Mine</td><td>N/A</td></tr>
-<tr><td>Phase X</td><td>201-764222</td><td>2 SSS</td><td>85%</td><td>10%</td></tr>
+<tr><td>Phase X</td><td>201-764222</td><td>2 SSS</td><td>85%</td><td>10%</td><td>5%</td></tr>
 </table>
