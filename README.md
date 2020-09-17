@@ -17,7 +17,6 @@ More information at [sss.org](http://www.sss.org) Visit our ANN thread at [Bitco
 <tr><td>Algo</td><td>Quark</td></tr>
 <tr><td>Block Time</td><td>60 Seconds</td></tr>
 <tr><td>Difficulty Retargeting</td><td>Every Block</td></tr>
-<tr><td>Max Coin Supply (PoW Phase)</td><td>43,199,500 SSS</td></tr>
 <tr><td>Max Coin Supply (PoS Phase)</td><td>14,000,000</td></tr>
 <tr><td>Premine</td><td>2,000,000 SSS*</td></tr>
 </table>
