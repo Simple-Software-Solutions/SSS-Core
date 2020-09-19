@@ -30,6 +30,6 @@ The goal of SSS is to achieve a decentralized sustainable crypto currency with n
 
 <table>
 <th>Phase</th><th>Block Height</th><th>Reward</th><th>Masternode</th><th>Staker</th><th>Dev</th><th>
-  <tr><td>Phase 0</td><td>0-200</td><td>2,000,000 SSS</td><td>Pre Mine</td><td>N/A</td><th>N/A</th></tr>
-<tr><td>Phase X</td><td>201-764222</td><td>2 SSS</td><td>85% (1.70 SSS)</td><td>10% (0.20 SSS)</td><td>5% (0.10 SSS)</td></tr>
+  <tr><td>Phase 0</td><td>1</td><td>2,000,000 SSS</td><td>Pre Mine</td><td>N/A</td><th>N/A</th></tr>
+<tr><td>Phase X</td><td>2-end</td><td>2 SSS</td><td>85% (1.70 SSS)</td><td>10% (0.20 SSS)</td><td>5% (0.10 SSS)</td></tr>
 </table>
