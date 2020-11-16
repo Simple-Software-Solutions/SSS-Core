@@ -575,7 +575,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="labelAmountzSSS">
+           <widget class="QLabel" name="labelAmountMNRewards">
             <property name="text">
              <string>TextLabel</string>
             </property>
@@ -715,7 +715,14 @@
                  </spacer>
                 </item>
                 <item>
-                 <widget class="QLabel" name="labelSquarezSSS">
+                 <widget class="QLabel" name="labelMNRewards">
+                  <property name="text">
+                   <string>SSS MNR</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="labelSquareMNRewards">
                   <property name="minimumSize">
                    <size>
                     <width>14</width>
@@ -730,13 +737,6 @@
                   </property>
                   <property name="text">
                    <string/>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLabel" name="labelzSSS">
-                  <property name="text">
-                   <string>zSSS</string>
                   </property>
                  </widget>
                 </item>

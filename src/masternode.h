@@ -119,7 +119,6 @@ public:
         MASTERNODE_PRE_ENABLED,
         MASTERNODE_ENABLED,
         MASTERNODE_EXPIRED,
-        MASTERNODE_OUTPOINT_SPENT,
         MASTERNODE_REMOVE,
         MASTERNODE_WATCHDOG_EXPIRED,
         MASTERNODE_POSE_BAN,
@@ -141,7 +140,6 @@ public:
     bool unitTest;
     bool allowFreeTx;
     int protocolVersion;
-    int nActiveState;
     int64_t nLastDsq; //the dsq count from the last dsq broadcast of this node
     int nScanningErrorCount;
     int nLastScanningErrorBlockHeight;
@@ -263,8 +261,6 @@ public:
 
         return cacheInputAge + (chainActive.Tip()->nHeight - cacheInputAgeBlock);
     }
-
-    std::string GetStatus();
 
     std::string Status()
     {

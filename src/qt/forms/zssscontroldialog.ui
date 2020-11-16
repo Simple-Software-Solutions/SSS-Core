@@ -160,9 +160,9 @@
                                     <widget class="QWidget" name="layoutAmount" native="true">
                                         <layout class="QHBoxLayout" name="horizontalLayout_9" stretch="0,1">
                                             <item>
-                                                <widget class="QLabel" name="labelzSSS">
+                                                <widget class="QLabel" name="labelSquareMNRewards">
                                                     <property name="text">
-                                                        <string>zSSS</string>
+                                                        <string>SSS MNR</string>
                                                     </property>
                                                 </widget>
                                             </item>

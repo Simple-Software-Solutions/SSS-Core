@@ -782,8 +782,8 @@ Użyj hasła składającego się z dziesięciu lub więcej losowych znaków lub 
         <translation>TekstZakładka</translation>
     </message>
     <message>
-        <source>zSSS</source>
-        <translation>zSSS</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>All</source>

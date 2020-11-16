@@ -1024,8 +1024,8 @@ stake in your behalf, keeping the keys in a secure place offline.</source>
         <translation>SSS</translation>
     </message>
     <message>
-        <source>zSSS</source>
-        <translation>zSSS</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>Sort by</source>
@@ -5947,8 +5947,8 @@ Portefeuille SSS Core</translation>
         <translation>Bouton poussoir</translation>
     </message>
     <message>
-        <source>zSSS</source>
-        <translation>zSSS</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>0.00 </source>

@@ -171,6 +171,10 @@ public:
      */
     bool isAnyColdStakingType() const;
 
+    /** Return true if the tx is any masternode payment type tx.
+     */
+    bool isMasternodeReward() const;
+
     /** Return true if the tx hash is null and/or if the size is 0
      */
     bool isNull() const;
