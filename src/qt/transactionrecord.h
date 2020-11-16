@@ -173,7 +173,7 @@ public:
 
     /** Return true if the tx is any masternode payment type tx.
      */
-    bool TransactionRecord::isMasternodeReward() const;
+    bool isMasternodeReward() const;
 
     /** Return true if the tx hash is null and/or if the size is 0
      */

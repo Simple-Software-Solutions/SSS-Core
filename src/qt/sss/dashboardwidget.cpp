@@ -539,9 +539,10 @@ const QMap<int, std::pair<qint64, qint64>> DashboardWidget::getAmountBy()
         if (amountBy.contains(time)) {
             if (isSSS) {
                 amountBy[time].first += amount;
-            } else if (isMNReward)
+            } else if (isMNReward) {
                 amountBy[time].second += amount;
                 hasMNRewards = true;
+            }
         } else {
             if (isSSS) {
                 amountBy[time] = std::make_pair(amount, 0);
