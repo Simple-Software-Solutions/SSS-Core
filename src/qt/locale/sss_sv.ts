@@ -905,8 +905,8 @@ for staking</source>
         <translation>SSS</translation>
     </message>
     <message>
-        <source>zSSS</source>
-        <translation>zSSS</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>Sort by</source>

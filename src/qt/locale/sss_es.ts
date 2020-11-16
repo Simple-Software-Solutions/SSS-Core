@@ -1122,8 +1122,8 @@ del propietario </translation>
         <translation>SSS</translation>
     </message>
     <message>
-        <source>zSSS</source>
-        <translation>zSSS</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>Sort by</source>
@@ -6104,8 +6104,8 @@ SSS Core Wallet</translation>
         <translation>Presionar el botón</translation>
     </message>
     <message>
-        <source>zSSS</source>
-        <translation>zSSS</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>0.00 </source>

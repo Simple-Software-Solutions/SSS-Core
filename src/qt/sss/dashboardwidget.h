@@ -81,9 +81,9 @@ public:
     QMap<int, std::pair<qint64, qint64>> amountsByCache;
     qreal maxValue = 0;
     qint64 totalSSS = 0;
-    qint64 totalzSSS = 0;
+    qint64 totalMNRewards = 0;
     QList<qreal> valuesSSS;
-    QList<qreal> valueszSSS;
+    QList<qreal> valuesMNRewards;
     QStringList xLabels;
 };
 
@@ -163,10 +163,10 @@ private:
     int yearFilter = 0;
     int monthFilter = 0;
     int dayStart = 1;
-    bool haszSSSStakes = false;
 
     ChartData* chartData = nullptr;
     bool hasStakes = false;
+    bool hasMNRewards = false;
     bool fShowCharts = true;
 
     void initChart();

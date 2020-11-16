@@ -56,11 +56,11 @@ DashboardWidget::DashboardWidget(SSSGUI* parent) :
     ui->labelMessage->setText(tr("Amount of SSS staked."));
     setCssSubtitleScreen(ui->labelMessage);
     setCssProperty(ui->labelSquareSSS, "square-chart-SSS");
-    ui->labelSquarezSSS->setVisible(false);
-    setCssProperty(ui->labelSquarezSSS, "square-chart-zsss");
-    ui->labelzSSS->setVisible(false);
+    ui->labelSquareMNRewards->setVisible(true);
+    setCssProperty(ui->labelSquareMNRewards, "square-chart-zsss");
+    ui->labelMNRewards->setVisible(true);
     setCssProperty(ui->labelSSS, "text-chart-SSS");
-    setCssProperty(ui->labelzSSS, "text-chart-zsss");
+    setCssProperty(ui->labelMNRewards, "text-chart-zsss");
 
     // Staking Amount
     QFont fontBold;
@@ -68,11 +68,11 @@ DashboardWidget::DashboardWidget(SSSGUI* parent) :
 
     setCssProperty(ui->labelChart, "legend-chart");
 
-    ui->labelAmountzSSS->setText("0 zSSS");
-    ui->labelAmountzSSS->setVisible(false);
+    ui->labelAmountMNRewards->setText("0 SSS MNR");
+    ui->labelAmountMNRewards->setVisible(true);
     ui->labelAmountSSS->setText("0 SSS");
     setCssProperty(ui->labelAmountSSS, "text-stake-SSS-disable");
-    setCssProperty(ui->labelAmountzSSS, "text-stake-zsss-disable");
+    setCssProperty(ui->labelAmountMNRewards, "text-stake-zsss-disable");
 
     setCssProperty({ui->pushButtonAll,  ui->pushButtonMonth, ui->pushButtonYear}, "btn-check-time");
     setCssProperty({ui->comboBoxMonths,  ui->comboBoxYears}, "btn-combo-chart-selected");
@@ -220,7 +220,7 @@ void DashboardWidget::loadWalletModel()
         // chart filter
         stakesFilter = new TransactionFilterProxy();
         stakesFilter->setDynamicSortFilter(true);
-        stakesFilter->setOnlyStakes(true);
+        stakesFilter->setOnlyStakesAndMNTX(true);
         stakesFilter->setSourceModel(txModel);
         hasStakes = stakesFilter->rowCount() > 0;
 
@@ -504,7 +504,7 @@ void DashboardWidget::updateStakeFilter()
     }
 }
 
-// pair SSS, zSSS
+// pair SSS, SSS MNR
 const QMap<int, std::pair<qint64, qint64>> DashboardWidget::getAmountBy()
 {
     updateStakeFilter();
@@ -515,7 +515,8 @@ const QMap<int, std::pair<qint64, qint64>> DashboardWidget::getAmountBy()
         QModelIndex modelIndex = stakesFilter->index(i, TransactionTableModel::ToAddress);
         qint64 amount = llabs(modelIndex.data(TransactionTableModel::AmountRole).toLongLong());
         QDate date = modelIndex.data(TransactionTableModel::DateRole).toDateTime().date();
-        bool isSSS = modelIndex.data(TransactionTableModel::TypeRole).toInt() != TransactionRecord::StakeZSSS;
+        bool isSSS = modelIndex.data(TransactionTableModel::TypeRole).toInt() != TransactionRecord::StakeZSSS && modelIndex.data(TransactionTableModel::TypeRole).toInt() != TransactionRecord::MNReward;
+        bool isMNReward = modelIndex.data(TransactionTableModel::TypeRole).toInt() == TransactionRecord::MNReward;
 
         int time = 0;
         switch (chartShow) {
@@ -538,14 +539,15 @@ const QMap<int, std::pair<qint64, qint64>> DashboardWidget::getAmountBy()
         if (amountBy.contains(time)) {
             if (isSSS) {
                 amountBy[time].first += amount;
-            } else
+            } else if (isMNReward)
                 amountBy[time].second += amount;
+                hasMNRewards = true;
         } else {
             if (isSSS) {
                 amountBy[time] = std::make_pair(amount, 0);
             } else {
                 amountBy[time] = std::make_pair(0, amount);
-                haszSSSStakes = true;
+                hasMNRewards = true;
             }
         }
     }
@@ -560,7 +562,7 @@ bool DashboardWidget::loadChartData(bool withMonthNames)
     }
 
     chartData = new ChartData();
-    chartData->amountsByCache = getAmountBy(); // pair SSS, zSSS
+    chartData->amountsByCache = getAmountBy(); // pair SSS, SSS MNReward
 
     std::pair<int,int> range = getChartRange(chartData->amountsByCache);
     if (range.first == 0 && range.second == 0) {
@@ -574,21 +576,21 @@ bool DashboardWidget::loadChartData(bool withMonthNames)
     for (int j = range.first; j < range.second; j++) {
         int num = (isOrderedByMonth && j > daysInMonth) ? (j % daysInMonth) : j;
         qreal SSS = 0;
-        qreal zsss = 0;
+        qreal MNReward = 0;
         if (chartData->amountsByCache.contains(num)) {
             std::pair <qint64, qint64> pair = chartData->amountsByCache[num];
             SSS = (pair.first != 0) ? pair.first / 100000000 : 0;
-            zsss = (pair.second != 0) ? pair.second / 100000000 : 0;
+            MNReward = (pair.second != 0) ? pair.second / 100000000 : 0;
             chartData->totalSSS += pair.first;
-            chartData->totalzSSS += pair.second;
+            chartData->totalMNRewards += pair.second;
         }
 
         chartData->xLabels << ((withMonthNames) ? monthsNames[num - 1] : QString::number(num));
 
         chartData->valuesSSS.append(SSS);
-        chartData->valueszSSS.append(zsss);
+        chartData->valuesMNRewards.append(MNReward);
 
-        int max = std::max(SSS, zsss);
+        int max = std::max(SSS, MNReward);
         if (max > chartData->maxValue) {
             chartData->maxValue = max;
         }
@@ -646,7 +648,7 @@ void DashboardWidget::onChartRefreshed()
     }
     // init sets
     set0 = new QBarSet("SSS");
-    set1 = new QBarSet("zSSS");
+    set1 = new QBarSet("SSS MNR");
     set0->setColor(QColor(92,75,125));
     set1->setColor(QColor(176,136,255));
 
@@ -658,23 +660,23 @@ void DashboardWidget::onChartRefreshed()
     series->attachAxis(axisY);
 
     set0->append(chartData->valuesSSS);
-    set1->append(chartData->valueszSSS);
+    set1->append(chartData->valuesMNRewards);
 
     // Total
     nDisplayUnit = walletModel->getOptionsModel()->getDisplayUnit();
-    if (chartData->totalSSS > 0 || chartData->totalzSSS > 0) {
+    if (chartData->totalSSS > 0 || chartData->totalMNRewards > 0) {
         setCssProperty(ui->labelAmountSSS, "text-stake-SSS");
-        setCssProperty(ui->labelAmountzSSS, "text-stake-zsss");
+        setCssProperty(ui->labelAmountMNRewards, "text-stake-zsss");
     } else {
         setCssProperty(ui->labelAmountSSS, "text-stake-SSS-disable");
-        setCssProperty(ui->labelAmountzSSS, "text-stake-zsss-disable");
+        setCssProperty(ui->labelAmountMNRewards, "text-stake-zsss-disable");
     }
-    forceUpdateStyle({ui->labelAmountSSS, ui->labelAmountzSSS});
+    forceUpdateStyle({ui->labelAmountSSS, ui->labelAmountMNRewards});
     ui->labelAmountSSS->setText(GUIUtil::formatBalance(chartData->totalSSS, nDisplayUnit));
-    ui->labelAmountzSSS->setText(GUIUtil::formatBalance(chartData->totalzSSS, nDisplayUnit, true));
+    ui->labelAmountMNRewards->setText(GUIUtil::formatBalance(chartData->totalMNRewards, nDisplayUnit, true));
 
     series->append(set0);
-    if (haszSSSStakes)
+    if (hasMNRewards)
         series->append(set1);
 
     // bar width

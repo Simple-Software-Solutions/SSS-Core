@@ -40,7 +40,7 @@ zSSSControlDialog::zSSSControlDialog(QWidget *parent) :
 
 
     // Label Style
-    ui->labelzSSS->setProperty("cssClass", "text-main-purple");
+    ui->labelSquareMNRewards->setProperty("cssClass", "text-main-purple");
     ui->labelzSSS_int->setProperty("cssClass", "text-main-purple");
     ui->labelQuantity->setProperty("cssClass", "text-main-purple");
     ui->labelQuantity_int->setProperty("cssClass", "text-main-purple");

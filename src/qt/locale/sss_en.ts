@@ -1403,8 +1403,8 @@ address</source>
     </message>
     <message>
         <location line="+42"/>
-        <source>zSSS</source>
-        <translation type="unfinished"></translation>
+        <source>SSS MNR</source>
+        <translation type="unfinished">SSS MNR</translation>
     </message>
     <message>
         <location line="+218"/>
@@ -7620,8 +7620,8 @@ SSS Core Wallet</source>
     </message>
     <message>
         <location line="+26"/>
-        <source>zSSS</source>
-        <translation type="unfinished"></translation>
+        <source>SSS MNR</source>
+        <translation type="unfinished">SSS MNR</translation>
     </message>
     <message>
         <location line="+7"/>

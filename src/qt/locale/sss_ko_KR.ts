@@ -851,8 +851,8 @@ for staking</source>
         <translation>SSS</translation>
     </message>
     <message>
-        <source>zSSS</source>
-        <translation>zSSS</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>Sort by</source>
@@ -3624,8 +3624,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>누르기</translation>
     </message>
     <message>
-        <source>zSSS</source>
-        <translation>zSSS</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>Quantity:</source>

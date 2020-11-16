@@ -1823,8 +1823,8 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
         <translation>0</translation>
     </message>
     <message>
-        <source>zsss</source>
-        <translation>zsss</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>0.000 000 00 SSS</source>
@@ -2619,8 +2619,8 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
         <translation>0</translation>
     </message>
     <message>
-        <source>zsss</source>
-        <translation>zsss</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     </context>
 <context>

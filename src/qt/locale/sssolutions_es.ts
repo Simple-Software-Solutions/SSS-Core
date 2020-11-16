@@ -2399,8 +2399,8 @@ Para habilitar AutoMint cambie 'enablezeromint = 0' a 'enablezeromint = 1' en ss
         <translation>0</translation>
     </message>
     <message>
-        <source>zsss</source>
-        <translation>zsss</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>Available for minting are coins which are confirmed and not locked or Masternode collaterals.</source>
@@ -4834,8 +4834,8 @@ O mint las denominaciones más altas (por lo tanto, se necesitan menos datos) o 
         <translation>0</translation>
     </message>
     <message>
-        <source>zsss</source>
-        <translation>zsss</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>Select/Deselect All</source>

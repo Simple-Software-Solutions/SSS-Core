@@ -922,8 +922,8 @@ for staking</source>
         <translation>SSS</translation>
     </message>
     <message>
-        <source>zSSS</source>
-        <translation>zSSS</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>Sort by</source>
@@ -4548,8 +4548,8 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>Druckknopf</translation>
     </message>
     <message>
-        <source>zSSS</source>
-        <translation>zSSS</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>Quantity:</source>

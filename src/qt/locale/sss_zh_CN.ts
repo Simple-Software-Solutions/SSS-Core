@@ -1123,8 +1123,8 @@ address</source>
         <translation>SSS</translation>
     </message>
     <message>
-        <source>zSSS</source>
-        <translation>zSSS</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>Sort by</source>
@@ -6131,8 +6131,8 @@ SSS核心钱包</translation>
         <translation>按钮</translation>
     </message>
     <message>
-        <source>zSSS</source>
-        <translation>zSSS</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>0.00 </source>

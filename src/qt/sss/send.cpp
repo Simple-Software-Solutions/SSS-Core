@@ -50,7 +50,7 @@ SendWidget::SendWidget(SSSGUI* parent) :
     setCssProperty(ui->pushLeft, "btn-check-left");
     ui->pushLeft->setChecked(true);
     ui->pushRight->setVisible(false);
-    ui->pushRight->setText("zSSS");
+    ui->pushRight->setText("SSS MNR");
     setCssProperty(ui->pushRight, "btn-check-right");
 
     /* Subtitle */

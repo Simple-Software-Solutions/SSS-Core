@@ -870,8 +870,8 @@ For Staking</translation>
         <translation>SSS</translation>
     </message>
     <message>
-        <source>zSSS</source>
-        <translation>zSSS</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>Days</source>
@@ -3544,8 +3544,8 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
         <translation>Tryk på Knappen</translation>
     </message>
     <message>
-        <source>zSSS</source>
-        <translation>zSSS</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>Quantity:</source>

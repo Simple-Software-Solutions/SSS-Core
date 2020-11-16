@@ -607,8 +607,8 @@
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>zSSS</source>
-        <translation>zSSS</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>All</source>
@@ -2919,8 +2919,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Upravljanje novčićem</translation>
     </message>
     <message>
-        <source>zSSS</source>
-        <translation>zSSS</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>Quantity:</source>

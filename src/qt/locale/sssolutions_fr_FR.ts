@@ -2459,8 +2459,8 @@ Pour activer Auto-monnayage, changez 'enablezeromint = 0' en 'enablezeromint = 1
         <translation>0</translation>
     </message>
     <message>
-        <source>zsss</source>
-        <translation>zsss</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>Available for minting are coins which are confirmed and not locked or Masternode collaterals.</source>
@@ -5037,8 +5037,8 @@ S'il vous plaît soyez patient ...</translation>
         <translation>0</translation>
     </message>
     <message>
-        <source>zsss</source>
-        <translation>zsss</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>Select/Deselect All</source>

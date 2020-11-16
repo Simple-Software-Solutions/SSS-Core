@@ -767,8 +767,8 @@ for staking</source>
         <translation>EtiquetaDeText</translation>
     </message>
     <message>
-        <source>zSSS</source>
-        <translation>zSSS</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>Received</source>
@@ -2040,8 +2040,8 @@ for staking</source>
 <context>
     <name>zSSSControlDialog</name>
     <message>
-        <source>zSSS</source>
-        <translation>zSSS</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>Quantity:</source>

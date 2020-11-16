@@ -611,8 +611,8 @@
         <translation>ТекстовЕтикет</translation>
     </message>
     <message>
-        <source>zSSS</source>
-        <translation>zSSS</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>All</source>
@@ -2922,8 +2922,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Монетен контрол...</translation>
     </message>
     <message>
-        <source>zSSS</source>
-        <translation>zSSS</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>Quantity:</source>

@@ -1291,8 +1291,8 @@
         <translation>0</translation>
     </message>
     <message>
-        <source>zsss</source>
-        <translation>zsss</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     <message>
         <source>0.000 000 00 SSS</source>
@@ -1977,8 +1977,8 @@
         <translation>0</translation>
     </message>
     <message>
-        <source>zsss</source>
-        <translation>zsss</translation>
+        <source>SSS MNR</source>
+        <translation>SSS MNR</translation>
     </message>
     </context>
 <context>
