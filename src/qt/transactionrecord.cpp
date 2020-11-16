@@ -538,6 +538,11 @@ bool TransactionRecord::isAnyColdStakingType() const
             || type == TransactionRecord::P2CSUnlockOwner || type == TransactionRecord::P2CSUnlockStaker);
 }
 
+bool TransactionRecord::isMasternodeReward() const
+{
+    return type == TransactionRecord::MNReward;
+}
+
 bool TransactionRecord::isNull() const
 {
     return hash.IsNull() || size == 0;
