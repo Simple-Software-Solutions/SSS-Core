@@ -673,7 +673,7 @@ void DashboardWidget::onChartRefreshed()
     }
     forceUpdateStyle({ui->labelAmountSSS, ui->labelAmountMNRewards});
     ui->labelAmountSSS->setText(GUIUtil::formatBalance(chartData->totalSSS, nDisplayUnit));
-    ui->labelAmountMNRewards->setText(GUIUtil::formatBalance(chartData->totalMNRewards, nDisplayUnit, true));
+    ui->labelAmountMNRewards->setText(GUIUtil::formatBalance(chartData->totalMNRewards, nDisplayUnit, false) + " MNR");
 
     series->append(set0);
     if (hasMNRewards)
