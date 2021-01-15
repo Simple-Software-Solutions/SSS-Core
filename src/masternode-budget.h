@@ -176,7 +176,7 @@ public:
 //
 class CBudgetManager
 {
-private:
+protected:
     //hold txes until they mature enough to use
     // XX42    std::map<uint256, CTransaction> mapCollateral;
     std::map<uint256, uint256> mapCollateralTxids;
@@ -229,6 +229,7 @@ public:
     std::vector<CBudgetProposal*> GetBudget();
     std::vector<CBudgetProposal*> GetAllProposals();
     std::vector<CFinalizedBudget*> GetFinalizedBudgets();
+    bool GetExpectedPayeeAmount(int chainHeight, CAmount& nAmountRet) const;
     bool IsBudgetPaymentBlock(int nBlockHeight);
     bool AddProposal(CBudgetProposal& budgetProposal);
     bool AddFinalizedBudget(CFinalizedBudget& finalizedBudget);
@@ -291,6 +292,12 @@ public:
         nAmount = 0;
         nProposalHash = UINT256_ZERO;
     }
+
+    CTxBudgetPayment(const uint256& _nProposalHash, const CScript& _payee, const CAmount _nAmount) :
+    nProposalHash(_nProposalHash),
+    payee(_payee),
+    nAmount(_nAmount)
+    {}
 
     ADD_SERIALIZE_METHODS;
 

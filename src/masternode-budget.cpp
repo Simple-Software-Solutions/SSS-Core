@@ -529,6 +529,12 @@ void CBudgetManager::CheckAndRemove()
 
 }
 
+bool CBudgetManager::GetExpectedPayeeAmount(int chainHeight, CAmount& nAmountRet) const
+{
+    CScript payeeRet;
+    return GetPayeeAndAmount(chainHeight, payeeRet, nAmountRet);
+}
+
 void CBudgetManager::FillBlockPayee(CMutableTransaction& txNew, CAmount nFees, bool fProofOfStake)
 {
     LOCK(cs);
