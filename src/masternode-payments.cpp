@@ -263,10 +263,7 @@ bool IsBlockValueValid(const CBlock& block, CAmount& nExpectedValue, CAmount nMi
         //are these blocks even enabled
         if (!sporkManager.IsSporkActive(SPORK_13_ENABLE_SUPERBLOCKS)) {
             // add current payee amount to the expected block value
-            CAmount expectedPayAmount;
-            if (budget.GetExpectedPayeeAmount(nHeight, expectedPayAmount)) {
-                nExpectedValue += expectedPayAmount;
-            }
+            nExpectedValue = budget.GetTotalBudget(nHeight);
         }
 
         if (budget.IsBudgetPaymentBlock(nHeight)) {
