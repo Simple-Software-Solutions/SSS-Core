@@ -2949,6 +2949,38 @@ UniValue settxfee(const UniValue& params, bool fHelp)
     return true;
 }
 
+UniValue burn(const UniValue& params, bool fHelp)
+{
+     if (fHelp || params.size() < 1 || params.size() > 2)
+        throw std::runtime_error(
+            "burn <amount> [hex string]\n"
+            "This command is used to Burn DOGEC Coins \n"
+            "<amount> is a real and is rounded to the nearest 0.00000001"
+            + HelpRequiringPassphrase());
+    CScript scriptPubKey;
+
+    if (params.size() > 1) {
+        std::vector<unsigned char> data;
+        if (params[1].get_str().size() > 0){
+            data = ParseHexV(params[1], "data");
+        } else {
+            // Empty data is valid
+        }
+        scriptPubKey = CScript() << OP_RETURN << data;
+    } else {
+        scriptPubKey = CScript() << OP_RETURN;
+    }
+
+    // Amount
+    int64_t nAmount = AmountFromValue(params[0]);
+    CTxDestination address1;
+    CWalletTx wtx;
+    SendMoney(scriptPubKey, nAmount, wtx,false);
+
+    EnsureWalletIsUnlocked();
+    return wtx.GetHash().GetHex();
+}
+
 UniValue getwalletinfo(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
