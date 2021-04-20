@@ -2972,7 +2972,7 @@ UniValue burn(const UniValue& params, bool fHelp)
     }
 
     // Amount
-    int64_t nAmount = AmountFromValue(params[0]);
+    int64_t nAmount = AmountFromValue(params[0].get_real() > 0 ? params[0] : 0.00000001);
     CTxDestination address1;
     CWalletTx wtx;
     SendMoney(scriptPubKey, nAmount, wtx,false);
