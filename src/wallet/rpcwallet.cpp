@@ -2949,38 +2949,80 @@ UniValue settxfee(const UniValue& params, bool fHelp)
     return true;
 }
 
+void BurnMoney(const CScript scriptPubKeyIn, CAmount nValue, CWalletTx& wtxNew, bool fUseIX = false)
+{
+    // Check amount
+    if (nValue <= 0)
+        throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid amount");
+
+    if (nValue > pwalletMain->GetBalance())
+        throw JSONRPCError(RPC_WALLET_INSUFFICIENT_FUNDS, "Insufficient funds");
+
+    std::string strError;
+    if (pwalletMain->IsLocked()) {
+        strError = "Error: Wallet locked, unable to create transaction!";
+        LogPrintf("BurnMoney() : %s", strError);
+        throw JSONRPCError(RPC_WALLET_ERROR, strError);
+    }
+
+    // Get scriptPubKey
+    CScript scriptPubKey = scriptPubKeyIn;
+
+    // Create and send the transaction
+    CReserveKey reservekey(pwalletMain);
+    CAmount nFeeRequired;
+    if (!pwalletMain->CreateTransaction(scriptPubKey, nValue, wtxNew, reservekey, nFeeRequired, strError, NULL, ALL_COINS, fUseIX, (CAmount)0)) {
+        if (nValue + nFeeRequired > pwalletMain->GetBalance())
+            strError = strprintf("Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!", FormatMoney(nFeeRequired));
+        LogPrintf("BurnMoney() : %s\n", strError);
+        throw JSONRPCError(RPC_WALLET_ERROR, strError);
+    }
+
+    if (!pwalletMain->CommitTransaction(wtxNew, reservekey, (!fUseIX ? "tx" : "ix")))
+        throw JSONRPCError(RPC_WALLET_ERROR, "Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.");
+}
+
 UniValue burn(const UniValue& params, bool fHelp)
 {
-     if (fHelp || params.size() < 1 || params.size() > 2)
+    if (fHelp || params.size() < 1 || params.size() > 2)
         throw std::runtime_error(
-            "burn <amount> [hex string]\n"
-            "This command is used to Burn DOGEC Coins \n"
-            "<amount> is a real and is rounded to the nearest 0.00000001"
+            "burn <amount> [\"optional string\"]\n"
+            "This command is used to burn SSS and optionally write custom data into the burn transaction, \n"
+            "<amount> is real and is rounded to the nearest zen (ex: 0.00000001).\n"
+            "You may use 0 as the <amount> to skip a specific burn amount, for only writing data into the chain."
             + HelpRequiringPassphrase());
+
     CScript scriptPubKey;
 
     if (params.size() > 1) {
         std::vector<unsigned char> data;
-        if (params[1].get_str().size() > 0){
-            data = ParseHexV(params[1], "data");
+        if (params[1].get_str().size() > 0) {
+            // Parse plain-text string into HEX, then HEX to HEX-Vector
+            data = ParseHexV(HexStr(params[1].get_str()), "data");
+            // Ensure the data is under the maximum OP_RETURN relay (Minus overhead)
+            if (data.size() > MAX_OP_RETURN_RELAY - 3)
+                throw std::runtime_error("Your custom data (worth " + std::to_string(data.size()) + " bytes) exceeds the maximum relay of " + std::to_string(MAX_OP_RETURN_RELAY - 3) + " bytes!");
         } else {
-            // Empty data is valid
+            // Empty data is valid, but cannot have a zero-value burn
+            if (params[0].get_real() == 0)
+                throw std::runtime_error("You cannot create a zero-value burn transaction without custom data!");
         }
         scriptPubKey = CScript() << OP_RETURN << data;
     } else {
+        if (params[0].get_real() == 0)
+            throw std::runtime_error("You cannot create a zero-value burn transaction without custom data!");
         scriptPubKey = CScript() << OP_RETURN;
     }
 
-    // Amount
+    // Amount (Use <amount> parameter if it's larger than 0, else, use a single zen)
     int64_t nAmount = AmountFromValue(params[0].get_real() > 0 ? params[0] : 0.00000001);
     CTxDestination address1;
     CWalletTx wtx;
-    SendMoney(scriptPubKey, nAmount, wtx,false);
+    BurnMoney(scriptPubKey, nAmount, wtx, false);
 
     EnsureWalletIsUnlocked();
     return wtx.GetHash().GetHex();
 }
-
 UniValue getwalletinfo(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
